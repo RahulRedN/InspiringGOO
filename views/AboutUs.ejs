@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>About Us</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="../css/homePage_nav.css">
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@1,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Arimo:wght@500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Alkatra&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/footer_styles.css">
+
+    <style>
+        *
+        {
+            margin: 0;
+        }
+
+        .head
+        {
+            background-image: url("abstractBackground.jpg");
+            mask-repeat: no-repeat;
+            background-size: cover;
+            padding: 5rem;
+            width: 100%;
+            box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;            
+            font-family: 'Josefin Sans', sans-serif;
+            font-size: 4rem;
+        }
+
+        .content
+        {
+            font-size: large;
+            /* font-family: 'Arimo', sans-serif; */
+            /* font-family: 'Alkatra', cursive; */
+            font-family: 'Montserrat Alternates', sans-serif;
+
+        }
+        .container
+        {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            align-items: flex-start;
+            justify-content: flex-start;
+            background-color: rgb(236, 236, 236);
+            padding: 2rem;
+            width: 99%;
+
+            margin:auto;
+        }
+    </style>
+</head>
+<body>
+
+    <%- include('partials/navbar'); -%>
+
+    <div class="head">
+        <h1 style="text-align: center; color: lightseagreen;">About Us</h1>
+    </div>
+    <div class="container">
+        <p class="content">*We are a third-party platform dedicated to connecting students of all levels with top-notch tutors all across our country.</p>
+        <p class="content">*Our mission is to help students achieve academic success by providing them with personalized tutoring services that reflect their unique needs and learning styles.</p>
+        <p class="content">*We understand that every student is different, and that's why we've built a platform that allows you to find a tutor who's right for you.</p>
+        <p class="content">*Whether you are struggling with a specific topic, preparing for an competitive exam, or just looking to improve your overall academic performance, we've got you covered.</p>
+        <p class="content">*Our platform is designed to be easy to use and accessible, providing students with a convenient way to find and connect with a tutor from anywhere in the world, at any time of day. 
+        </p>
+        <p class="content">*We offer a variety of tools and resources to help you get started, including a search function that lets you filter tutors based on their qualifications, experience, and availability.</p>
+        <p class="content">*At Inspiring Go, we are committed to providing a positive and supportive learning environment for all our students. Our tutors are passionate about teaching and are dedicated to helping you succeed.
+        </p>
+        <p class="content">*Thank you for choosing Student Tutor as your go-to platform for finding a tutor. We look forward to helping you achieve academic success and reach your full potential.</p>
+    </div>
+
+    <br>
+    <%- include('partials/footer'); -%>
+</body>
+</html>

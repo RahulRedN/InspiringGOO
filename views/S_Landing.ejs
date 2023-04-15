@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Landing Page</title>
+    <link rel="stylesheet" href="../css/SLP.css">
+    <link rel="stylesheet" href="../css/homePage_nav.css">
+    <link rel="stylesheet" href="../css/footer_styles.css">
+    <link rel="icon" href="/Logo.ico">
+    <link rel="stylesheet" href="../css/res3.css">
+    <link rel="stylesheet" href="../css/res4.css">
+    <script src="https://kit.fontawesome.com/21198450f8.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+    <%- include('partials/navbar_Student'); -%>
+
+    <br>
+    <br>
+
+    <div class="container">
+        <div class="row">
+            <div class="in-row-head"><h1>A true 1:1 learning experience with the best tutors</h1></div>
+            <div class="flex-row">
+                <div class="in-row">
+                    <img class="img" src="../resources/bubbles.png" alt="message">
+                    <h3>Our Teachers focus on one student at a time</h3>
+                    <p>Our extensive network of educators hold teaching licenses and/or Master's degrees, or PhDs</p>
+                </div>
+                <div class="in-row">
+                    <img class="img" src="../resources/week.png" alt="week.png">
+                    <h3>Find a tutor online anytime, anywhere</h3>
+                </div>
+            </div>
+        </div>
+        <div class="search-tutor">
+            <img class="img tutor-svg" src="../resources/Online-Tutor.png" alt="tutor-image">
+            <p class="heading">SEARCH FOR TUTORS ONLINE</p>
+            <p>We know finding a tutor online is not always easy.Here, we strive to make the process as simple as possible - listing all tutors Online or In-person,  closest to you...</p>
+            <div class="find">
+                <a href="/Find_Tutor" class="button">FIND A TUTOR</a>
+                <a href="/tutorRegister" class="button">BECOME A TUTOR</a>
+            </div>
+        </div>
+    
+        
+    
+            
+            <section class="boxes" class="section-p1">
+                <h2>TOP CATEGORIES</h2>
+                <div id="category">
+                    <a class="a_category" href="#">
+                        <div class="cat-box">
+                            <img class="cat-img" src="../resources/coding-comp.svg" alt="Coding">
+                            <p class="cat-name">Programming</p>
+                        </div>
+                    </a>
+        
+                    <a class="a_category" href="#">
+                        <div class="cat-box">
+                            <img class="cat-img" src="../resources/engineering-svgrepo-com.svg" alt="Engineering">
+                            <p class="cat-name">Core Engineering</p>
+                        </div>
+                    </a>
+        
+                    <a class="a_category" href="#">
+                        <div class="cat-box">
+                            <img class="cat-img" src="../resources/competetive-exams.svg" alt="Exams">
+                            <p class="cat-name">Competetive Exams</p>
+                        </div>
+                    </a>
+        
+                    <a class="a_category" href="#">
+                        <div class="cat-box">
+                            <img class="cat-img" src="../resources/design-systems-svgrepo-com.svg" alt="Design">
+                            <p class="cat-name">Design</p>
+                        </div>
+                    </a>
+        
+                    <a class="a_category" href="#">
+                        <div class="cat-box">
+                            <img class="cat-img" src="../resources/language-svgrepo-com.svg" alt="Language">
+                            <p class="cat-name">Language</p>
+                        </div>
+                    </a>
+        
+                    <a class="a_category" href="#">
+                        <div class="cat-box">
+                            <img class="cat-img" src="../resources/career-advancement-male-svgrepo-com.svg" alt="Career-Development">
+                            <p class="cat-name">Career Development</p>
+                        </div>
+                    </a>
+        
+                    <a class="a_category" href="#">    
+                        <div class="cat-box">
+                            <img class="cat-img" src="../resources/music-note-svgrepo-com.svg" alt="Music">
+                            <p class="cat-name">Music</p>
+                        </div>
+                    </a>
+        
+                    <a class="a_category" href="#">
+                        <div class="cat-box">
+                            <img class="cat-img" src="../resources/idea-bulb-svgrepo-com.svg" alt="Creative Arts">
+                            <p class="cat-name">Creative Arts</p>
+                        </div>
+                    </a>
+        
+                    <a class="a_category" href="#">
+                        <div class="cat-box">
+                            <img class="cat-img" src="../resources/right-arrow-svgrepo-com.svg" alt="Right Arrow">
+                            <p class="cat-name">Show All</p>
+                        </div>
+                    </a>
+                </div>
+                
+            </section>
+       
+    </div>
+
+    
+
+    <%- include('partials/footer'); -%>
+    <script src="index.js"></script>
+</body>
+</html>

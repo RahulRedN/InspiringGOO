@@ -1,0 +1,89 @@
+@media screen and ( max-width:835px) and (min-width:710px) {
+
+  .slider
+  {
+    width:710px;
+  }
+  /* width(carousel-img); */
+  @keyframes slide {
+    0%,10%
+    {
+        transform: translateX(0);
+    }
+    25%,35% {
+      transform: translateX(-706px);
+    } 
+  
+    50%,60% {
+      transform: translateX(-1412px);
+    }
+  
+    75%,85% {
+      transform: translateX(-2118px);
+    }
+  
+    100% {
+      transform: translateX(-2824px);
+    } 
+  }
+    .our_services_child
+    {
+      margin: 22px 0px;
+      padding: 18px;
+      height:auto;
+      width:auto;
+      border-radius: 15px;
+    }
+
+    .os_tagline p 
+    {
+      text-align: center;
+      font-size: 21px;
+    }
+    .middle_heads_dark
+  {
+    font-size:2.8rem;
+    padding: 2px;
+  }
+    .middle_heads_light
+  {
+    font-size:3.0rem;;
+  }
+
+  .testmonial_card
+  {
+    height: 12rem;
+    margin: 16px auto;
+  }
+
+  .person h3, .person h5
+  {
+    font-size: 1.1rem;
+  }
+  .prev-button,
+.next-button {
+  margin: 1.1rem ;
+  font-size: 1.8rem;
+}
+
+  .company_footer a, .cservice_footer a/*explore_footer */
+{
+  font-size: 1.5rem;
+}
+.company_footer h2, .cservice_footer h2
+{
+  margin:0.4rem;
+}
+  .social_media img
+  {
+    width:70px;
+    aspect-ratio: 1/1;
+    /* margin:15px 30px; */
+
+  }
+  .copywrite
+  {
+    font-size: 1.1rem;
+  }
+}
+  

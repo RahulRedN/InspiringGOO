@@ -1,0 +1,234 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap');
+
+
+body{
+    
+    font-family: 'Ubuntu',sans-serif;
+    background-color: #ffffff;
+    padding: 0;
+    margin: 0;
+    background-image: url("../resources/Login_bg.webp");
+    background-size:cover;
+}
+
+.container_full{
+    height: 98vh;
+    display: flex;
+    align-items:center;
+    justify-content: center;
+}
+
+
+.container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    /* background-color:rgba(255, 255, 255, 0.418); */
+    padding: 2rem 6rem;
+    border-radius: 30px;
+    margin-top:100px;
+    margin: auto;
+    background: rgba( 255, 255, 255, 0.35 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 10px );
+    -webkit-backdrop-filter: blur( 10px );
+    border-radius: 10px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 ); 
+}
+
+.login-card_container{
+    /* width: 10rem; */
+    z-index: 3;
+}
+
+.checkbox
+{
+    display: flex;
+    align-items: center;
+}
+
+.checkbox1
+{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+
+.image{
+    width: 600px;
+    height: 100%;
+    object-fit: fill;
+}
+
+
+.login_card{
+    /* width: 28rem; */
+    padding: 3rem;
+    border-radius: 10px;
+
+}
+
+
+h1 {
+
+    text-align: center;
+}
+
+#p{
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.login_card_footer{
+
+    margin-bottom: 2rem;
+}
+
+.login_card_header h1{
+
+    font-size: 5rem;
+    font-weight: 600;
+
+}
+
+
+.login_card_header h1 + div{
+
+    font-size: calc(1rem * 0.8);
+    opacity: 0.7;
+}
+
+.login_card_form{
+   
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: rgb(0, 0, 0);
+  font-size: large;
+  opacity: 0.9; 
+}
+
+.login_card_form .checkbox{
+    display: flex;
+}
+
+.login_card_footer{
+
+    margin-top: 2rem;
+}
+
+
+.login_card input[type="text"],
+.login_card input[type="password"]{
+
+    border: none;
+    background: rgba(238, 238, 238, 0.336);
+    color: black;
+    padding: 1rem 0.5rem;
+    padding-left: calc(0.5rem*4);
+    border-radius: 100px;
+    width:100%;
+}
+
+
+
+.login_card_form input:focus {
+    background: white;
+    outline: none;
+}
+
+.login_card input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    accent-color: black;
+}
+
+.login_card button {
+    background: black;
+    color: white;
+    padding: 0.8rem;
+    border-radius: 100px;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: background .5s;
+}
+
+.login_card button:hover {
+    background-color: rgba(245, 240, 240, 0.85);
+    color: black;
+    cursor: pointer;
+}
+
+
+
+@media screen and (max-width: 1200px) {
+    .image{
+        width: 40vw;
+    }
+
+    .container{
+        /* flex-direction: column; */
+        /* align-items: center; */
+        padding : 3rem;
+        width: 90%;
+        
+    }
+
+
+    .login_card{
+    width: 23rem;
+    padding: 0 2rem;
+    border-radius: 10px;
+
+}
+
+}
+
+@media screen and (max-width: 926px) {
+
+    .container{
+        padding: 1rem;
+    }
+    
+
+}
+
+@media screen and (max-width: 768px) {
+
+
+    .image{
+        width: 100%;
+        height: 100%;
+        object-fit: fill;
+
+
+    }
+
+    .container{
+        flex-direction: column;
+        /* align-items: center; */
+        padding : 2rem;
+        
+    }
+
+    ::placeholder{
+        font-size: 1.3rem;
+    }
+
+    .login_card{
+    width: 20rem; 
+    padding: 0 0rem;
+    border-radius: 10px;
+    }
+
+    .login-card button{
+        padding: 300px;
+    }
+}

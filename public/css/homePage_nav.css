@@ -1,0 +1,208 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap');
+
+* {
+    box-sizing: border-box;
+  }
+  button {
+    border: 0;
+    padding: 0;
+    font-family: inherit;
+    background: transparent;
+    color: inherit;
+    cursor: pointer;
+  }
+  
+  .navbar {
+    /* position: fixed;
+    z-index: 1; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 80px;
+    background: #0a0a5a;
+    /* background-color: #7286D3; */
+    /* background-color:violet; */
+    /* background-color:rgb(101, 3, 199); */
+    /* background-color: #3e083e; */
+    color: #f9f9f9;
+    font-family: "UBUNTU", sans-serif;
+    box-sizing: border-box;
+  }
+  
+  @media only screen and (min-width: 880px) {
+    .navbar {
+    justify-content: space-between;
+    padding: 0 0 0 16px; 
+    }
+  }
+  
+  .navbar-overlay {
+    position: fixed;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    visibility: hidden;
+    opacity: 0;
+    /* transition: 0.3s; */
+  }
+  
+  body.open .navbar-overlay {
+    visibility: visible;
+    opacity: 1;
+  }
+  
+  @media only screen and (min-width: 880px) {
+    .navbar-overlay {
+      display: none;
+    }
+  }
+  
+  .navbar-burger {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: grid;
+    place-items: center;
+    width: 64px;
+    height: 64px;
+    padding: 0;
+  }
+  
+  @media only screen and (min-width: 880px) {
+    .navbar-burger {
+      display: none;
+    }
+  }
+  
+  .navbar-title {
+    margin: 0;
+    font-size: 25px;
+  }
+  
+  .navbar-menu {
+    position: fixed;
+    z-index: 3;
+    top: 0;
+    left: 0;
+    translate: -100% 0;
+    width: 270px;
+    height: 100%;
+    padding: 20px;
+    display: flex;
+    gap: 40px;
+    font-size: large;
+    flex-direction: column;
+    align-items: center;
+    background: #0a0a5a;
+    visibility: hidden;
+    /* transition: translate 0.3s; */
+  }
+
+
+
+
+.navbar a{
+
+  color: #ffffff  ;
+  text-decoration: none;
+  font-size: larger;
+  padding: 3px;
+  border-style:solid;
+  border-color: #0a0a5a ;
+  /* transition:border-bottom-radius 0.8s ease-in ;  */
+}
+
+
+
+.navbar a:hover {
+  border-bottom-color: white;
+  font-weight: bold;
+}
+
+
+  
+
+  
+  body.open .navbar-menu {
+    translate: 0 0;
+    visibility: visible;
+  }
+  
+  @media only screen and (min-width: 880px) {
+    .navbar-menu {
+      position: static;
+      translate: 0 0;
+      width: auto;
+      background: transparent;
+      flex-direction: row;
+      visibility: visible;
+      gap:40px;
+    }
+
+
+
+  }
+  
+  .navbar-menu > button {
+    color: rgba(255, 255, 255, 0.5);
+    background: transparent;
+    padding: 0 8px;
+  }
+  
+  .navbar-menu > button.active {
+    color: inherit;
+  }
+
+  #register, #login {
+    --color: #205295    ;
+    font-family: inherit;
+    /* display: inline-block; */
+    width: 4em;
+    height: 2.4em;
+    margin: 0px 5px ;
+    position: relative;
+    overflow: hidden;
+    /* border: 2px solid var(--color); */
+    transition: color .5s;
+    z-index: 1;
+    font-size: 20px;
+    border-radius: 6px;
+    font-weight: bold;
+    border: none;
+    color: var(--color);
+   }
+   
+   #register:before, #login:before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    /* background: var(--color); */
+    height: 150px;
+    width: 200px;
+    border-radius: 50%;
+   }
+   
+   #register:hover, #login:hover {
+    color: #fff;
+   }
+   
+   #register:before, #login:before {
+    top: 100%;
+    left: 100%;
+    transition: all .7s;
+   }
+   
+   #register:hover:before, #login:hover:before {
+    top: -30px;
+    left: -30px;
+   }
+   
+   #register:active:before, #login:active:before {
+    background: #0a0a5a;
+    transition: background 0.6s;
+   }
+

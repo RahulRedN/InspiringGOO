@@ -1,0 +1,28 @@
+@media screen and (max-width:640px)
+{   
+    .opptrs4u
+    {
+        flex-direction: column;
+    }
+    .oppcard
+    {
+        width:90%;
+        /* aspect-ratio: 0.8; */
+        margin: 0.6rem 0.8rem;
+    }
+    .oppcard p
+    {
+        font-size: 1rem;
+    }
+    .oppcardbtn
+    {
+        font-size: 0.9rem;
+        padding: 7px 14px;
+        margin: 0.4rem auto;
+
+    }
+    .centerpara
+    {
+        font-size: 1rem;
+    }
+}

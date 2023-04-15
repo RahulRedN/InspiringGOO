@@ -1,0 +1,314 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap');
+
+
+*{
+    
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+}
+
+body {
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: 120;
+    background: url(../resources/bg-registration.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+
+.heading {
+    text-align: center;
+    color: #333;
+    background: rgba(255, 255, 255, 0.895);
+    width: 95%;
+    margin: auto;
+    padding: 1rem;
+    border-radius: 10px;
+    margin-bottom: 0.2rem;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+.svg {
+    width: 30vw;
+    position: sticky;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    left: 1vw;
+    top: 16vh; 
+    gap: 1rem;
+}
+
+.svg a{
+    background: rgba( 255, 255, 255, 0.35 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 10px );
+    -webkit-backdrop-filter: blur( 10px );
+    border-radius: 10px;
+    border: 1px solid rgba( 255, 255, 255,0.18);
+    color: black;
+    text-decoration: none;
+    text-align: center;
+    font-size: 25px;
+    width: 100%;
+    padding: 0.4rem;
+}
+
+.svg a:hover{
+    box-shadow: rgba(255, 255, 255, 0.438) 0 1px 12px;
+}
+
+.svg a:focus{
+    background: rgba(255, 255, 255, 0.601)
+}
+
+.box {
+    width: 35vw; 
+}
+
+.container_full{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 1rem;
+}
+
+.container {
+    padding: 1rem 1rem;
+    width: 100%;
+    gap:0.5rem;
+    background: rgba( 255, 255, 255, 0.35 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 10px );
+    -webkit-backdrop-filter: blur( 10px );
+    border-radius: 10px;
+    border: 1px solid rgba( 255, 255, 255,0.18);
+}
+
+.form_container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 65vw;
+    gap: 1.5rem;
+}
+
+fieldset {
+    border: 1px solid black;
+    background: transparent;
+}
+
+
+.field-section {
+    display: flex;
+    flex-direction: column;
+    padding: 0.5rem;
+    width: 100%;
+    border-radius: 3px;
+    gap:1rem;
+}
+
+.section {
+    display:flex;
+    justify-content: space-around;
+}
+
+fieldset legend {
+    font-weight: bolder;
+    font-size: larger;
+    color: black;
+    background: rgba(245, 245, 245, 0.819);
+    border-radius: 3px;
+    padding: 0.2rem;
+}
+
+.user-details .select{
+    background: rgba(255, 255, 255, 0.788);
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.row-radio {
+    font-size: larger;
+    display: flex;
+}
+
+.radios {
+    display: flex;
+    justify-content: center;
+}
+
+.float-group {
+    position: relative;
+}
+
+.float-group input , .select{
+    padding: 8px;
+    font-size: 15px;
+    border-radius: 5px;
+    border: #000000 solid 2px;
+    margin: 0.5rem;
+    background-color: transparent;
+    color: #251c1c;
+    transition: 0.30s all ease;
+}
+
+.float-group input:focus {
+    border-color: black;
+    outline: #33333391 solid;
+}
+
+.float-group .float-label {
+    position: absolute;
+    top: 1rem;
+    left: 0.5rem;
+    font-size: 15px;
+    padding: 0 10px;
+    color: #000000;
+    font-weight: 500;
+    pointer-events: none;
+    transition: 0.15s all ease;
+}
+
+.float-group input:focus + .float-label,
+.float-group input:not(:placeholder-shown) + .float-label {
+    transform: translate(1rem, -1rem);
+    background-color: #333;
+    border: solid 1px black;
+    border-radius: 3px;
+    font-size: 14px;
+    color: #eee;
+}
+
+.float-group input:not(:placeholder-shown) {
+    background: rgba(255, 255, 255, 0.726);
+}
+
+.address {
+    width: 100%;
+}
+
+.address input{
+    width: 90%;
+    height: 3rem;
+}
+
+.center {
+    align-items: center;
+}
+
+textarea {
+    text-align: center;
+    align-items: center;
+    width: 100%;
+    margin: 2rem;
+    background-color: rgba(255, 228, 196, 0.645);
+}
+
+.cv {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.container-cv {
+    margin-top: 1rem;
+}
+
+hr {
+    border: solid #33333352 1px;
+}
+
+.link-label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    border: 2px solid lightsalmon;
+    padding: 10px 80px;
+    border-radius: 50px;
+    cursor: pointer;
+}
+
+.link-label:hover {
+    background: lightsalmon;
+    font-size: large;
+    box-shadow: gold 0 0px 12px;
+}
+
+.but{
+    border: 2px solid black;
+    padding: 10px 20px;
+    border-radius: 50px;
+}
+
+.but:hover{
+    background-color: skyblue;
+    box-shadow: black 0 4px 10px;
+    cursor: pointer;
+}
+
+/* @media screen and (max-width: 730px){
+    .form_container{
+        justify-content: center;
+    }
+
+    select {
+        width: 80%;
+    }
+
+    .container{
+        width: 90%;
+    }
+} */
+
+@media screen and (max-width: 730px) {
+    .form_container{
+        justify-content: center;
+    }
+
+    select {
+        width: 80%;
+    }
+
+    .form_container {
+        width: 90%;
+    }
+
+    .svg {
+        position: relative;
+        width: 90%;
+        top: auto;
+        left: auto;
+    }
+
+    .svg a{
+        font-size: 25px;
+    }
+}
+
+@media screen and (max-width: 320px){
+    .container {
+        backdrop-filter: none;
+    }
+
+    .container_full{
+        margin:auto;
+    }
+}

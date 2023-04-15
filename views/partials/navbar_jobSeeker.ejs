@@ -1,0 +1,20 @@
+<div class="navbar">
+  <div class="navbar-overlay" onclick="toggleMenuOpen()"></div>
+  <button type="button" class="navbar-burger" onclick="toggleMenuOpen()">
+    <i class="fa-solid fa-bars" style="font-size: 1.7rem"></i>
+  </button>
+  <h1 class="navbar-title"><a href="/JobSeeker_Landing">Home</a></h1>
+  <nav class="navbar-menu">
+    <a href="#jobs">JOBS</a>
+    <a href="#companies" class="active">COMPANIES</a>
+    <a href="#guidance">Career Advice</a>
+    <a href="#contactInfo">Contact Us</a>
+    <a href="/Login">Logout</a>
+    <a id="register" href="/JobSeeker_Profile" style="display: flex;
+    align-items: center;justify-content:center;"">Profile</a>
+  </nav>
+</div>
+<script>
+  const toggleMenuOpen = () => document.body.classList.toggle("open");
+
+</script>

@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome | JobSeeker</title>
+    <link rel="stylesheet" href="../css/JS_landing.css">
+    <link rel="stylesheet" href="../css/homePage_nav.css">
+    <link rel="stylesheet" href="../css/carouselstyles.css">
+    <link rel="stylesheet" href="../css/footer_styles.css">
+    <link rel="stylesheet" href="../css/res1.css">
+    <link rel="stylesheet" href="../css/res2.css">
+    <link rel="stylesheet" href="../css/res3.css">
+    <link rel="stylesheet" href="../css/res4.css">
+    <script src="https://kit.fontawesome.com/21198450f8.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  
+    <%- include('partials/navbar_jobSeeker'); -%>
+   
+
+    <div class="slider">
+        <div class="slideshow">
+              <img class="carousel-img" src="/resources/stock-photo-paperwork.jpeg" alt="slide1">
+    
+              <img class="carousel-img" src="/resources/groupindifftables.jpg" alt="slide2" >
+    
+              <img class="carousel-img" src="/resources/group_discussing.jpg" alt="slide3" >
+    
+              <img class="carousel-img" src="/resources/stock-photo-business-coaching.jpeg" alt="slide4">
+    
+              <img class="carousel-img" src="/resources/stock-photo-young-designers-working-with-laptop.jpeg" alt="slide5">
+    
+          </div>
+        </div>
+      </div>
+
+      <br>
+    <!--Search All-->
+    <div class="search-box">
+        <a href="/filter_page"><i class="fa-solid fa-magnifying-glass"></i> Search</a>
+    </div>
+
+    <!--Job Listing-->
+    <section class="job-list" id="jobs" style=" background-color: rgba(255, 255, 255, 0.7);width: 98%;margin: auto;border-radius:20px;">
+        <h1 class="section-title">LATEST JOBS!</h1>
+        <div class="job-card">
+            <div class="job-name">
+                <i class="fa-regular fa-building" style="font-size: 5rem;"></i>
+                <div class="job-detail">
+                    <h4>Company Name</h4>
+                    <h3>Company Position</h3>
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
+                </div>
+            </div>
+            <div class="job-label">
+                <a class="label-a" href="#">HTML</a>
+                <a class="label-b" href="#">CSS</a>
+                <a class="label-c" href="#">Javascript</a>
+            </div>
+            <div class="job-posted">
+                <p>Job posted <span class="job-posted-time">2 min</span> ago.</p>
+            </div>
+        </div>
+
+        <div class="job-card">
+            <div class="job-name">
+                <i class="fa-regular fa-building" style="font-size: 5rem;"></i>
+                <div class="job-detail">
+                    <h4>Company Name</h4>
+                    <h3>Company Position</h3>
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
+                </div>
+            </div>
+            <div class="job-label">
+                <a class="label-a" href="#">HTML</a>
+                <a class="label-b" href="#">CSS</a>
+                <a class="label-c" href="#">Javascript</a>
+            </div>
+            <div class="job-posted">
+                <p>Job posted <span class="job-posted-time">2 min</span> ago.</p>
+            </div>
+        </div>
+
+        <div class="job-card">
+            <div class="job-name">
+                <i class="fa-regular fa-building" style="font-size: 5rem;"></i>
+                <div class="job-detail">
+                    <h4>Company Name</h4>
+                    <h3>Company Position</h3>
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
+                </div>
+            </div>
+            <div class="job-label">
+                <a class="label-a" href="#">HTML</a>
+                <a class="label-b" href="#">CSS</a>
+                <a class="label-c" href="#">Javascript</a>
+            </div>
+            <div class="job-posted">
+                <p>Job posted <span class="job-posted-time">2 min</span> ago.</p>
+            </div>
+        </div>
+
+        <div class="job-card">
+            <div class="job-name">
+                <i class="fa-regular fa-building" style="font-size: 5rem;"></i>
+                <div class="job-detail">
+                    <h4>Company Name</h4>
+                    <h3>Company Position</h3>
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
+                </div>
+            </div>
+            <div class="job-label">
+                <a class="label-a" href="#">A</a>
+                <a class="label-b" href="#">B</a>
+                <a class="label-c" href="#">C</a>
+            </div>
+            <div class="job-posted">
+                <p>Job posted <span class="job-posted-time">2 min</span> ago.</p>
+            </div>
+        </div>
+    </section>
+    <br>
+    <!--Featured Companies-->
+    <section class="featured" id="companies" style=" background-color: rgba(255, 255, 255, 0.7);width: 98%;margin: auto;border-radius:20px;">
+        <h1 class="section-title">Featured Companies</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia, reprehenderit. Voluptates dignissimos obcaecati veniam ipsam</p>
+        <div class="featured-wrapper">
+            <div class="featured-card">
+                <i class="fa-solid fa-building-user" style="font-size: 5rem;"></i>
+                <p class="company-name">Company Name</p>
+                <button class="featured-button">View <span class="jobs-available">10</span> Jobs</button>
+            </div>
+            <div class="featured-card">
+                <i class="fa-solid fa-building-user" style="font-size: 5rem;"></i>
+                <p class="company-name">Company Name</p>
+                <button class="featured-button">View <span class="jobs-available">10</span> Jobs</button>
+            </div>
+            <div class="featured-card">
+                <i class="fa-solid fa-building-user" style="font-size: 5rem;"></i>
+                <p class="company-name">Company Name</p>
+                <button class="featured-button">View <span class="jobs-available">10</span> Jobs</button>
+            </div> 
+            <div class="featured-card">
+                <i class="fa-solid fa-building-user" style="font-size: 5rem;"></i>
+                <p class="company-name">Company Name</p>
+                <button class="featured-button">View <span class="jobs-available">10</span> Jobs</button>
+            </div> 
+            <div class="featured-card">
+                <i class="fa-solid fa-building-user" style="font-size: 5rem;"></i>
+                <p class="company-name">Company Name</p>
+                <button class="featured-button">View <span class="jobs-available">10</span> Jobs</button>
+            </div>
+            <div class="featured-card">
+                <i class="fa-solid fa-building-user" style="font-size: 5rem;"></i>
+                <p class="company-name">Company Name</p>
+                <button class="featured-button">View <span class="jobs-available">10</span> Jobs</button>
+            </div>
+            <div class="featured-card">
+                <i class="fa-solid fa-building-user" style="font-size: 5rem;"></i>
+                <p class="company-name">Company Name</p>
+                <button class="featured-button">View <span class="jobs-available">10</span> Jobs</button>
+            </div>
+        </div>
+    </section>
+    <br>
+    
+
+    <!--Testimonials..... 1 14-->
+
+    <!--Mentor-->
+    <section class="mentor-team" id="guidance">
+        <h1 class="career-title">Career Guiadance</h1>
+        <div class="guidance-sections">
+            <div class="a">
+                <p>Get Guiadance from our best mentor team.</p>
+            </div>
+            <div class="b">
+                <button class="guidance-connect">Connect</button>
+            </div>
+        </div>
+    </section>
+
+    <!--Footer-->
+    
+    <%- include('partials/footer') -%>
+
+    <script>
+        const toggleMenuOpen = () => document.body.classList.toggle("open");
+
+    </script>
+</body>
+</html>

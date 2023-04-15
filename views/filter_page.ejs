@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/JobSeeker_Filter.css" />
+    <link rel="stylesheet" href="../css/homePage_nav.css" />
+    <link rel="stylesheet" href="../css/footer_styles.css" />
+    <link rel="stylesheet" href="../css/res3.css">
+    <link rel="stylesheet" href="../css/res4.css">
+    <script src="https://kit.fontawesome.com/21198450f8.js" crossorigin="anonymous"></script>
+
+    <title>Filter | Page</title>
+  </head>
+  <body>
+    <%- include('partials/navbar_jobSeeker'); -%>
+
+    <div class="container">
+      <input
+        type="search"
+        placeholder="🔍 Search...."
+        id="search-input"
+        style="font-size: 1.2rem"
+        onkeyup="search()"
+      />
+      <div class="cards">
+        <div class="card">
+          <div class="img">
+            <img src="../resources/youtube.svg" alt="Denim Jeans" style="width: 100%" />
+          </div>
+          <div class="content" style="width: 100%">
+            <h2>YouTube</h2>
+            <div class="info">
+              <h3 style="font-style: normal; color: rgb(80, 80, 80)">
+                Junior Dev
+              </h3>
+              <div class="roles">
+                <div class="val">
+                  Web
+                </div>
+                <div class="val">
+                  Development
+                </div>
+              </div>
+            </div>
+
+            <div class="Jar" style="  background-color: rgb(168, 168, 168); 
+            width: 100%;
+            max-height: 10px;
+            border-radius: 100px;">
+              <div class="bar" style="  background-color: rgb(27, 80, 224);
+              color: white;
+              max-height: 10px;
+              text-align: right;
+              border-radius: 100px;
+              width: 64%;">.</div>
+            </div>
+            <br />
+            <span>32 out of 50</span>
+            <br />
+            <div class="Period" style="width: 100%">
+              <div class="calender-full">
+                <div class="calender">
+                  <img src="../resources/calendar.png" style="max-width: 1.2rem" />
+                  <span>Duration</span>
+                </div>
+                <p style="display: flex; align-items: flex-start">6 Months</p>
+              </div>
+
+              <div class="stipend-full">
+                <div class="stipend">
+                  <img src="../resources/money-bag.png" style="max-width: 1.2rem" />
+                  <span>Stipend</span>
+                </div>
+                <p style="display: flex; align-items: flex-start">₹ 12,000</p>
+              </div>
+            </div>
+
+            <div class="button">
+              <div class="btn">
+                <p><button onclick="popup()">Apply now</button></p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="img">
+            <img src="../resources/ford_written.svg" alt="Denim Jeans" style="width: 100%" />
+          </div>
+          <div class="content" style="width: 100%">
+            <h2>Ford</h2>
+            <div class="info">
+              <h3 style="font-style: normal; color: rgb(80, 80, 80)">
+               Developer
+              </h3>
+              <div class="roles">
+                <div class="val"
+                >
+                  Web
+                </div>
+                <div class="val"
+                >
+                  Kotlin
+                </div>
+              </div>
+            </div>
+
+            <div class="Jar" style="  background-color: rgb(168, 168, 168); 
+            width: 100%;
+            max-height: 10px;
+            border-radius: 100px;">
+              <div class="bar" style="  background-color: rgb(27, 80, 224);
+              color: white;
+              max-height: 10px;
+              text-align: right;
+              border-radius: 100px;
+              width: 20%;">.</div>
+            </div>
+            <br />
+            <span>10 out of 50</span>
+            <br />
+            <div class="Period" style="width: 100%">
+              <div class="calender-full">
+                <div class="calender">
+                  <img src="../resources/calendar.png" style="max-width: 1.2rem" />
+                  <span>Duration</span>
+                </div>
+                <p style="display: flex; align-items: flex-start">4 Months</p>
+              </div>
+
+              <div class="stipend-full">
+                <div class="stipend">
+                  <img src="../resources/money-bag.png" style="max-width: 1.2rem" />
+                  <span>Stipend</span>
+                </div>
+                <p style="display: flex; align-items: flex-start">₹ 10,000</p>
+              </div>
+            </div>
+
+            <div class="button">
+              <div class="btn">
+                <p><button>Apply now</button></p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="img">
+            <img src="../resources/samsung.svg" alt="Denim Jeans" style="width: 100%" />
+          </div>
+          <div class="content" style="width: 100%">
+            <h2>Samsung</h2>
+            <div class="info">
+              <h3 style="font-style: normal; color: rgb(80, 80, 80)">
+               Senior Developer
+              </h3>
+              <div class="roles">
+                <div class="val">
+                  App
+                </div>
+                <div class="val">
+                  Java
+                </div>
+              </div>
+            </div>
+
+            <div class="Jar" style="  background-color: rgb(168, 168, 168); 
+            width: 100%;
+            max-height: 10px;
+            border-radius: 100px;">
+              <div class="bar" style="  background-color: rgb(27, 80, 224);
+              color: white;
+              max-height: 10px;
+              text-align: right;
+              border-radius: 100px;
+              width: 80%;">.</div>
+            </div>
+            <br />
+            <span>40 out of 50</span>
+            <br />
+            <div class="Period" style="width: 100%">
+              <div class="calender-full">
+                <div class="calender">
+                  <img src="../resources/calendar.png" style="max-width: 1.2rem" />
+                  <span>Duration</span>
+                </div>
+                <p style="display: flex; align-items: flex-start">1-2 Years</p>
+              </div>
+
+              <div class="stipend-full">
+                <div class="stipend">
+                  <img src="../resources/money-bag.png" style="max-width: 1.2rem" />
+                  <span>Stipend</span>
+                </div>
+                <p style="display: flex; align-items: flex-start">₹ 90,000</p>
+              </div>
+            </div>
+
+            <div class="button">
+              <div class="btn">
+                <p><button>Apply now</button></p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="img">
+            <img src="../resources/oracle.svg" alt="Denim Jeans" style="width: 100%" />
+          </div>
+          <div class="content" style="width: 100%">
+            <h2>Oracle</h2>
+            <div class="info">
+              <h3 style="font-style: normal; color: rgb(80, 80, 80)">
+               Data Analyst
+              </h3>
+              <div class="roles">
+                <div class="val"
+                >
+                  Web
+                </div>
+                <div class="val"
+                >
+                  Development
+                </div>
+              </div>
+            </div>
+
+            <div class="Jar" style="  background-color: rgb(168, 168, 168); 
+            width: 100%;
+            max-height: 10px;
+            border-radius: 100px;">
+              <div class="bar" style="  background-color: rgb(27, 80, 224);
+              color: white;
+              max-height: 10px;
+              text-align: right;
+              border-radius: 100px;
+              width: 10%;">.</div>
+            </div>
+            <br />
+            <span>5 out of 50</span>
+            <br />
+            <div class="Period" style="width: 100%">
+              <div class="calender-full">
+                <div class="calender">
+                  <img src="../resources/calendar.png" style="max-width: 1.2rem" />
+                  <span>Duration</span>
+                </div>
+                <p style="display: flex; align-items: flex-start">2 Years</p>
+              </div>
+
+              <div class="stipend-full">
+                <div class="stipend">
+                  <img src="../resources/money-bag.png" style="max-width: 1.2rem" />
+                  <span>Stipend</span>
+                </div>
+                <p style="display: flex; align-items: flex-start">₹ 100,000</p>
+              </div>
+            </div>
+
+            <div class="button">
+              <div class="btn">
+                <p><button>Apply now</button></p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="img">
+            <img src="../resources/puma.svg" alt="Denim Jeans" style="width: 100%" />
+          </div>
+          <div class="content" style="width: 100%">
+            <h2>Puma</h2>
+            <div class="info">
+              <h3 style="font-style: normal; color: rgb(80, 80, 80)">
+               UI Designer
+              </h3>
+              <div class="roles">
+                <div class="val">
+                  Figma
+                </div>
+                <div class="val">
+                  UI
+                </div>
+              </div>
+            </div>
+
+            <div class="Jar" style="  background-color: rgb(168, 168, 168); 
+            width: 100%;
+            max-height: 10px;
+            border-radius: 100px;">
+              <div class="bar" style="  background-color: rgb(27, 80, 224);
+              color: white;
+              max-height: 10px;
+              text-align: right;
+              border-radius: 100px;
+              width: 60%;">.</div>
+            </div>
+            <br />
+            <span>30 out of 50</span>
+            <br />
+            <div class="Period" style="width: 100%">
+              <div class="calender-full">
+                <div class="calender">
+                  <img src="../resources/calendar.png" style="max-width: 1.2rem" />
+                  <span>Duration</span>
+                </div>
+                <p style="display: flex; align-items: flex-start">1 Year</p>
+              </div>
+
+              <div class="stipend-full">
+                <div class="stipend">
+                  <img src="../resources/money-bag.png" style="max-width: 1.2rem" />
+                  <span>Stipend</span>
+                </div>
+                <p style="display: flex; align-items: flex-start">₹ 40,000</p>
+              </div>
+            </div>
+
+            <div class="button">
+              <div class="btn">
+                <p><button>Apply now</button></p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="img">
+            <img src="../resources/fitbit.svg" alt="Denim Jeans" style="width: 100%" />
+          </div>
+          <div class="content" style="width: 100%">
+            <h2>Fitbit</h2>
+            <div class="info">
+              <h3 style="font-style: normal; color: rgb(80, 80, 80)">
+               UI/UX Designer
+              </h3>
+              <div class="roles">
+                <div class="val">
+                  Figma
+                </div>
+                <div class="val">
+                  Designer
+                </div>
+              </div>
+            </div>
+
+            <div class="Jar" style="  background-color: rgb(168, 168, 168); 
+            width: 100%;
+            max-height: 10px;
+            border-radius: 100px;">
+              <div class="bar" style="  background-color: rgb(27, 80, 224);
+              color: white;
+              max-height: 10px;
+              text-align: right;
+              border-radius: 100px;
+              width:40%;">.</div>
+            </div>
+            <br />
+            <span>20 out of 50</span>
+            <br />
+            <div class="Period" style="width: 100%">
+              <div class="calender-full">
+                <div class="calender">
+                  <img src="../resources/calendar.png" style="max-width: 1.2rem" />
+                  <span>Duration</span>
+                </div>
+                <p style="display: flex; align-items: flex-start">2 Year</p>
+              </div>
+
+              <div class="stipend-full">
+                <div class="stipend">
+                  <img src="../resources/money-bag.png" style="max-width: 1.2rem" />
+                  <span>Stipend</span>
+                </div>
+                <p style="display: flex; align-items: flex-start">₹ 80,000</p>
+              </div>
+            </div>
+
+            <div class="button">
+              <div class="btn">
+                <p><button>Apply now</button></p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="img">
+            <img src="../resources/flipkart_written.svg" alt="Denim Jeans" style="width: 100%" />
+          </div>
+          <div class="content" style="width: 100%">
+            <h2>Flipkart</h2>
+            <div class="info">
+              <h3 style="font-style: normal; color: rgb(80, 80, 80)">
+               Developer
+              </h3>
+              <div class="roles">
+                <div class="val">
+                  App
+                </div>
+                <div class="val">
+                  Kotlin
+                </div>
+              </div>
+            </div>
+
+            <div class="Jar" style="  background-color: rgb(168, 168, 168); 
+            width: 100%;
+            max-height: 10px;
+            border-radius: 100px;">
+              <div class="bar" style="  background-color: rgb(27, 80, 224);
+              color: white;
+              max-height: 10px;
+              text-align: right;
+              border-radius: 100px;
+              width: 50%;">.</div>
+            </div>
+            <br />
+            <span>25 out of 50</span>
+            <br />
+            <div class="Period" style="width: 100%">
+              <div class="calender-full">
+                <div class="calender">
+                  <img src="../resources/calendar.png" style="max-width: 1.2rem" />
+                  <span>Duration</span>
+                </div>
+                <p style="display: flex; align-items: flex-start">3 Years</p>
+              </div>
+
+              <div class="stipend-full">
+                <div class="stipend">
+                  <img src="../resources/money-bag.png" style="max-width: 1.2rem" />
+                  <span>Stipend</span>
+                </div>
+                <p style="display: flex; align-items: flex-start">₹ 70,000</p>
+              </div>
+            </div>
+
+            <div class="button">
+              <div class="btn">
+                <p><button onclick="popup()">Apply now</button></p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="img">
+            <img src="../resources/ebay.svg" alt="Denim Jeans" style="width: 100%" />
+          </div>
+          <div class="content" style="width: 100%">
+            <h2>GoPro</h2>
+            <div class="info">
+              <h3 style="font-style: normal; color: rgb(80, 80, 80)">
+               UX Designer
+              </h3>
+              <div class="roles">
+                <div class="val">
+                  Figma
+                </div>
+                <div class="val">
+                 Design
+                </div>
+              </div>
+            </div>
+
+            <div class="Jar" style="  background-color: rgb(168, 168, 168); 
+            width: 100%;
+            max-height: 10px;
+            border-radius: 100px;">
+              <div class="bar" style="  background-color: rgb(27, 80, 224);
+              color: white;
+              max-height: 10px;
+              text-align: right;
+              border-radius: 100px;
+              width:44%;">.</div>
+            </div>
+            <br />
+            <span>22 out of 50</span>
+            <br />
+            <div class="Period" style="width: 100%">
+              <div class="calender-full">
+                <div class="calender">
+                  <img src="../resources/calendar.png" style="max-width: 1.2rem" />
+                  <span>Duration</span>
+                </div>
+                <p style="display: flex; align-items: flex-start">1.5 Years</p>
+              </div>
+
+              <div class="stipend-full">
+                <div class="stipend">
+                  <img src="../resources/money-bag.png" style="max-width: 1.2rem" />
+                  <span>Stipend</span>
+                </div>
+                <p style="display: flex; align-items: flex-start">₹ 71,000</p>
+              </div>
+            </div>
+
+            <div class="button">
+              <div class="btn">
+                <p><button>Apply now</button></p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="img">
+            <img src="../resources/cocacola.svg" alt="Denim Jeans" style="width: 100%" />
+          </div>
+          <div class="content" style="width: 100%">
+            <h2>CocaCola</h2>
+            <div class="info">
+              <h3 style="font-style: normal; color: rgb(80, 80, 80)">
+              Graphic Designer
+              </h3>
+              <div class="roles">
+                <div class="val">
+                Design
+                </div>
+                <div class="val">
+                  UI
+                </div>
+              </div>
+            </div>
+
+            <div class="Jar" style="  background-color: rgb(168, 168, 168); 
+            width: 100%;
+            max-height: 10px;
+            border-radius: 100px;">
+              <div class="bar" style="  background-color: rgb(27, 80, 224);
+              color: white;
+              max-height: 10px;
+              text-align: right;
+              border-radius: 100px;
+              width: 80%;">.</div>
+            </div>
+            <br />
+            <span>40 out of 50</span>
+            <br />
+            <div class="Period" style="width: 100%">
+              <div class="calender-full">
+                <div class="calender">
+                  <img src="../resources/calendar.png" style="max-width: 1.2rem" />
+                  <span>Duration</span>
+                </div>
+                <p style="display: flex; align-items: flex-start">4 months</p>
+              </div>
+
+              <div class="stipend-full">
+                <div class="stipend">
+                  <img src="../resources/money-bag.png" style="max-width: 1.2rem" />
+                  <span>Stipend</span>
+                </div>
+                <p style="display: flex; align-items: flex-start">₹ 40,000</p>
+              </div>
+            </div>
+
+            <div class="button">
+              <div class="btn">
+                <p><button>Apply now</button></p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="popup-container" id="popup-container">
+        <div class="popup">
+            <div class="button">
+                <button type="submit" onclick="popupclose()"><i class="fa-solid fa-arrow-left" id="button-back"></i></button>
+            </div>
+            <i class="fa-regular fa-building company-img" ></i>
+            <p style="text-align: justify;">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quis animi magni labore accusamus impedit in, tempore provident assumenda hic officia, tenetur quod similique sed odio sint nesciunt minus dicta ab?
+            Saepe officiis iste officia! Doloribus sapiente ipsa accusamus, sed ad natus, voluptas in quibusdam sit eligendi incidunt amet eaque similique molestiae assumenda consequuntur id, reiciendis voluptate asperiores alias et quis?</p>
+        </div>
+      </div>
+    </div>
+
+    <%- include('partials/footer') -%>
+    <script
+      src="https://kit.fontawesome.com/3e8ef7fc9d.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="../js/FilterPage_JobSeeker.js"></script>
+  </body>
+</html>

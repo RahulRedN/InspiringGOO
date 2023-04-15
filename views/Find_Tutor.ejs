@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Find Tutor</title>
+    <link rel="stylesheet" href="../css/FT.css">
+    <link rel="stylesheet" href="../css/footer_styles.css">
+    <link rel="stylesheet" href="../css/homePage_nav.css">
+    <link rel="stylesheet" href="../css/res3.css">
+    <link rel="stylesheet" href="../css/res4.css">
+    <script src="https://kit.fontawesome.com/21198450f8.js" crossorigin="anonymous"></script>
+
+    <script>
+        function search(){
+            const searchbox = document.getElementById("search-input").value.toLowerCase();
+            const res = document.querySelectorAll('.card');
+
+            for(var i=0;i<res.length;i++)
+            {
+                let match = res[i].getElementsByClassName('subject-title')[0];
+
+                if(match)
+                {
+                    let textvalue = match.textContent || match.innerHTML
+
+                    if(textvalue.toLowerCase().indexOf(searchbox) > -1)
+                    {
+                        res[i].style.display = "";
+                    }
+                    else
+                    {
+                        res[i].style.display="none";
+                    }
+                }
+            }
+        }
+    </script>
+
+</head>
+<body>
+    <%- include("partials/navbar_Student") -%>
+    
+    <div class="main_div">
+        <div class="head" style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+            <h2>Find a Tutor</h2>
+            <p style="width: 70%; font-size: small;">Please enter the subject name below. This will enable us to locate tutors who both specialise in the subject you require, and are in close proximity to you.</p>
+        </div>
+        <div class="search-wrap">
+            <label for="search">Search Users</label>
+            <input type="search" id="search-input" placeholder="Search subject..." onkeyup="search()">
+        </div>
+    </div>
+
+    <div class="cards result-div">
+        <div class="card">
+            <div class="row-flex">
+                <div class="img">
+                    <img src="../resources/profile.png" alt="Profile-Photo" style="width: 12rem;">
+                </div>
+                <div class="content" style="width: 100%;">
+                    <h3 class="card-name">Tutor 1</h3>
+                    <div class="info">
+                        <div class="subject-title">Maths</div>
+                        <p class="other-name"><span class="other-title">Qualifications:</span>--- --- ---</p>
+                        <p class="other-name"><span class="other-title">Experience:</span></p>
+                        <p class="fee"><span class="fee-span">Fee:</span>₹2000 / month</p>
+                        <p class="duration"><span class="duration-span">Duration:</span>9 - 12 months</p>
+                        <p class="Mode"><span class="mode-span">Mode:</span><span class="online">Online</span> , <span class="In-person">In-person</span></p>
+                    </div>
+                </div>
+            </div>
+                <div class="contact">
+                    <button class="contact-now">Contact Me</button>
+                </div>
+        </div>
+
+        <div class="card">
+            <div class="row-flex">
+                <div class="img">
+                    <img src="../resources/profile.png" alt="Profile-Photo" style="width: 12rem;">
+                </div>
+                <div class="content" style="width: 100%;">
+                    <h3 class="card-name">Tutor 2</h3>
+                    <div class="info">
+                        <div class="subject-title">Core Engineering</div>
+                        <p class="other-name"><span class="other-title">Qualifications:</span>--- --- ---</p>
+                        <p class="other-name"><span class="other-title">Experience:</span></p>
+                        <p class="fee"><span class="fee-span">Fee:</span>₹3000 / month</p>
+                        <p class="duration"><span class="duration-span">Duration:</span>9 - 12 months</p>
+                        <p class="Mode"><span class="mode-span">Mode:</span><span class="online">Online</span></p>
+                    </div>
+                </div>
+            </div>
+                <div class="contact">
+                    <button class="contact-now">Contact Me</button>
+                </div>
+        </div>
+
+        <div class="card">
+            <div class="row-flex">
+                <div class="img">
+                    <img src="../resources/profile.png" alt="Profile-Photo" style="width: 12rem;">
+                </div>
+                <div class="content" style="width: 100%;">
+                    <h3 class="card-name">Tutor 3</h3>
+                    <div class="info">
+                        <div class="subject-title">JEE Coaching</div>
+                        <p class="other-name"><span class="other-title">Qualifications:</span>--- --- ---</p>
+                        <p class="other-name"><span class="other-title">Experience:</span></p>
+                        <p class="fee"><span class="fee-span">Fee:</span>₹5000 / month</p>
+                        <p class="duration"><span class="duration-span">Duration:</span>9 - 12 months</p>
+                        <p class="Mode"><span class="mode-span">Mode:</span><span class="In-person">In-person</span></p>
+                    </div>
+                </div>
+            </div>
+                <div class="contact">
+                    <button class="contact-now">Contact Me</button>
+                </div>
+        </div>
+
+        <div class="card">
+            <div class="row-flex">
+                <div class="img">
+                    <img src="../resources/profile.png" alt="Profile-Photo" style="width: 12rem;">
+                </div>
+                <div class="content" style="width: 100%;">
+                    <h3 class="card-name">Tutor 4</h3>
+                    <div class="info">
+                        <div class="subject-title">Java</div>
+                        <p class="other-name"><span class="other-title">Qualifications:</span>--- --- ---</p>
+                        <p class="other-name"><span class="other-title">Experience:</span></p>
+                        <p class="fee"><span class="fee-span">Fee:</span>₹3000 / month</p>
+                        <p class="duration"><span class="duration-span">Duration:</span>9 - 12 months</p>
+                        <p class="Mode"><span class="mode-span">Mode:</span><span class="online">Online</span></p>
+                    </div>
+                </div>
+            </div>
+                <div class="contact">
+                    <button class="contact-now">Contact Me</button>
+                </div>
+        </div>
+
+        <div class="card">
+            <div class="row-flex">
+                <div class="img">
+                    <img src="../resources/profile.png" alt="Profile-Photo" style="width: 12rem;">
+                </div>
+                <div class="content" style="width: 100%;">
+                    <h3 class="card-name">Tutor 5</h3>
+                    <div class="info">
+                        <div class="subject-title">Python</div>
+                        <p class="other-name"><span class="other-title">Qualifications:</span>--- --- ---</p>
+                        <p class="other-name"><span class="other-title">Experience:</span></p>
+                        <p class="fee"><span class="fee-span">Fee:</span>₹3000 / month</p>
+                        <p class="duration"><span class="duration-span">Duration:</span>9 - 12 months</p>
+                        <p class="Mode"><span class="mode-span">Mode:</span><span class="online">Online</span></p>
+                    </div>
+                </div>
+            </div>
+                <div class="contact">
+                    <button class="contact-now">Contact Me</button>
+                </div>
+        </div>
+
+    </div>
+    <%-include('partials/footer'); -%>
+</body>
+</html>

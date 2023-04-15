@@ -1,0 +1,27 @@
+@media screen and (max-width:960px)
+{   
+    .opptrs4u
+    {
+        /* flex-direction: column; */
+    }
+    .oppcard
+    {
+        width:45%;
+        margin: 0.5rem 0.6rem;
+    }
+    .oppcard p
+    {
+        height:10rem;
+        font-size: 1rem;
+    }
+    .oppcardbtn
+    {
+        font-size: 1.1rem;
+        padding: 9px 18px;
+        margin: 0.5rem auto;
+    }
+    .centerpara
+    {
+        font-size: 1.2rem;
+    }
+}

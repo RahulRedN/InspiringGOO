@@ -1,0 +1,280 @@
+*
+{
+    margin:0px;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+
+
+/* .search
+{
+    min-height: 300px;
+    background-image: linear-gradient(#98DFD6,#E3ACF9);
+} */
+
+select{
+    padding: 10px;
+    border-radius: 50px;
+    border: 2px solid black;
+}
+
+.main_div
+{
+    background-color: lightblue;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap:30px;
+    padding: 20px 15px;
+}
+
+.box
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 100px;
+}
+
+.head
+{
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    justify-content: center;
+}
+
+.s-button
+{
+    border: 2px solid black;
+    display: flex;
+    font-size: 10px;
+    padding: 8px 15px;
+    border-radius: 50px;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+
+.search-row
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    gap: 100px;
+    background-color: white;
+    padding: 10px 20px;
+    border-radius: 10px;
+}
+
+.s-button:hover 
+{
+    background-color:deepskyblue;
+    cursor: pointer;
+}
+
+select:hover
+{
+    cursor: pointer;
+}
+
+
+.search-img
+{
+    left: 10px;
+    top: 6px;
+}
+
+.content
+{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding-left: 10px;
+    border-left: 1px solid skyblue
+}
+
+.row-flex
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.card
+{
+    min-width: 600px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px; 
+    padding: 10px 20px;
+    border-radius: 10px;
+    outline: none;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    background-color: white;
+}
+
+
+.info
+{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.card-name
+{
+    font-weight: 600;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: darkcyan;
+}
+
+.other-name
+{
+    font-size: 1rem;
+}
+
+.other-title
+{
+    color: dodgerblue;
+    font-weight: 600;
+    padding-right: 15px;
+}
+
+.cards
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    gap: 30px;
+    background-color: #C9EEFF;
+}
+
+.subject-title
+{
+    color:midnightblue;
+    padding-right: 10px;
+}
+
+.fee
+{
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.fee-span
+{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 15px;
+    padding-right: 10px;
+    font-weight: 600;
+    color: chartreuse;
+}
+
+.duration
+{
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.duration-span
+{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 15px;
+    padding-right: 10px;
+    font-weight: 600;
+    color: darkcyan;
+}
+
+.mode-span
+{
+    font-weight: 700;
+    color: indianred;
+    padding-right: 10px;
+}
+
+.online
+{
+    background-color: lightgreen;
+    border-radius: 20px;
+    padding: 2px 5px;
+    color: black;
+}
+
+.In-person
+{
+    background-color: chocolate;
+    color: black;
+    border-radius: 20px;
+    padding: 2px 5px;
+}
+
+.contact
+{
+    text-align: center;
+}
+
+.contact-now
+{
+    padding: 10px;
+    border-radius: 50px;
+    border: 2px solid black;
+    font-weight: 600;
+}
+
+.contact-now:hover
+{
+    background-color:lawngreen;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+/* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */ 
+@media screen and (max-width: 50%) {
+    .inputs
+    {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        width: 100%;
+    }
+
+    .card
+    {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-width: 400px;
+        gap: 10px;
+    }
+
+    .row-flex
+    {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .content
+    {
+        padding-top: 10px;
+        border-left: none;
+        border-top: 1px solid skyblue;
+    }
+
+    .content
+    {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+}

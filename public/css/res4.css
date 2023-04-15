@@ -1,0 +1,114 @@
+ @media screen and  (max-width:424px)/*and (min-width:425px) { */
+{
+  .slider
+  {
+    width:300px;
+  }
+  /* width(carousel-img); */
+  @keyframes slide {
+    0%,10%
+    {
+        transform: translateX(0);
+    }
+    25%,35% {
+      transform: translateX(-296px);
+    } 
+  
+    50%,60% {
+      transform: translateX(-592px);
+    }
+  
+    75%,85% {
+      transform: translateX(-888px);
+    }
+  
+    100% {
+      transform: translateX(-1184px);
+    } 
+  }
+    .our_services_child
+    {
+      margin: 15px 0px;
+      flex-direction: column;
+    }
+    .our_services_child:nth-child(even)
+    {
+        flex-direction: column;
+        /* //svgs on top and para on down */
+    }
+    .os_tagline
+    {
+        width: 100%;
+    }
+    .os_tagline p 
+    {
+      font-size: 13px;
+    }
+    .middle_heads_dark
+    {
+      font-size:2rem;
+      padding: 0.7px;
+    }
+    .middle_heads_light
+    {
+      font-size:2rem;;
+    }
+
+    .testmonial_card
+    {
+      height: 8rem;
+      margin: 10px auto;
+    }
+    .review p {
+      font-size: 14px;
+    }
+    .person h3, .person h5
+    {
+      font-size: 0.8rem;
+    }
+      .prev-button,
+    .next-button {
+    margin: 0.65rem ;
+    font-size: 1.1rem;
+    }
+
+    .main_footer
+    {
+        display:flex;
+        flex-direction: column;
+        justify-content:flex-start;
+        align-items: center;
+        margin:5px 7px;
+    }
+    .company_footer a, .cservice_footer a
+    {
+      font-size: 0.8rem;   
+    }
+    .company_footer h2, .cservice_footer h2
+    {
+      margin:0.1rem;
+      font-size: 0.5rem;
+    }
+    .missout_section, .link_section
+    {
+        width:85%;
+    }
+    .link_top
+    {
+      justify-content: center;
+      padding: 0;
+    }
+    .social_media img
+    {
+      width:40px;
+      margin:0px 4px;
+    }
+    .social_media
+    {
+      justify-content:center;
+    }
+    .copywrite
+    {
+      font-size: 0.8rem;
+    }
+}

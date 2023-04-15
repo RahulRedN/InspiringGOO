@@ -1,0 +1,20 @@
+ 
+  <div class="navbar">
+    <div class="navbar-overlay" onclick="toggleMenuOpen()"></div>
+    <button type="button" class="navbar-burger" onclick="toggleMenuOpen()">
+      <i class="fa-solid fa-bars" style="font-size: 1.7rem"></i>
+    </button>
+    <h1 class="navbar-title"><a href="/S_Landing">Home</a></h1>
+    <nav class="navbar-menu">
+      <a href="/Find_Tutor">Find Tutor</a>
+      <a href="/FAQs">FAQ's</a>
+      <a href="/Login">Logout</a>
+      <a href="/Student_Profile" id="register" style="display: flex;
+      align-items: center;justify-content:center;">Profile</a>
+    </nav>
+  </div>
+
+  <script>
+    const toggleMenuOpen = () => document.body.classList.toggle("open");
+  
+  </script>

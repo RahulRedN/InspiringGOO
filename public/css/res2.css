@@ -1,0 +1,90 @@
+@media screen and  (max-width:710px)and (min-width:670px) {
+
+  .slider
+  {
+    width:670px;
+  }
+  /* width(carousel-img); */
+  @keyframes slide {
+    0%,10%
+    {
+        transform: translateX(0);
+    }
+    25%,35% {
+      transform: translateX(-666px);
+    } 
+  
+    50%,60% {
+      transform: translateX(-1332px);
+    }
+  
+    75%,85% {
+      transform: translateX(-1998px);
+    }
+  
+    100% {
+      transform: translateX(-2664px);
+    } 
+  }
+    .our_services_child
+    {
+      margin: 20px 0px;
+      height:auto;
+      /* 65vh */
+      width: auto;
+      display: flex;
+      justify-content: space-evenly;
+      border-radius: 12px;
+    }
+
+    .os_tagline p 
+    {
+      text-align: center;
+      font-size: 18px;
+    }
+    .middle_heads_dark
+    {
+      font-size:2.2rem;
+      padding: 1.5px;
+    }
+    .middle_heads_light
+    {
+      font-size:2.7rem;
+    }
+    .testmonial_card
+    {
+      height: 10rem;
+      margin: 14px auto;
+    }
+    .person h3, .person h5
+    {
+      font-size: 1rem;
+    }
+    
+
+    .prev-button,
+  .next-button {
+  margin: 1rem ;
+  font-size: 1.6rem;
+}
+
+
+    .company_footer a, .cservice_footer a/*explore_footer */
+    {
+         font-size: 1.3rem;
+    }
+    .company_footer h2, .cservice_footer h2
+    {
+      margin:0.3rem;
+      font-size: 0.8rem;
+    }
+    .social_media img
+    {
+          width:70px;
+          margin:0px 0.2rem;
+      }
+      .copywrite
+      {
+        font-size: 1rem;
+      }
+}

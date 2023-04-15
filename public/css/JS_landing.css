@@ -1,0 +1,351 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
+*{
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    width: 100%;
+    height:auto;
+    background-image: url('https://img.freepik.com/free-photo/abstract-grunge-decorative-relief-navy-blue-stucco-wall-texture-wide-angle-rough-colored-background_1258-28311.jpg?size=626&ext=jpg&uid=R97086655&semt=ais');
+    background-size: contain;
+    backdrop-filter: blur(10px);
+}
+
+h1 {
+    line-height: 1.5;
+}
+
+
+input[type="checkbox"]{
+  display: none;
+}
+
+
+
+.search-box {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.search-box a {
+    font-size: xx-large;
+    display: block;
+    padding: 1rem 5rem;
+    width: 80%;
+    margin: auto;
+    text-decoration: none;
+    color: #000;
+    background: rgba(69, 64, 64, 0.591);
+    border-radius:1.5rem;
+}
+
+.search-box a:hover {
+    background-color: #0e0e86;
+    color: whitesmoke;
+}
+
+
+.job-list {
+    padding: 1rem;
+    padding-top: 5rem;
+    background-color: rgba(128, 128, 128, 0.155);
+}
+
+.job-list > h2 {
+    text-align: center;
+}
+
+.job-card {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+    margin: 1rem;
+    min-height: 100px;
+    align-items: center;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.098) 0px 1px 4px;
+    cursor: pointer;
+    border-radius: 1.5rem;
+}
+
+.job-card:hover {
+    box-shadow: rgba(0, 0, 0, 0.349) 0px 4px 12px;
+}
+
+.job-name {
+    display: flex;
+}
+
+.job-profile {
+    width: 60px;
+    height: 60px;
+    margin: 0.5rem;
+}
+
+.job-detail {
+    padding: 0 10rem;
+}
+
+.job-label {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.job-label > a {
+    padding: 0.3rem 1.5rem;
+    margin: 0.2rem;
+    color: white;
+    text-decoration: none;
+    border-radius: 20px;
+    font-size: 0.8rem;
+}
+
+.label-a {
+    background-color: gold;
+}
+
+.label-b {
+    background-color: rgb(119, 255, 0);
+}
+
+.label-c {
+    background-color: black;
+}
+
+.job-posted {
+    font-size: 0.8rem;
+}
+
+.featured {
+    width: 100%;
+    height:auto;
+    text-align: center;
+    padding: 5rem 1rem;
+    background-color: rgba(128, 128, 128, 0.062);
+}
+
+.featured-wrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 2rem;
+    align-items: center;
+    width: 100%;
+    padding: 2% 10%;
+}
+
+.featured-card{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 4rem;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.203) 0px 1px 4px;
+}
+
+.featured-card:hover {
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px;
+}
+
+.featured-button {
+    border: solid 1px rgb(0, 128, 255);
+    background-color: transparent;
+    margin-top: 0.5rem;
+    padding: 5px 12px;
+    border-radius: 10px;
+    cursor: pointer;
+    color: rgb(0, 128, 255);
+    border-radius: 2px;
+}
+
+.featured-button:hover {
+    background-color: rgb(0, 128, 255);
+    color: white;
+}
+
+.section-title {
+    font-size: 32px;
+    margin-bottom: 1.5rem;
+}
+
+.mentor-team {
+    width: 100%;
+    height: auto;
+    font-size: 36px;
+    text-align: center;
+    background: linear-gradient(to bottom right, rgba(128, 0, 128, 0.763), rgba(0, 0, 255, 0.626));
+}
+
+.career-title {
+    padding: 5rem 0 3.5rem 0;
+    color: white;
+    border-top: solid black 2px;
+    border-bottom: solid black 2px;
+}
+
+.guidance-sections {
+    display: flex;
+    flex-direction: row;
+}
+
+.a {
+    width:60%;
+    text-align: center;
+    padding: 3rem 0;
+    margin: 3rem 0 5rem 0;
+}
+
+.b{
+    width: 40%;
+    text-align: center;
+    align-items: center;
+    padding: 6rem 0;
+    height: auto;
+}
+
+.guidance-connect {
+    font-size: 36px;
+    font-weight: bolder;
+    padding:2rem;
+    border: solid 2px goldenrod;
+    color: goldenrod;
+    background: rgb(0, 123, 255);
+    border-radius: 2px;
+    box-shadow: rgba(255, 217, 0, 0.393) 0 1px 4px;
+    cursor: pointer;
+}
+
+.guidance-connect:hover {
+    background-color: goldenrod;
+    color: white;
+    box-shadow: rgba(255, 217, 0, 0.742) 0 4px 29px;
+}
+
+footer {
+    margin-top: 2rem;
+    width: 100%;
+    display: flex;
+    border-top:solid black 2px;
+    border-bottom:solid black 2px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    background: rgba(0, 0, 255, 0.705);
+    color: white;
+    padding: 3rem;
+}
+
+.footer-wrapper {
+    display: flex;
+    flex-direction: column;
+    padding: 0.5rem;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.footer-wrapper h3, .footer-wrapper h4 {
+    line-height: 3;
+    color: gold;
+}
+
+.footer-wrapper p {
+    max-width: 400px;
+    line-height: 1.5;
+}
+
+.social-media {
+    margin-top: 1rem;
+}
+
+.social-media a {
+    text-decoration: none;
+    color: whitesmoke;
+    margin-right: 10px;
+}
+
+.footer-wrapper a {
+    text-decoration: none;
+    color: whitesmoke;
+    line-height: 2;
+}
+
+.footer-wrapper a:hover {
+    text-decoration: underline;
+}
+
+/* Mobile Screen */
+@media screen and (max-width:666px){
+    .menu-toggle, .bar {
+        display: block;
+        z-index: 3;
+    }
+
+    .menu-toggle .is-active .bar:nth-child(2){
+        opacity: 0;
+    }
+
+    .menu-toggle .is-active .bar:nth-child(1){
+        transform: translateY(5px) rotate(45deg);
+    }
+
+    .menu-toggle .is-active .bar:nth-child(3){
+        translate: translateY(-5px) rotate(45deg);  
+    }
+
+    .navbar-menu {
+        flex-direction: column;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        text-align: center;
+        background-color: black;
+        display: none;
+        padding: 5rem;
+    }
+
+    .navbar-menu .active {
+        display: flex;
+    }
+
+    .navbar-menu a {
+        color: white;
+        padding: 1.5rem;
+    }
+
+    .header-title{
+        font-size: 38px;
+    }
+
+    .job-card{
+        font-size: medium;
+    }
+
+    .job-label{
+        display: none;
+    }
+
+    .job-detail{
+        padding: 0 1.5rem;
+    }
+
+    .header-title {
+        padding: 0 1rem;
+    }
+
+    .guidance-connect{
+        font-size: 20px;
+    }
+}
