@@ -10,7 +10,7 @@ app.set('view engine','ejs');
 app.set('views',path.join(__dirname,'views'));
 
 app.use(exp.static("public"));
-
+// CHange_tESt_GIt
 
 const db_name = path.join(__dirname,'db','registration.sqlite3');
 
