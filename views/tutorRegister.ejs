@@ -43,21 +43,24 @@
           <div class="container">
             <div class="field-section" id="contact-info">
               <h2>Contact Information</h2>
+              <p class="validations" id="validations-contact">&nbsp;</p>
               <div class="field">
                 <div class="row-radio">
-                  <label for="salutation">Salutation: </label>
+                  <label for="salutation">Salutation: &nbsp;&nbsp;&nbsp;&nbsp;</label>
                   <div class="radios">
                     <input type="radio" name="salutation" />Mr.
+                    &nbsp;&nbsp;&nbsp;
                     <input type="radio" name="salutation" />Ms.
                   </div>
                 </div>
                 <div class="row">
                   <div class="user-details float-group">
                     <input
-                      class="required"
+                      class="required not_valid"
                       type="text"
                       placeholder=" "
                       name="fname"
+                      onkeyup="firstName()"
                       required
                     />
                     <label for="fname" class="float-label">First Name *</label>
@@ -68,6 +71,7 @@
                       type="text"
                       placeholder=" "
                       name="sname"
+                      onkeyup="lastName()"
                       required
                     />
                     <label for="sname" class="float-label">Surname *</label>
@@ -83,6 +87,7 @@
                       title="Please enter valid email-address including '@'"
                       required
                       id="emailID"
+                      onkeyup="email()"
                     />
                     <label for="emailID" class="float-label">Email-ID *</label>
                   </div>
@@ -96,22 +101,11 @@
                       placeholder=" "
                       required
                       id="mobile"
+                      onkeyup="mobile_valid()"
                     />
                     <label for="mobile" class="float-label"
                       >Mobile Number *</label
                     >
-                  </div>
-                </div>
-                <div class="row address">
-                  <div class="user-details float-group address">
-                    <input
-                      class="required"
-                      type="text-area"
-                      name="address"
-                      placeholder=" "
-                      required
-                    />
-                    <label for="address" class="float-label">Address *</label>
                   </div>
                 </div>
               </div>
@@ -120,24 +114,26 @@
           <div class="container">
             <div class="field-section" id="personal-info">
               <h2>Personal Information</h2>
+              <p class="validations" id="validation-personal">&nbsp;</p>
               <div class="field">
                 <div class="row-radio">
-                  <label for="gender">Select Gender: </label>
+                  <label for="gender">Select Gender: &nbsp;&nbsp;&nbsp;&nbsp;</label>
                   <div class="radios">
                     <input type="radio" name="gender" value="male" />Male
+                    &nbsp;&nbsp;&nbsp;
                     <input type="radio" name="gender" value="female" />Female
                   </div>
                 </div>
                 <div class="row">
                   <div class="user-details float-group">
                     <label>Date of Birth :</label>
-                    <input required type="date" name="DOB" placeholder=" " />
+                    <input required type="date" name="DOB" placeholder=" " onchange="date_valid()" onfocus="date_valid()" />
                   </div>
                 </div>
                 <div class="row">
                   <div class="user-details center">
                     <label for="Nationality" class="nation">Nationality:</label>
-                    <select required name="country" class="select" id="country">
+                    <select required name="country" class="select" id="country" onchange="country_valid()" onfocus="country_valid()">
                       <option
                         value="0"
                         label="- Select a Country -"
@@ -637,12 +633,13 @@
           <div class="container">
             <div class="field-section" id="background-info">
               <h2>Background Information</h2>
+              <p class="validations" id="validation-background">&nbsp;</p>
               <div class="field">
                 <div class="graduation">
-                  <h4>Graduation</h4>
+                  <h4>Highest Qualification</h4>
                   <div class="row">
                     <div class="user-details float-group">
-                      <select name="Degree" class="select" required>
+                      <select name="qual" class="select" required onchange="qual_valid()" onfocus="qual_valid()">
                         <option value="0" selected>Select a qualification type</option>
                         <option value="high-school">High School Diploma</option>
                         <option value="certificate">Certificate</option>
@@ -662,14 +659,20 @@
                       <input
                         type="text"
                         name="InstName"
-                        size="25"
+                        size="30"
                         class="not-required"
                         placeholder=" "
+                        onkeyup="instName()"
                       />
                       <label for="InstName" class="placeholder float-label"
                         >Institute Name *</label
                       >
                     </div>
+                    <!-- <div class="user-details float-group">
+                      <select name="subject" class="select">
+                        <option value="0" selected>Subject *</option>
+                      </select>
+                    </div> -->
                   </div>
                   <div class="row">
                     <div class="user-details float-group">
@@ -696,225 +699,67 @@
                     </div>
                   </div>
                 </div>
-                <hr />
-                <br />
-                <div class="pg">
-                  <h4>Post Graduation</h4>
-                  <div class="row">
-                    <div class="user-details">
-                      <select name="Degree2" required class="select">
-                        <option value="0" selected>Select a qualification type</option>
-                        <option value="high-school">High School Diploma</option>
-                        <option value="certificate">Certificate</option>
-                        <option value="diploma">Diploma</option>
-                        <option value="associate-degree">
-                          Associate Degree
-                        </option>
-                        <option value="bachelor-degree">
-                          Bachelor's Degree
-                        </option>
-                        <option value="master-degree">Master's Degree</option>
-                        <option value="doctoral-degree">Doctoral Degree</option>
-                      </select>
-                    </div>
-
-                    <div class="user-details float-group">
-                      <input
-                        type="text"
-                        name="InstName2"
-                        size="25"
-                        class="not-required"
-                        placeholder=" "
-                      />
-                      <label for="InstName" class="float-label"
-                        >Institute Name *</label
-                      >
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="user-details float-group">
-                      <input
-                        type="number"
-                        name="YOA2"
-                        class="not-required"
-                        placeholder=" "
-                      />
-                      <label for="YOA" class="float-label"
-                        >Year of Admission</label
-                      >
-                    </div>
-                    <div class="user-details float-group">
-                      <input
-                        type="number"
-                        name="YOC2"
-                        class="not-required"
-                        placeholder=" "
-                      />
-                      <label for="YOC" class="float-label"
-                        >Year of Completion</label
-                      >
-                    </div>
-                  </div>
-                </div>
-                <hr />
-                <br />
-                <div class="phd">
-                  <h4>PHD</h4>
-                  <div class="row">
-                    <div class="user-details">
-                      <select name="Degree3" required class="select">
-                        <option value="0" selected>Select a qualification type</option>
-                        <option value="high-school">High School Diploma</option>
-                        <option value="certificate">Certificate</option>
-                        <option value="diploma">Diploma</option>
-                        <option value="associate-degree">
-                          Associate Degree
-                        </option>
-                        <option value="bachelor-degree">
-                          Bachelor's Degree
-                        </option>
-                        <option value="master-degree">Master's Degree</option>
-                        <option value="doctoral-degree">Doctoral Degree</option>
-                      </select>
-                    </div>
-
-                    <div class="user-details float-group">
-                      <input
-                        type="text"
-                        name="InstName3"
-                        size="25"
-                        class="not-required"
-                        placeholder=" "
-                      />
-                      <label for="InstName" class="float-label"
-                        >Institute Name *</label
-                      >
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="user-details float-group">
-                      <input
-                        type="number"
-                        name="YOA3"
-                        class="not-required"
-                        placeholder=" "
-                      />
-                      <label for="YOA" class="float-label"
-                        >Year of Admission</label
-                      >
-                    </div>
-                    <div class="user-details float-group">
-                      <input
-                        type="number"
-                        name="YOC3"
-                        class="not-required"
-                        placeholder=" "
-                      />
-                      <label for="YOC" class="float-label"
-                        >Year of Completion</label
-                      >
-                    </div>
-                  </div>
-                </div>
               </div>
             </div>
           </div>
-          <div class="container">
-            <div class="field-section" id="experience">
-              <h2>Experience</h2>
+          <div class="container" id="login-details">
+            <h2>Login Details</h2>
+            <p class="validations" id="validation-login">&nbsp;</p>
+            <div class="field-section">
               <div class="row">
                 <div class="user-details float-group">
-                  <label for="experience">Experience (if any):</label>
+                  <label for="username" class="float"
+                    >Username
+                    :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label
+                  >
                   <input
-                    type="number"
-                    name="exp"
-                    id="exp"
-                    placeholder="years"
+                    type="text"
+                    name="username"
+                    id="username"
+                    class="required"
+                    required
+                    placeholder=" "
+                    onkeyup="username_valid()"
                   />
                 </div>
               </div>
               <div class="row">
-                <h4>Skills</h4>
-                <div class="user-details float-group address">
+                <div class="user-details float-group">
+                  <label for="password" class="float">Enter password:</label>
                   <input
-                    type="text"
-                    name="skill"
-                    id="skill"
-                    placeholder="eg: css, js, python, etc"
+                    type="password"
+                    name="password1"
+                    id="pass1"
+                    class="required"
+                    required
+                    placeholder=" "
+                    onkeyup="pass1_valid()"
+                  />
+                </div>
+                <div class="user-details float-group">
+                  <label for="password" class="float"
+                    >Confirm pass :&nbsp;&nbsp;&nbsp;&nbsp;</label
+                  >
+                  <input
+                    type="password"
+                    name="password2"
+                    id="pass2"
+                    class="required"
+                    required
+                    placeholder=" "
+                    onkeyup="pass2_valid()"
                   />
                 </div>
               </div>
-              <div class="row center">
-                <label for="Availability"
-                  ><strong>Availability Period</strong></label
-                >
-                <div class="user-details">
-                  <select name="subject" class="select" id="availability">
-                    <option value="0" selected>Availability*</option>
-                    <option value="1">Always</option>
-                    <option value="2">Frequently</option>
-                    <option value="3">Never</option>
-                  </select>
-                </div>
-              </div>
-              <hr />
-              <div class="container-cv cv">
-                <h3>Upload CV</h3>
-                <input
-                  style="display: none"
-                  type="file"
-                  id="file_resume"
-                  name="CV"
-                />
-                <div class="link">
-                  <label class="link-label" for="file_resume"
-                    ><img
-                      width="35"
-                      src="../resources/up-arrow.png"
-                      alt="img"
-                    /><span id="Browse">choose</span></label
-                  >
-                </div>
-
-                <h3>Certificates</h3>
-                <input
-                  style="display: none"
-                  type="file"
-                  id="certificates"
-                  name="certificates"
-                  multiple
-                />
-                <div class="link">
-                  <label class="link-label" for="file_resume"
-                    ><img
-                      width="35"
-                      src="../resources/up-arrow.png"
-                      alt="img"
-                    /><span id="Browse">choose</span></label
-                  >
-                </div>
-              </div>
             </div>
-          </div>
-          <div class="container" id="courses-offer">
-            <h2>Courses to offer</h2>
-            <div class="row">
-              <div class="user-details float-group address">
-                <label for="Courses">Courses:</label>
-                <input
-                  type="text"
-                  placeholder="Eg: mathematics, physics, Jee, WebDev, AppDev, NEET etc"
-                  name="course"
-                />
-              </div>
-            </div>
-            <div class="section">
+            <div class="section_Tutor">
               <button type="submit" onclick="return validateForm()" class="but">
                 SUBMIT
               </button>
               <button type="reset" onreset="" class="but">RESET</button>
             </div>
           </div>
+          
         </form>
       </div>
     </div>

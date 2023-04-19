@@ -115,12 +115,17 @@ fieldset {
     padding: 0.5rem;
     width: 100%;
     border-radius: 3px;
-    gap:1rem;
 }
 
 .section {
     display:flex;
     justify-content: space-around;
+}
+
+.section_Tutor {
+    display:flex;
+    justify-content: space-around;
+    width: 100%;
 }
 
 fieldset legend {
@@ -193,6 +198,15 @@ fieldset legend {
     color: #eee;
 }
 
+.float-group .not_valid:not(:placeholder-shown){
+    background-color: rgba(255, 199, 199, 0.726);
+}
+
+.validations{
+    color: rgb(255, 0, 0);
+    font-size: 1rem;
+}
+
 .float-group input:not(:placeholder-shown) {
     background: rgba(255, 255, 255, 0.726);
 }
@@ -254,8 +268,10 @@ hr {
 
 .but{
     border: 2px solid black;
-    padding: 10px 20px;
+    padding: 15px 20px;
     border-radius: 50px;
+    font-size: 1rem;
+    font-weight:1000;
 }
 
 .but:hover{
