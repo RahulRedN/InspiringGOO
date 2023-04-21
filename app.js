@@ -72,7 +72,7 @@ app.get("/", function (req, res) {
 
 
 app.get("/studentRegister",function(req,res){
-    res.render('studentRegister');
+    res.render('S_JS_Register', {user: "Student"});
 });
 
 app.post("/studentRegister",function(req,res){
@@ -166,7 +166,7 @@ app.post('/tutorRegister',function(req,res){
 
 
 app.get("/jobseekerRegister",function(req,res){
-    res.render('jobseekerRegister');
+    res.render('S_JS_Register', {user: "Jobseeker"});
 });
 
 app.post('/jobseekerRegister',function(req,res){

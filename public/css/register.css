@@ -141,6 +141,10 @@ fieldset legend {
     background: rgba(255, 255, 255, 0.788);
 }
 
+.user-details .not_valid{
+    background-color: rgba(254, 154, 154, 0.726);
+}
+
 .row {
     display: flex;
     flex-wrap: wrap;
@@ -199,7 +203,7 @@ fieldset legend {
 }
 
 .float-group .not_valid:not(:placeholder-shown){
-    background-color: rgba(255, 199, 199, 0.726);
+    background-color: rgba(254, 154, 154, 0.726);
 }
 
 .validations{

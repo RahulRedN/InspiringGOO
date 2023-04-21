@@ -4,13 +4,13 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Student | Register</title>
+    <title><%= user %> | Register</title>
     <link rel="stylesheet" href="../css/register.css" />
     <link rel="stylesheet" href="../css/homePage_nav.css" />
     <link rel="stylesheet" href="../css/footer_styles.css" />
     <link rel="stylesheet" href="../css/res3.css" />
     <link rel="stylesheet" href="../css/res4.css" />
-    <script src="../js/validation_student.js"></script>
+    <script src="../js/validation_s_js.js"></script>
     <script
       src="https://kit.fontawesome.com/21198450f8.js"
       crossorigin="anonymous"
@@ -24,7 +24,7 @@
     <%- include('partials/navbar'); -%>
     <br />
     <div class="complete_container">
-      <h2 class="heading">Student Registration</h2>
+      <h2 class="heading"><%= user %> Registration</h2>
       <br />
       <div class="container_full">
         <div class="svg">
@@ -38,11 +38,13 @@
           <div class="container">
             <div class="field-section" id="contact-info">
               <h2>Contact Information</h2>
+              <p class="validations" id="validation-contact">&nbsp;</p>
               <div class="field">
                 <div class="row-radio">
-                  <label for="salutation">Salutation: </label>
+                  <label for="salutation">Salutation: &nbsp;&nbsp;&nbsp;&nbsp; </label>
                   <div class="radios">
                     <input type="radio" name="salutation" />Mr.
+                    &nbsp;&nbsp;&nbsp;
                     <input type="radio" name="salutation" />Ms.
                   </div>
                 </div>
@@ -54,6 +56,7 @@
                       placeholder=" "
                       name="fname"
                       required
+                      onkeyup="firstName()"
                     />
                     <label for="fname" class="float-label">First Name *</label>
                   </div>
@@ -63,6 +66,7 @@
                       type="text"
                       placeholder=" "
                       name="lname"
+                      onkeyup="lastName()"
                     />
                     <label for="lname" class="float-label">Last Name</label>
                   </div>
@@ -73,6 +77,7 @@
                       placeholder=" "
                       name="sname"
                       required
+                      onkeyup="surName()"
                     />
                     <label for="sname" class="float-label">Surname *</label>
                   </div>
@@ -87,6 +92,7 @@
                       title="Please enter valid email-address including '@'"
                       required
                       id="emailID"
+                      onkeyup="email()"
                     />
                     <label for="emailID" class="float-label">Email-ID *</label>
                   </div>
@@ -100,6 +106,7 @@
                       placeholder=" "
                       required
                       id="mobile"
+                      onkeyup="mobile_valid()"
                     />
                     <label for="mobile" class="float-label"
                       >Mobile Number *</label
@@ -114,6 +121,7 @@
                       name="address"
                       placeholder=" "
                       required
+                      onkeyup="address_valid()"
                     />
                     <label for="address" class="float-label">Address *</label>
                   </div>
@@ -124,22 +132,24 @@
           <div class="container">
             <div class="field-section" id="personal-info">
               <h2>Personal Information</h2>
+              <p class="validations" id="validation-personal">&nbsp;</p>
               <div class="field">
                 <div class="row-radio">
-                  <label for="gender">Select Gender: </label>
+                  <label for="gender">Select Gender: &nbsp;&nbsp;&nbsp;&nbsp;</label>
                   <div class="radios">
                     <input type="radio" name="gender" value="male" />Male
+                    &nbsp;&nbsp;&nbsp;
                     <input type="radio" name="gender" value="female" />Female
                   </div>
                 </div>
                 <div class="row">
                   <div class="user-details float-group">
                     <label>Date of Birth :</label>
-                    <input required type="date" name="DOB" placeholder=" " />
+                    <input required type="date" name="DOB" placeholder=" " onchange="date_valid()" onfocus="date_valid()"/>
                   </div>
                   <div class="user-details center" style="padding-left: 1rem">
                     <label for="Nationality" class="nation">Nationality:</label>
-                    <select required name="country" class="select" id="country">
+                    <select required name="country" class="select" id="country" onchange="country_valid()" onfocus="country_valid()">
                       <option
                         value="0"
                         label="- Select a Country -"
@@ -640,8 +650,10 @@
                       class="select"
                       name="marital_status"
                       id="marital_status"
+                      onchange="marital_valid()"
+                      onfocus="marital_valid()"
                     >
-                      <option value="">-Select Marital Status-</option>
+                      <option value="0">-Select Marital Status-</option>
                       <option value="Single">Single</option>
                       <option value="Married">Married</option>
                       <option value="Widowed">Widowed</option>
@@ -656,12 +668,13 @@
           <div class="container">
             <div class="field-section" id="background-info">
               <h2>Background Information</h2>
+              <p class="validations" id="validation-background">&nbsp;</p>
               <div class="field">
                 <div class="graduation">
                   <h4>Highest Qualification</h4>
                   <div class="row">
                     <div class="user-details float-group">
-                      <select name="qual" class="select" required>
+                      <select name="qual" class="select" required onchange="qual_valid()" onfocus="qual_valid()">
                         <option value="0" selected>Select a qualification type</option>
                         <option value="high-school">High School Diploma</option>
                         <option value="certificate">Certificate</option>
@@ -684,16 +697,12 @@
                         size="30"
                         class="not-required"
                         placeholder=" "
+                        onkeyup="instName_valid()"
                       />
                       <label for="InstName" class="placeholder float-label"
                         >Institute Name *</label
                       >
                     </div>
-                    <!-- <div class="user-details float-group">
-                      <select name="subject" class="select">
-                        <option value="0" selected>Subject *</option>
-                      </select>
-                    </div> -->
                   </div>
                   <div class="row">
                     <div class="user-details float-group">
@@ -726,6 +735,7 @@
           <div class="container">
             <div class="field-section" id="experience">
               <h2>Experience</h2>
+              <p class="validations" id="validation-experience">&nbsp;</p>
               <div class="row">
                 <h4>Skills</h4>
                 <div class="user-details float-group address">
@@ -734,33 +744,15 @@
                     name="skill"
                     id="skill"
                     placeholder="eg: css, js, python, etc"
+                    onkeyup="skill_valid()"
                   />
-                </div>
-              </div>
-              <hr />
-              <div class="container-cv cv">
-                <h3>Certificates</h3>
-                <input
-                  style="display: none"
-                  type="file"
-                  id="certificates"
-                  name="certificates"
-                  multiple
-                />
-                <div class="link">
-                  <label class="link-label" for="file_resume"
-                    ><img
-                      width="35"
-                      src="../resources/up-arrow.png"
-                      alt="img"
-                    /><span id="Browse">choose</span></label
-                  >
                 </div>
               </div>
             </div>
           </div>
           <div class="container" id="login-details">
             <h2>Login Details</h2>
+            <p class="validations" id="validation-login">&nbsp;</p>
             <div class="field-section">
               <div class="row">
                 <div class="user-details float-group">
@@ -775,6 +767,7 @@
                     class="required"
                     required
                     placeholder=" "
+                    onkeyup="username_valid()"
                   />
                 </div>
               </div>
@@ -788,6 +781,7 @@
                     class="required"
                     required
                     placeholder=" "
+                    onkeyup="pass1_valid()"
                   />
                 </div>
                 <div class="user-details float-group">
@@ -801,6 +795,7 @@
                     class="required"
                     required
                     placeholder=" "
+                    onkeyup="pass2_valid()"
                   />
                 </div>
               </div>

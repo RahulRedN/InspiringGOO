@@ -36,14 +36,13 @@
           <a href="#contact-info">Contact Info</a>
           <a href="#personal-info">Personal Info</a>
           <a href="#background-info">Background Info</a>
-          <a href="#experience">Experience</a>
-          <a href="#courses-offer">Courses To Offer</a>
+          <a href="#login-details">Login Details</a>
         </div>
         <form action="" class="form_container" method="post">
           <div class="container">
             <div class="field-section" id="contact-info">
               <h2>Contact Information</h2>
-              <p class="validations" id="validations-contact">&nbsp;</p>
+              <p class="validations" id="validation-contact">&nbsp;</p>
               <div class="field">
                 <div class="row-radio">
                   <label for="salutation">Salutation: &nbsp;&nbsp;&nbsp;&nbsp;</label>
@@ -56,7 +55,7 @@
                 <div class="row">
                   <div class="user-details float-group">
                     <input
-                      class="required not_valid"
+                      class="required"
                       type="text"
                       placeholder=" "
                       name="fname"
@@ -71,7 +70,7 @@
                       type="text"
                       placeholder=" "
                       name="sname"
-                      onkeyup="lastName()"
+                      onkeyup="surName()"
                       required
                     />
                     <label for="sname" class="float-label">Surname *</label>
@@ -662,7 +661,7 @@
                         size="30"
                         class="not-required"
                         placeholder=" "
-                        onkeyup="instName()"
+                        onkeyup="instName_valid()"
                       />
                       <label for="InstName" class="placeholder float-label"
                         >Institute Name *</label

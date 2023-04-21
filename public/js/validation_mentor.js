@@ -1,74 +1,407 @@
-function validateForm() {
-  // valid for contact information
-  const form = document.querySelector("form");
-  const radios = document.getElementsByName("salutation");
+const alphaRegex = /^[a-zA-Z]+$/;
+const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]{3,}$/;
+const mobileRegex = /^\d{10}$/;
+const regexPass = /^(?=.{8,})(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=]).*$/;
 
+const validation_experience = document.getElementById("validation-experience");
+
+function firstName(){
+  var form = document.querySelector("form");
+  const validation_contact = document.getElementById("validation-contact");
   const fnameInput = form.querySelector('input[name="fname"]');
+
+  if (fnameInput.value.trim() === "") {
+    validation_contact.innerHTML = "<i class='fa-solid fa-exclamation'></i> Please enter your First Name.";
+    fnameInput.classList.add("not_valid");
+    fnameInput.focus();
+    return false;
+  }
+
+  if (!alphaRegex.test(fnameInput.value.trim())) {
+    validation_contact.innerHTML = "<i class='fa-solid fa-exclamation'></i> Please enter only alphabetic characters for your First Name.";
+    fnameInput.classList.add("not_valid");
+    fnameInput.focus();
+    return false;
+  }
+
+  validation_contact.innerHTML = "&nbsp;";
+  fnameInput.classList.remove("not_valid");
+  return true;
+}
+
+function lastName(){
+  var form = document.querySelector("form");
+  const validation_contact = document.getElementById("validation-contact");
+  const lnameInput = form.querySelector('input[name="lname"]');
+
+  if (!(lnameInput.value.trim() === "") && !alphaRegex.test(lnameInput.value.trim())) {
+    validation_contact.innerHTML = "<i class='fa-solid fa-exclamation'></i> Please enter only alphabetic characters for your Last Name.";
+    lnameInput.classList.add("not_valid");
+    lnameInput.focus();
+    return false;
+  }
+
+  lnameInput.classList.remove("not_valid");
+  validation_contact.innerHTML = "&nbsp;";
+  return true;
+}
+
+function surName(){
+  var form = document.querySelector("form");
+  const validation_contact = document.getElementById("validation-contact");
   const snameInput = form.querySelector('input[name="sname"]');
-  //const emailInput = form.querySelector('input[name="emailID"]');
-  //const mobileInput = form.querySelector('input[name="mobile"]');
-  const addressInput = form.querySelector('input[name="address"]');
+  if (snameInput.value.trim() === "") {
+    validation_contact.innerHTML = "<i class='fa-solid fa-exclamation'></i> Please enter your Surname.";
+    snameInput.classList.add("not_valid");
+    snameInput.focus();
+    return false;
+  }
+  if (!alphaRegex.test(snameInput.value.trim())) {
+    validation_contact.innerHTML = "<i class='fa-solid fa-exclamation'></i> Please enter only alphabetic characters for your Surname.";
+    snameInput.classList.add("not_valid");
+    snameInput.focus();
+    return false;
+  }
 
+  snameInput.classList.remove("not_valid");
+  validation_contact.innerHTML = "&nbsp;";
+  return true;
+}
+
+function email(){
   const emailInput = document.getElementById("emailID");
-  const mobileInput = document.getElementById("mobile");
+  const validation_contact = document.getElementById("validation-contact");
 
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]{3,}$/;
-  const mobileRegex = /^\d{10}$/;
+  if (emailInput.value.trim() === "") {
+    validation_contact.innerHTML = "<i class='fa-solid fa-exclamation'></i> Email is required.";
+    emailInput.classList.add("not_valid");
+    emailInput.focus();
+    return false;
+  } else if (!emailRegex.test(emailInput.value.trim())) {
+    validation_contact.innerHTML = "<i class='fa-solid fa-exclamation'></i> Please enter a valid email address.";
+    emailInput.classList.add("not_valid");
+    emailInput.focus();
+    return false;
+  }
 
-  const alphaRegex = /^[a-zA-Z]+$/;
+  emailInput.classList.remove("not_valid");
+  validation_contact.innerHTML = "&nbsp;";
+  return true;
+}
 
-  // end of contact information
+function mobile_valid() {
+  let mobileInput = document.getElementById("mobile");
+  const validation_contact = document.getElementById("validation-contact");
 
-  // valid for perosnal information
+  if (mobileInput.value.trim() === "") {
+    validation_contact.innerHTML = "<i class='fa-solid fa-exclamation'></i> Mobile number is required.";
+    mobileInput.classList.add("not_valid");
+    mobileInput.focus();
+    return false;
+  } else if (!mobileRegex.test(mobileInput.value.trim())) {
+    validation_contact.innerHTML = "<i class='fa-solid fa-exclamation'></i> Please enter a valid mobile number.";
+    mobileInput.classList.add("not_valid");
+    mobileInput.focus();
+    return false;
+  }
 
-  //const form = document.querySelector('form');
+  validation_contact.innerHTML = "&nbsp;";
+  mobileInput.classList.remove("not_valid");
+  return true;
+}
 
-  const genderInput = document.querySelector('input[name="gender"]:checked');
-  const countrySelect = document.querySelector("#country");
-  const maritalStatusSelect = document.querySelector("#marital_status");
+function address_valid(){
+  var form = document.querySelector("form");
+  const validation_contact = document.getElementById("validation-contact");
+  const addressInput = form.querySelector('input[name="address"]');
+  if (addressInput.value.trim() === "") {
+    validation_contact.innerHTML= "<i class='fa-solid fa-exclamation'></i>Please enter your Address.";
+    addressInput.classList.add("not_valid");
+    addressInput.focus();
+    return false;
+  }
+
+  validation_contact.innerHTML = "&nbsp;";
+  addressInput.classList.remove("not_valid");
+  return true;
+}
+
+function date_valid(){
   const dobInput = document.querySelector('input[name="DOB"]');
+  const validation_personal = document.getElementById("validation-personal");
+  if (dobInput.value === "") {
+    validation_personal.innerHTML = "<i class='fa-solid fa-exclamation'></i> Please enter your date of birth";
+    dobInput.classList.add("not_valid");
+    dobInput.focus();
+    return false;
+  } else {
+    const parsedDate = new Date(dobInput.value);
+    if (isNaN(parsedDate)) {
+      validation_personal.innerHTML = "<i class='fa-solid fa-exclamation'></i> Please enter a valid date of birth";
+      dobInput.classList.add("not_valid");
+      dobInput.focus();
+      return false;
+    }
+    else if(2023 - parsedDate.getFullYear() < 18){
+      validation_personal.innerHTML = "<i class='fa-solid fa-exclamation'></i> Age should be greater than 18";
+      dobInput.classList.add("not_valid");
+      dobInput.focus();
+      return false;
+    }
+  }
+  validation_personal.innerHTML = "&nbsp;";
+  dobInput.classList.remove("not_valid");
+  return true;
+}
 
-  // end of personal information
+function country_valid(){
+  const countrySelect = document.querySelector("#country");
+  const validation_personal = document.getElementById("validation-personal");
+  if (countrySelect.value === "0") {
+    validation_personal.innerHTML = "<i class='fa-solid fa-exclamation'></i> Select a Country"
+    countrySelect.classList.add("not_valid");
+    countrySelect.focus();
+    return false;
+  }
 
-  // valid for background  information  upto postgraduation
+  countrySelect.classList.remove("not_valid");
+  validation_personal.innerHTML = "&nbsp;";
+  return true;
+}
 
+function marital_valid(){
+  const marital = document.querySelector("#marital_status");
+  const validation_personal = document.getElementById("validation-personal");
+  if (marital.value === "0") {
+    validation_personal.innerHTML = "<i class='fa-solid fa-exclamation'></i> Select Maritial Status."
+    marital.classList.add("not_valid");
+    marital.focus();
+    return false;
+  }
+
+  marital.classList.remove("not_valid");
+  validation_personal.innerHTML = "&nbsp;";
+  return true;
+}
+
+function qual_valid(){
   const degree = document.querySelector('select[name="Degree"]');
+  const validation_background = document.getElementById("validation-background");
+
+  if (degree.value === "0") {
+      validation_background.innerHTML = "<i class='fa-solid fa-exclamation'></i> Please select a degree.";
+      degree.classList.add("not_valid");
+      degree.focus();
+    return false;
+  }
+  
+  validation_background.innerHTML = "&nbsp;"
+  degree.classList.remove("not_valid");
+  return true;
+}
+
+function instName_valid(){
   const instName = document
-    .querySelector('input[name="InstName"]')
-    .value.trim();
-  const yoa = document.querySelector('input[name="YOA"]').value;
-  const yoc = document.querySelector('input[name="YOC"]').value;
+    .querySelector('input[name="InstName"]');
+    const validation_background = document.getElementById("validation-background");
+    if (instName.value.trim() === "") {
+      validation_background.innerHTML = "<i class='fa-solid fa-exclamation'></i> Please enter an institute name.";
+      instName.classList.add("not_valid");
+      instName.focus();
+      return false;
+    }else if(!alphaRegex.test(instName.value.trim())){
+      validation_background.innerHTML = "<i class='fa-solid fa-exclamation'></i> Please enter a valid institute name.";
+      instName.classList.add("not_valid");
+      instName.focus();
+      return false;
+    }
+  instName.classList.remove("not_valid");
+  validation_background.innerHTML = "&nbsp;";
+  return true;
+}
 
-  // end of background  information  upto postgraduation
+function qual2_valid(){
+  const degree = document.querySelector('select[name="Degree2"]');
+  const validation_background2 = document.getElementById("validation-background2");
 
-  //valid for background  information  postgraduation not include bed med
+  if (degree.value === "0") {
+      validation_background2.innerHTML = "<i class='fa-solid fa-exclamation'></i> Please select a degree.";
+      degree.classList.add("not_valid");
+      degree.focus();
+    return false;
+  }
+  
+  validation_background2.innerHTML = "&nbsp;"
+  degree.classList.remove("not_valid");
+  return true;
+}
 
-  const degree2 = document.querySelector("select[name=Degree2]");
-  const instName2 = document.querySelector("input[name=InstName2]");
-  const yoa2 = document.querySelector("input[name=YOA2]").value;
-  const yoc2 = document.querySelector("input[name=YOC2]").value;
+function instName2_valid(){
+  const instName = document
+    .querySelector('input[name="InstName2"]');
+    const validation_background = document.getElementById("validation-background2");
+    if (instName.value.trim() === "") {
+      validation_background.innerHTML = "<i class='fa-solid fa-exclamation'></i> Please enter an institute name.";
+      instName.classList.add("not_valid");
+      instName.focus();
+      return false;
+    }else if(!alphaRegex.test(instName.value.trim())){
+      validation_background.innerHTML = "<i class='fa-solid fa-exclamation'></i> Please enter a valid institute name.";
+      instName.classList.add("not_valid");
+      instName.focus();
+      return false;
+    }
+  instName.classList.remove("not_valid");
+  validation_background.innerHTML = "&nbsp;";
+  return true;
+}
 
-  // end of background  information   postgraduation not include bed and med
+function qual3_valid(){
+  const degree = document.querySelector('select[name="Degree3"]');
+  const validation_background = document.getElementById("validation-background3");
 
-  // Validation for additional  information
-  const degree3 = document.querySelector("select[name=Degree3]");
-  const instName3 = document.querySelector("input[name=InstName3]");
-  const yoa3 = document.querySelector('[name="YOA3"]').value;
-  const yoc3 = document.querySelector('[name="YOC3"]').value;
+  if (degree.value === "0") {
+      validation_background.innerHTML = "<i class='fa-solid fa-exclamation'></i> Please select a degree.";
+      degree.classList.add("not_valid");
+      degree.focus();
+    return false;
+  }
+  
+  validation_background.innerHTML = "&nbsp;"
+  degree.classList.remove("not_valid");
+  return true;
+}
 
-  // end of additional  information
+function instName3_valid(){
+  const instName = document
+    .querySelector('input[name="InstName3"]');
+    const validation_background = document.getElementById("validation-background3");
+    if (instName.value.trim() === "") {
+      validation_background.innerHTML = "<i class='fa-solid fa-exclamation'></i> Please enter an institute name.";
+      instName.classList.add("not_valid");
+      instName.focus();
+      return false;
+    }else if(!alphaRegex.test(instName.value.trim())){
+      validation_background.innerHTML = "<i class='fa-solid fa-exclamation'></i> Please enter a valid institute name.";
+      instName.classList.add("not_valid");
+      instName.focus();
+      return false;
+    }
+  instName.classList.remove("not_valid");
+  validation_background.innerHTML = "&nbsp;";
+  return true;
+}
 
-  // Validation for skills
+function skill_valid(){
+  var form = document.querySelector("form");
+  const validation_experience = document.getElementById("validation-experience");
+  const skill = form.querySelector('input[name="skill"]');
+  if (skill.value.trim() === "") {
+    validation_experience.innerHTML= "<i class='fa-solid fa-exclamation'></i>Please enter your Skills.";
+    skill.classList.add("not_valid");
+    skill.focus();
+    return false;
+  }
 
-  const skill = document.querySelector("#skill");
-  const availability = document.querySelector("#availability");
+  validation_experience.innerHTML = "&nbsp;";
+  skill.classList.remove("not_valid");
+  return true;
+}
 
-  //  end of skills
+function availability_valid(){
+  const avail = document.querySelector("#availability");
+  const validation_exp = document.getElementById("validation-experience");
+  if (avail.value === "0") {
+    validation_exp.innerHTML = "<i class='fa-solid fa-exclamation'></i> Select your Availability"
+    avail.classList.add("not_valid");
+    avail.focus();
+    return false;
+  }
 
-  //Validations of Username
+  avail.classList.remove("not_valid");
+  validation_exp.innerHTML = "&nbsp;";
+  return true;
+}
+
+function username_valid(){
   const username = document.querySelector("#username");
+  const validation_login = document.getElementById("validation-login");
+
+  if (username.value.trim() === "") {
+      validation_login.innerHTML = "<i class='fa-solid fa-exclamation'></i> Please enter a Username.";
+      username.classList.add("not_valid");
+      username.focus();
+    return false;
+  }
+  validation_login.innerHTML = "&nbsp;"
+  username.classList.remove("not_valid");
+  return true;
+}
+
+function pass1_valid(){
+  const password1 = document.querySelector("#pass1");
+  const validation_login = document.getElementById("validation-login");
+  if (password1.value.trim() === "") {
+    validation_login.innerHTML = "<i class='fa-solid fa-exclamation'></i> Please enter password.";
+    password1.classList.add("not_valid");
+    password1.focus();
+    return false;
+  } else if (!regexPass.test(password1.value)) {
+    validation_login.innerHTML = "<i class='fa-solid fa-exclamation'></i> Password incorrect format. Contains at least one special character,one smallcase character,one uppercase character and has a minimum length of 8 characters:";
+    password1.classList.add("not_valid");
+    password1.focus();
+    return false;
+  }
+  password1.classList.remove("not_valid");
+  validation_login.innerHTML = "&nbsp;"
+  return true;
+}
+
+function pass2_valid(){
+  const validation_login = document.getElementById("validation-login");
   const password1 = document.querySelector("#pass1");
   const password2 = document.querySelector("#pass2");
+  if (password2.value.trim() === "") {
+    validation_login.innerHTML = "<i class='fa-solid fa-exclamation'></i> Please enter password.";
+    password2.classList.add("not_valid");
+    password2.focus();
+    return false;
+  } else if (password1.value != password2.value) {
+    validation_login.innerHTML = "<i class='fa-solid fa-exclamation'></i> Enter correct Password.";
+    password2.classList.add("not_valid");
+    password2.focus();
+    return false;
+  }
+
+  password2.classList.remove("not_valid");
+  validation_login.innerHTML = "&nbsp;"
+  return true;
+}
+
+function validateForm() {
+  const radios = document.getElementsByName("salutation");
+  const validation_personal = document.getElementById("validation-personal");
+  const validation_contact = document.getElementById("validation-contact");
+  const validation_background = document.getElementById("validation-background");
+
+  const contact_block = document.getElementById("contact-info");
+  const personal_block = document.getElementById("personal-info");
+  const background_block = document.getElementById("background-info");
+  const experience_block = document.getElementById("experience");
+  const login_block = document.getElementById("login-details");
+
+  const genderInput = document.querySelector('input[name="gender"]:checked');
+
+  const dobInput = document.querySelector('input[name="DOB"]');
+  const yoa = document.querySelector('input[name="YOA"]');
+  const yoc = document.querySelector('input[name="YOC"]');
+
+  const yoa2 = document.querySelector("input[name=YOA2]");
+  const yoc2 = document.querySelector("input[name=YOC2]");
+
+  const yoa3 = document.querySelector('[name="YOA3"]');
+  const yoc3 = document.querySelector('[name="YOC3"]');
+
 
   // valid for contact information
 
@@ -81,267 +414,195 @@ function validateForm() {
     }
   }
 
-  // Check if a salutation is selected
   if (!isSalutationSelected) {
-    alert("Please select a salutation.");
-    return false; // prevent form submission
-  }
-
-  // Check if required fields are filled in
-  if (fnameInput.value.trim() === "") {
-    alert("Please enter your First Name.");
-    fnameInput.focus();
+    validation_contact.innerHTML = "<i class='fa-solid fa-exclamation'></i> Please select a salutation.";
+    contact_block.scrollIntoView();
     return false;
   }
+  validation_contact.innerHTML = "&nbsp;";
 
-  if (!alphaRegex.test(fnameInput.value.trim())) {
-    alert("Please enter only alphabetic characters for your First Name.");
-    fnameInput.focus();
+  if(!firstName()){
+    contact_block.scrollIntoView({behavior: 'smooth'}, true);
     return false;
   }
 
-  if (snameInput.value.trim() === "") {
-    alert("Please enter your Surname.");
-    snameInput.focus();
-    return false;
-  }
-  if (!alphaRegex.test(snameInput.value.trim())) {
-    alert("Please enter only alphabetic characters for your First Name.");
-    snameInput.focus();
+  if(!surName()){
+    contact_block.scrollIntoView({behavior: 'smooth'}, true);
     return false;
   }
 
-  if (emailInput.value.trim() === "") {
-    alert("Email is required.");
-    return false;
-  } else if (!emailRegex.test(emailInput.value.trim())) {
-    alert("Please enter a valid email address.");
+  if(!email()){
+    contact_block.scrollIntoView({behavior: 'smooth'}, true);
     return false;
   }
 
-  // Check mobile input
-  if (mobileInput.value.trim() === "") {
-    alert("Mobile number is required.");
-    return false;
-  } else if (!mobileRegex.test(mobileInput.value.trim())) {
-    alert("Please enter a valid mobile number.");
+  if(!mobile_valid()){
+    contact_block.scrollIntoView({behavior: 'smooth'}, true);
     return false;
   }
 
-  if (addressInput.value.trim() === "") {
-    alert("Please enter your Address.");
-    addressInput.focus();
+  if(!address_valid()){
+    contact_block.scrollIntoView({behavior: 'smooth'}, true);
     return false;
   }
 
-  // end of contatct information
-
-  // Validation for personal information
-
-  // Check if gender is selected
   if (!genderInput) {
-    alert("Please select your gender");
+    validation_personal = "<i class='fa-solid fa-exclamation'></i> Please select your gender";
+    personal_block.scrollIntoView({behavior: 'smooth'}, true);
+    return false;
+  }
+  validation_personal.innerHTML = "&nbsp;";
+
+  if(!date_valid()){
+    personal_block.scrollIntoView({behavior: "smooth"}, true);
     return false;
   }
 
-  // Check if nationality is selected
-  if (countrySelect.value === "0") {
-    alert("Please select your nationality");
+  if(!country_valid()){
+    personal_block.scrollIntoView({behavior: "smooth"}, true);
     return false;
   }
 
-  // Check if marital status is selected
-  if (maritalStatusSelect.value === "") {
-    alert("Please select your marital status");
+  if(!marital_valid()){
+    personal_block.scrollIntoView({behavior: "smooth"}, true);
     return false;
   }
 
-  // Check if date of birth is entered and is valid
-  if (dobInput.value === "") {
-    alert("Please enter your date of birth");
-    return false;
-  } else {
-    const parsedDate = Date.parse(dobInput.value);
-    if (isNaN(parsedDate)) {
-      alert("Please enter a valid date of birth");
-      return false;
-    }
-  }
 
-  // end of personal information
-
-  // valid for background  information  upto postgraduation
-
-  if (degree.value === "") {
-    alert("Please select a degree.");
+  if(!qual_valid()){
+    background_block.scrollIntoView({behavior: "smooth"}, true);
     return false;
   }
 
-  if (instName === "") {
-    alert("Please enter an institute name.");
+  if(!instName_valid()){
+    background_block.scrollIntoView({behavior: "smooth"}, true);
     return false;
   }
 
-  if (yoa === "") {
-    alert("Please enter the year of admission.");
+  const parsedDate = new Date(dobInput.value);
+
+  if (yoa.value === "") {
+    background_block.scrollIntoView({behavior: "smooth"}, true);
+    validation_background.innerHTML = "<i class='fa-solid fa-exclamation'></i> Please enter the year of admission.";
+    yoa.focus();
     return false;
-  } else if (yoa < 2000 || yoa > 2024) {
-    alert("Please enter a valid Year.");
+  } else if ((yoa.value-parsedDate.getFullYear() <= 16) || yoa.value > 2024) {
+    background_block.scrollIntoView({behavior: "smooth"}, true);
+    validation_background.innerHTML = "<i class='fa-solid fa-exclamation'></i> Please enter a valid Year.";
+    yoa.focus();
+    return false;
+  }
+  validation_background.innerHTML = "&nbsp;";
+
+  if (yoc.value === "") {
+    background_block.scrollIntoView({behavior: "smooth"}, true);
+    validation_background.innerHTML = "<i class='fa-solid fa-exclamation'></i> Please enter the year of completion.";
+    yoc.focus();
+    return false;
+  } else if ((yoa.value > yoc.value) || (yoc.value-yoa.value <= 2)) {
+    validation_background.innerHTML = "<i class='fa-solid fa-exclamation'></i> Please enter valid Year of completion";
+    background_block.scrollIntoView({behavior: "smooth"}, true);
+    yoc.focus();
+    return false;
+  }
+  validation_background.innerHTML = "&nbsp;";
+
+  if(!qual2_valid()){
+    background_block.scrollIntoView({behavior: "smooth"}, true);
     return false;
   }
 
-  if (yoc === "") {
-    alert("Please enter the year of completion.");
-    return false;
-  } else if (yoc < 2000 || yoc > 2024) {
-    alert("Please enter a valid Year.");
+  if(!instName2_valid()){
+    background_block.scrollIntoView({behavior: "smooth"}, true);
     return false;
   }
 
-  // Check if the year of admission is before the year of completion
-  if (yoa > yoc) {
-    alert("The year of admission cannot be after the year of completion.");
+  if (yoa2.value === "") {
+    background_block.scrollIntoView({behavior: "smooth"}, true);
+    validation_background.innerHTML = "<i class='fa-solid fa-exclamation'></i> Please enter the year of admission.";
+    yoa2.focus();
+    return false;
+  } else if ((yoa2.value-parsedDate.getFullYear() <= 16) || yoa2.value > 2024) {
+    background_block.scrollIntoView({behavior: "smooth"}, true);
+    validation_background.innerHTML = "<i class='fa-solid fa-exclamation'></i> Please enter a valid Year.";
+    yoa2.focus();
+    return false;
+  }
+  validation_background.innerHTML = "&nbsp;";
+
+  if (yoc2.value === "") {
+    background_block.scrollIntoView({behavior: "smooth"}, true);
+    validation_background.innerHTML = "<i class='fa-solid fa-exclamation'></i> Please enter the year of completion.";
+    yoc2.focus();
+    return false;
+  } else if ((yoa2.value > yoc2.value) || (yoc2.value-yoa2.value <= 2)) {
+    validation_background.innerHTML = "<i class='fa-solid fa-exclamation'></i> Please enter valid Year of completion";
+    background_block.scrollIntoView({behavior: "smooth"}, true);
+    yoc2.focus();
+    return false;
+  }
+  validation_background.innerHTML = "&nbsp;";
+
+  if(!qual3_valid()){
+    background_block.scrollIntoView({behavior: "smooth"}, true);
     return false;
   }
 
-  // end of background  information  upto postgraduation
-
-  //valid for background  information  postgraduation
-
-  if (degree2.value === "0") {
-    alert("Please select a degree.");
-    degree2.focus();
+  if(!instName3_valid()){
+    background_block.scrollIntoView({behavior: "smooth"}, true);
     return false;
   }
 
-  // Validate institute name
+  if (yoa3.value === "") {
+    background_block.scrollIntoView({behavior: "smooth"}, true);
+    validation_background.innerHTML = "<i class='fa-solid fa-exclamation'></i> Please enter the year of admission.";
+    yoa3.focus();
+    return false;
+  } else if ((yoa3.value-parsedDate.getFullYear() <= 16) || yoa3.value > 2024) {
+    background_block.scrollIntoView({behavior: "smooth"}, true);
+    validation_background.innerHTML = "<i class='fa-solid fa-exclamation'></i> Please enter a valid Year.";
+    yoa3.focus();
+    return false;
+  }
+  validation_background.innerHTML = "&nbsp;";
 
-  if (instName2.value.trim() === "") {
-    alert("Please enter an institute name.");
-    instName2.focus();
+  if (yoc3.value === "") {
+    background_block.scrollIntoView({behavior: "smooth"}, true);
+    validation_background.innerHTML = "<i class='fa-solid fa-exclamation'></i> Please enter the year of completion.";
+    yoc3.focus();
+    return false;
+  } else if ((yoa3.value > yoc3.value) || (yoc3.value-yoa3.value <= 2)) {
+    validation_background.innerHTML = "<i class='fa-solid fa-exclamation'></i> Please enter valid Year of completion";
+    background_block.scrollIntoView({behavior: "smooth"}, true);
+    yoc3.focus();
+    return false;
+  }
+  validation_background.innerHTML = "&nbsp;";
+
+  if(!skill_valid()){
+    experience_block.scrollIntoView({behavior: "smooth"}, true);
     return false;
   }
 
-  if (yoa2 === "") {
-    alert("Please enter the year of admission.");
-    return false;
-  } else if (yoa2 < 2000 || yoa2 > 2024) {
-    alert("Please enter a valid Year.");
+  if(!availability_valid()){
+    experience_block.scrollIntoView({behavior: "smooth"}, true);
     return false;
   }
 
-  if (yoc2 === "") {
-    alert("Please enter the year of completion.");
-    return false;
-  } else if (yoc2 < 2000 || yoc2 > 2024) {
-    alert("Please enter a valid Year.");
+  if(!username_valid()){
+    login_block.scrollIntoView({behavior: "smooth"}, true);
     return false;
   }
 
-  // Check if the year of admission is before the year of completion
-  if (yoa2 > yoc2) {
-    alert("The year of admission cannot be after the year of completion.");
-    return false;
-  }
-  // end of background  information   postgraduation
-
-  // Validation for additional  information
-  if (degree3.value === "0") {
-    alert("Please select a degree.");
-    degree3.focus();
+  if(!pass1_valid()){
+    login_block.scrollIntoView({behavior: "smooth"}, true);
     return false;
   }
 
-  // Validate institute name
-
-  if (instName3.value.trim() === "") {
-    alert("Please enter an institute name.");
-    instName3.focus();
+  if(!pass2_valid()){
+    login_block.scrollIntoView({behavior: "smooth"}, true);
     return false;
   }
-
-  if (yoa3 === "") {
-    alert("Please enter the year of admission.");
-    return false;
-  } else if (yoa3 < 2000 || yoa3 > 2024) {
-    alert("Please enter a valid Year.");
-    return false;
-  }
-
-  if (yoc3 === "") {
-    alert("Please enter the year of completion.");
-    return false;
-  } else if (yoc3 < 2000 || yoc3 > 2024) {
-    alert("Please enter a valid Year.");
-    return false;
-  }
-
-  // Check if the year of admission is before the year of completion
-  if (yoa3 > yoc3) {
-    alert("The year of admission cannot be after the year of completion.");
-    return false;
-  }
-
-  // end of additonal  information
-
-  // Validation for skill
-
-  if (skill.value.trim() === "") {
-    alert("Please Enter skills");
-    return false;
-  }
-  // end of skill
-
-  //Availability
-  if (availability.value === "0") {
-    alert("Please select your availabity");
-    return false;
-  }
-
-  // VALIDATION  FOR CV FILESS
-
-  const cvInput = document.querySelector('input[name="CV"]');
-  const certificates = document.querySelector("#certificates");
-
-  if (!cvInput.files[0]) {
-    alert("Please upload a CV.");
-    return false;
-  }
-
-  if (!certificates) {
-    alert("Please upload certificates");
-    return false;
-  }
-
-  // All validation checks passed, allow form submission
-
-  //login
-  if (username.value.trim() === "") {
-    alert("Please enter a Username.");
-    return false;
-  }
-
-  let regexPass = /^(?=.{8,})(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=]).*$/;
-  if (password1.value.trim() === "") {
-    alert("Please enter password.");
-    return false;
-  } else if (!regexPass.test(password1.value)) {
-    alert(
-      "Password incorrect format. Contains at least one special character,one smallcase character,one uppercase character and has a minimum length of 8 characters:"
-    );
-    return false;
-  }
-
-  if (password2.value.trim() === "") {
-    alert("Please confirm password.");
-    return false;
-  }
-
-  if (password1.value != password2.value) {
-    alert("Enter correct Password.");
-    return false;
-  }
-  //return valid;
 
   return true;
 }
