@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student HomePage</title>
+    <link rel="stylesheet" href="css/profile_stu.css">
+    <script src="https://kit.fontawesome.com/21198450f8.js" crossorigin="anonymous"></script>
+</head>
+<body >
+        <!-- will have student landing nav bar -->
+ <!-- <div class="entire"> -->
+            <div class="details">
+                <img src="/images.jpeg" alt="ProfilePic">
+                <div class="txtdetail">
+                    <p><%= User.First_Name %></p>
+                    <p><%= User.Email %></p>
+                    <p><%= User.Mobile %></p>     
+                </div>
+                <div class="btndiv">
+                    <button class ="btn" onclick="tabchange(0)">Courses</button>
+                    <button class ="btn" onclick="tabchange(1)">View Profile</button>
+                    <button class ="btn" onclick="tabchange(2)">Edit Profile</button>
+                </div>
+            </div>
+            <div class="rhs rhs_courses dpn">
+              <h1>Courses Enrolled </h1>
+            <div class="enrolled">
+               <% if(User.myCourses.length == 0){ %>
+                    <p>No Courses Enrolled</p>
+               <% } else{ %>  
+                   <% for(let i = 0 ; i < User.myCourses.length ; i++){ %>
+                        <div class="card_course">
+                            <img src="/tutor_card_img.jpg" alt="Tutor">
+                            <div class="trans">
+                                <h4 class="cardtitle"><%= User.myCourses[i].Course_Name %></h4>
+                              <div class="personaldetail">
+                                 <h4>
+                                    <i class="fa-solid fa-user"></i><%= User.myCourses[i].Tutor_Name %>
+                                </h4>
+                                <h4>
+                                    <i class="fa-solid fa-at"></i>
+                                    <%= User.myCourses[i].Tutor_Mail %></h4>
+
+                                <h4>
+                                    <i class="fa-solid fa-headset"></i>
+                                    236542566</h4>
+                              </div >
+                                <div class="coursedetail">
+                                    <h4><%= User.myCourses[i].Reg_Date %></h4>
+                                    <h4 class="status">Status</h4>
+                                </div>
+                            </div>
+                        </div>
+                   <% } %>
+              <% } %>
+            </div>
+        </div>
+        <div class="rhs rhs_vprofile dpn">
+
+            <table>
+                <tr class="uname">
+                    <th >
+                       UserName 
+                    </th>
+                    <td> : </td>
+                    <td>
+                        <%= User.username %>
+                    </td>
+                </tr>
+
+            <tr class="name">
+                <th class="lhead">
+                    Name 
+                </th>
+                <td> : </td>
+                <td>
+                    <%= User.First_Name %>
+                </td>
+            </tr>
+            <tr class="email">
+                <th class="lemail">
+                    Email 
+                </th>
+                <td>:</td>
+                <td>
+                    <%= User.Email %>
+                </td>
+            </tr>
+            <tr class="phonenum">
+                <th class="lphn">
+                    PhoneNumber 
+                </th>
+                <td>:</td>
+                <td>
+                    <%= User.Mobile %>
+                </td>
+            </tr>
+            <tr class="resume">
+                <th class="lresume">
+                    Your Resume 
+                </th>
+                <td>:</td>
+                <td>
+                    Prev Resume
+                </td>
+            </tr>
+            <tr class="gender">
+                <th class="lgender">
+                    Gender
+                </th>
+                <td>:</td>
+                <td>
+                    gen
+                </td>
+            </tr>
+
+            <tr class="hq">
+                <th class="lhq">
+                    Highest Qualification
+                </th>
+                <td>:</td>
+                <td>
+                    hq
+                </td>
+            </tr>
+
+            <tr class="skills">
+                <th class="lskill">
+                    Skills
+                </th>
+                <td>:</td>
+                <td>
+                    [skills]
+                </td>
+            </tr>
+
+        </table>
+        </div>
+        <form action="/student_profile" method="post">
+        <div class="rhs rhs_eprofile dpn">
+            <div class="box">
+                <div class="float-group">
+                 <div class="years">
+                    
+                    <input type="text" name="uname" placeholder="UserName"  disabled>
+                    <input type="text" placeholder="Name" name="name">
+                 </div>
+                    <div class="years">
+                        <input type="password" name='password' placeholder="Enter Newpassword">
+                    <input type="password" placeholder="Confirm Newpassword">
+                    </div>
+                   <div class="years">
+                    <input type="text" placeholder="Email" name="email">
+                    <input   type="text" maxlength="10" name="mobile"
+                    title="Please enter exactly 10 digits" placeholder="Phone Number">
+                   </div>
+
+                </div>
+                <button type="submit">Edit</button>
+            </div>
+        </form>
+        </div>
+       
+                
+   <script src="js/profile_stu.js"></script>
+</body>
+</html>

@@ -2,7 +2,6 @@ const exp = require('express');
 const app = exp();
 const path = require('path');
 const bodyParser = require('body-parser');
-const sqlite3 = require('sqlite3').verbose();
 
 app.use(bodyParser.urlencoded({extended:true}));
 
@@ -11,64 +10,10 @@ app.set('views',path.join(__dirname,'views'));
 
 app.use(exp.static("public"));
 
-const db_name = path.join(__dirname,'db','registration.sqlite3');
 
-const db = new sqlite3.Database(db_name,err => {
-    if(err)
-        return console.error(err.message);
-    console.log("Database ---> Connected");
-});
+const HomeRoutes = require('./routes/HomeRoutes.js');
 
-const S_ct = `CREATE TABLE IF NOT EXISTS student(salutation varchar(5),fname varchar(50),lname varchar(50),sname varchar(50),username varchar(100),password varchar(100),email varchar(50),mobile varchar(10),address varchar(500),gender varchar(10),dob varchar(30),nationality varchar(100));`
-
-db.run(S_ct,err => {
-    if(err)
-        return console.log("Student Table Creation: "+err.message);
-    else
-        console.log("Student Table Created");
-});
-
-
-const T_ct = `CREATE TABLE IF NOT EXISTS tutor(salutation varchar(5),fname varchar(50),lname varchar(50),sname varchar(50),username varchar(100),password varchar(100),email varchar(50),mobile varchar(10),address varchar(500),gender varchar(10),dob varchar(30),nationality varchar(100),marital varchar(100),exp varchar(50),skills varchar(500),availabilty varchar(50),courses varchar(500));`
-
-db.run(T_ct,err => {
-    if(err)
-        return console.log("Tutor Table Creation: "+err.message);
-    else
-        console.log("Tutor Table Created");
-});
-
-const JS_ct = `CREATE TABLE IF NOT EXISTS job_seeker(salutation varchar(5),fname varchar(50),lname varchar(50),sname varchar(50),username varchar(100),password varchar(100),email varchar(50),mobile varchar(10),address varchar(500),gender varchar(10),dob varchar(30),nationality varchar(100),marital varchar(100),exp varchar(50),skills varchar(500),availability varchar(50),courses varchar(500));`
-
-db.run(JS_ct,err => {
-    if(err)
-        return console.log("Job Seeker Table Creation: "+err.message);
-    else
-        console.log("Job Seeker Table Created");
-});
-
-const M_ct = `CREATE TABLE IF NOT EXISTS mentor(salutation varchar(5),fname varchar(50),lname varchar(50),sname varchar(50),username varchar(100),password varchar(100),email varchar(50),mobile varchar(10),address varchar(500),gender varchar(10),dob varchar(30),nationality varchar(100),marital varchar(100),exp varchar(50),skills varchar(500),availability varchar(50));`
-
-db.run(M_ct,err => {
-    if(err)
-        return console.log("Mentor Table Creation: "+err.message);
-    else
-        console.log("Mentor Table Created");
-});
-
-// const C_ct = `CREATE TABLE IF NOT EXISTS company(salutation varchar(5),fname varchar(50),lname varchar(50),sname varchar(50),username varchar(100),password varchar(100),email varchar(50),mobile varchar(10),address varchar(500),gender varchar(10),dob varchar(30),nationality varchar(100),marital varchar(100),exp varchar(50),skills varchar(500),availability varchar(50));`
-
-// db.run(C_ct,err => {
-//     if(err)
-//         return console.log("Company Table Creation: "+err.message);
-//     else
-//         console.log("Company Table Created");
-// });
-
-
-app.get("/", function (req, res) {
-    res.render("homePage");
-});
+app.use('/',HomeRoutes);
 
 
 app.get("/studentRegister",function(req,res){

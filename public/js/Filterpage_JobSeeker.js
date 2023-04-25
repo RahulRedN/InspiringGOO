@@ -21,8 +21,8 @@ function search() {
  
 }
 
-function popup(){
-  let popUp = document.getElementById("popup-container");
+function popup(popup_id){
+  let popUp = document.getElementById(popup_id);
   popUp.classList.toggle("open-popup");
   console.log("omk");
   window.scrollTo({
