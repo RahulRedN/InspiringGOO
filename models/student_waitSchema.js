@@ -17,4 +17,6 @@ const WaitingList_Student = new mongoose.Schema({
     }]
 })
 
-exports.waiting_student = mongoose.model('waiting_students', WaitingList_Student);
+const wait_students = mongoose.model('wait_students', WaitingList_Student);
+
+module.exports =wait_students;

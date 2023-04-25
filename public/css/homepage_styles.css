@@ -416,10 +416,10 @@ body{
 /* OPP-CARD Animations*/
 .hidden1
 {
-  /* transition : all 1s; */
   opacity: 0;
-  transition : transform 1s, filter 1s;
+  /* transition : transform 1s, filter 1s; */
   transform: translateX(100%);
+  transition: all 0.5s;
   filter : blur(0.5rem);
 }
 
@@ -432,9 +432,9 @@ body{
 
 .hidden2
 {
-  /* transition : all 1s; */
   opacity : 0;
-  transition : transform 1s, filter 1s;
+  /* transition : transform 1s, filter 1s; */
+  transition: all 0.5s;
   transform: translateX(-100%);
   filter : blur(0.5rem);
 }
@@ -443,5 +443,5 @@ body{
 {
   opacity: 1;
   filter: blur(0);
-  transform: translate(0);
+  transform: translate(0);
 }

@@ -7,6 +7,8 @@ const ejs = require('ejs');
 const session = require('express-session');
 const app=express();
 app.use(cookieParser())
+// const courses_cards = require("./models/courses_schema.js");
+// const card_data = require('./courses.js');
 
 
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -40,18 +42,17 @@ app.use('/studentRegister', HomeRoutes);
 app.use('/jobseekerRegister', HomeRoutes);
 app.use('/tutorRegister', HomeRoutes);
 app.use('/mentorRegister', HomeRoutes);
+app.use('/companyRegister', HomeRoutes);
 
 app.use('/S_Landing', HomeRoutes);
 app.use('/student_profile', HomeRoutes);
 
-// app.get("/S_Landing", function (req, res) {
-//   if (req.cookies?.id) return res.render("S_Landing");
-//   res.redirect("/studentRegister");
-// });
+app.use('/JobSeeker_Landing', HomeRoutes);
 
-// app.get("/JobSeeker_Landing", function (req, res) {
-//   if (req.cookies?.id) return res.render("JobSeeker_Landing");
-//   res.redirect("/jobseekerRegister");
+// app.get('/test', async (req, res) => {
+//   courses_cards.create(card_data).then((result) => {
+//     console.log("ok");
+//   });
 // });
 
 

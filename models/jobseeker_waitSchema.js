@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const { jobseeker_user } = require('./jobseeker_schema');
 
 const jobseeker_wait = new mongoose.Schema({
     jobseeker_Name: String,
@@ -16,4 +17,7 @@ const WaitingList_Jobseeker= new mongoose.Schema({
     }]
 });
 
-exports.waiting_student = mongoose.model('waiting_students', WaitingList_Jobseeker);
+
+const wait_jobseekers = mongoose.model('wait_jobseekers', WaitingList_Jobseeker);
+
+module.exports = wait_jobseekers;

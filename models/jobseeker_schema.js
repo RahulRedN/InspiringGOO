@@ -28,4 +28,6 @@ const Jobs = new mongoose.Schema({
     myJobs: [Jobs]
 });
 
-exports.jobseeker_user = mongoose.model('jobseekers', userSchema_Jobseeker);
+const jobseeker_user = mongoose.model('jobseekers', userSchema_Jobseeker);
+
+module.exports = jobseeker_user;

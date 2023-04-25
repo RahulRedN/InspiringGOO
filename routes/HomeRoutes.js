@@ -16,9 +16,7 @@ router.get('/studentRegister', Homepage_Controllers.StudentRegister);
 router.get('/jobseekerRegister', Homepage_Controllers.JobseekerRegister);
 router.get('/tutorRegister', Homepage_Controllers.TutorRegister);
 router.get('/mentorRegister', Homepage_Controllers.MentorRegister);
-
-
-
+router.get('/companyRegister', Homepage_Controllers.CompanyRegister);
 
 
 
@@ -27,17 +25,14 @@ router.post('/studentRegister', Homepage_Controllers.StudentRegisterPost);
 router.post('/jobseekerRegister', Homepage_Controllers.JobseekerRegisterPost);
 router.post('/tutorRegister', Homepage_Controllers.TutorRegisterPost);
 router.post('/mentorRegister', Homepage_Controllers.MentorRegisterPost);
-
-
-
-
-
+router.post('/companyRegister', Homepage_Controllers.CompanyRegisterPost);
 
 
 router.get('/S_Landing', Homepage_Controllers.StudentLandingLoadUp);
 router.get('/student_profile', Homepage_Controllers.StudentProfile);
 router.post('/student_profile', Homepage_Controllers.StudentProfilePost);
 
+router.get('/JobSeeker_Landing', Homepage_Controllers.JobseekerLandingLoadUp);
 
 
 module.exports = router;

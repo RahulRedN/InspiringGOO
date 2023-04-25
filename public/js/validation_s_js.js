@@ -1,5 +1,5 @@
 const alphaRegex = /^[a-zA-Z]+$/;
-const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]{3,}$/;
+const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 const mobileRegex = /^\d{10}$/;
 const regexPass = /^(?=.{8,})(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=]).*$/;
 

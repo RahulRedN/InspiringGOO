@@ -19,3 +19,7 @@ const Tutor_Wait = new mongoose.Schema({
 });
 
 exports.tutor_wait = mongoose.model('wait_tutors', Tutor_Wait);
+
+const wait_tutors = mongoose.model('wait_tutors', Tutor_Wait);
+
+module.exports = wait_tutors;

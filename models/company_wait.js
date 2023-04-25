@@ -12,4 +12,6 @@ const Company_wait = new mongoose.Schema({
     password: String,
 });
 
-exports.company_wait = mongoose.model('tutors', Company_wait);
+const wait_companies = mongoose.model('wait_companies', Company_wait);
+
+module.exports = wait_companies;

@@ -33,4 +33,6 @@ const userSchema_Company = new mongoose.Schema({
     myJobs: [Jobs],
 });
 
-exports.company_user = mongoose.model('companies', userSchema_Company);
+const companies = mongoose.model('companies', userSchema_Company);
+
+module.exports = companies;

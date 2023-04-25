@@ -14,4 +14,6 @@ const Jobs = new mongoose.Schema({
     Responsibilities: [String],
 });
 
-exports.jobs_cards = mongoose.model('jobs', Jobs);
+const jobs = mongoose.model('jobs', Jobs);
+
+module.exports = jobs;

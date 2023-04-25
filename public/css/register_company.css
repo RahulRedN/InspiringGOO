@@ -1,0 +1,112 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap');
+
+
+*{
+    
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+}
+
+body {
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: 120;
+    background: url(../resources/bg-registration.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.container{
+  display: flex;
+  width: 80%;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem;
+  background: rgba( 255, 255, 255, 0.35 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 10px );
+    -webkit-backdrop-filter: blur( 10px );
+    border-radius: 10px;
+    border: 1px solid rgba( 255, 255, 255,0.18);
+}
+
+.container_full form{
+  display: flex;
+  font-size: 1.5rem;
+  flex-direction: column;
+  padding: 2rem;
+  align-items: center;
+  gap: 2rem;
+}
+
+.row {
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
+}
+
+.float-group {
+  position: relative;
+}
+
+.float-group input , .select{
+  padding: 1rem;
+  font-size: 1.5rem;
+  border-radius: 5px;
+  border: #000000 solid 2px;
+  margin: 0.5rem;
+  background-color: transparent;
+  color: #251c1c;
+  transition: 0.30s all ease;
+}
+
+.float-group input:focus {
+  border-color: black;
+  outline: #33333391 solid;
+}
+
+.float-group .float-label {
+  position: absolute;
+  top: 1rem;
+  left: 0.5rem;
+  font-size: 15px;
+  padding: 0 10px;
+  color: #000000;
+  font-weight: 500;
+  pointer-events: none;
+  transition: 0.15s all ease;
+}
+
+.float-group input:focus + .float-label,
+.float-group input:not(:placeholder-shown) + .float-label {
+  transform: translate(1rem, -1rem);
+  background-color: #333;
+  border: solid 1px black;
+  border-radius: 3px;
+  font-size: 14px;
+  color: #eee;
+}
+
+.float-group .not_valid:not(:placeholder-shown){
+  background-color: rgba(254, 154, 154, 0.726);
+}
+
+.but{
+  border: 2px solid black;
+  padding: 15px 20px;
+  border-radius: 50px;
+  font-size: 1rem;
+  font-weight:1000;
+}
+
+.but:hover{
+  background-color: skyblue;
+  box-shadow: black 0 4px 10px;
+  cursor: pointer;
+}
+
+.validations{
+  color: red;
+}

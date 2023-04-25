@@ -1,6 +1,7 @@
-const student_user = require("../models/student_schema.js");
-const jobseeker_user = require("../models/jobseeker_schema.js");
-const tutor_user = require("../models/tutor_schema.js");
+const students = require("../models/student_schema.js");
+const jobseekers = require("../models/jobseeker_schema.js");
+const tutors = require("../models/tutor_schema.js");
+const companies = require("../models/company_schema.js");
 const saltRounds = 10;
 const bcrypt = require('bcrypt');
 
@@ -20,12 +21,8 @@ exports.LoginPost = function (req, res) {
 
 
   if(check== "student"){
-
-
-    student_user.findOne({ username: username }).then(function(foundUser) {
-      console.log(foundUser)
+    students.findOne({ username: username }).then(function(foundUser) {
         if (foundUser) {
-            console.log("gshjghcs");
             bcrypt.compare(password, foundUser.password, function (err, result) {
             if (result === true) {
                 res.cookie('id',username);
@@ -38,6 +35,22 @@ exports.LoginPost = function (req, res) {
         .catch((err) => {
         console.log(err);
         });
+    }
+    else if(check == "jobseeker"){
+      jobseekers.findOne({ username: username }).then(function(foundUser) {
+          if (foundUser) {
+              bcrypt.compare(password, foundUser.password, function (err, result) {
+              if (result === true) {
+                  res.cookie('id',username);
+                  console.log("Login Successful");
+                  res.redirect("/JobSeeker_Landing");
+              }
+              });
+          }
+          })
+          .catch((err) => {
+          console.log(err);
+          });
     }
 };
 
@@ -70,7 +83,7 @@ exports.TutorRegister = function (req, res) {
 };
 
 exports.CompanyRegister = function (req, res) {
-  res.render("tutorRegister");
+  res.render("companyRegister");
 };
 
 exports.MentorRegister = function (req, res) {
@@ -100,13 +113,14 @@ exports.StudentRegisterPost = async function (req, res) {
     Skills: skills,
   };
 
-  const doc = new student_user(details);
+  const doc = new students(details);
 
   doc.save().then(() => {
       res.redirect("/Login");
     })
     .catch((err) => {
       console.log(err);
+      res.redirect("/studentRegister");
     });
 };
 
@@ -114,28 +128,28 @@ exports.JobseekerRegisterPost = async function (req, res) {
   const password = req.body.password1;
   const hashPassword = await bcrypt.hash(password, saltRounds);
   const skills = req.body.skill.split(",");
-  const doc = await jobseeker_user({
+  const details = {
     username: req.body.username,
     First_Name: req.body.fname,
     Last_Name: req.body.lname,
     Sur_Name: req.body.sname,
     Email: req.body.emailID,
     Mobile: req.body.mobile,
+    DOB: req.body.DOB,
+    Gender: req.body.gender,
     Address: req.body.address,
+    Qualification: req.body.qual,
+    Institute_Name: req.body.InstName,
+    Country: req.body.country,
     password: hashPassword,
     Skills: skills,
-  });
-  con
-    .collection("jobseekers")
-    .insertOne(doc)
-    .then((result) => {
-      console.log("New jobseeker registered...");
-      res.redirect("/");
+  };
+  const doc = new jobseekers(details);
+
+  doc.save().then(() => {
+      res.redirect("/Login");
     })
     .catch((err) => {
-      // if(err.name === 'MongoError' && err.code === 11000){
-
-      // }
       console.log(err);
       res.redirect("/jobseekerRegister");
     });
@@ -144,38 +158,64 @@ exports.JobseekerRegisterPost = async function (req, res) {
 exports.TutorRegisterPost = async function (req, res) {
   const password = req.body.password1;
   const hashPassword = await bcrypt.hash(password, saltRounds);
-  const doc = await tutor_user({
+  const details = {
     username: req.body.username,
     First_Name: req.body.fname,
     Sur_Name: req.body.sname,
     Email: req.body.emailID,
     Mobile: req.body.mobile,
+    DOB: req.body.DOB,
+    Gender: req.body.gender,
     Address: req.body.address,
+    Qualification: req.body.qual,
+    Institute_Name: req.body.InstName,
+    Country: req.body.country,
     password: hashPassword,
-  });
-  con
-    .collection("tutors")
-    .insertOne(doc)
-    .then((result) => {
-      console.log("New tutor registered...");
-      res.redirect("/");
+  };
+  const doc = new tutors(details);
+
+  doc.save().then(() => {
+      res.redirect("/Login");
     })
     .catch((err) => {
-      // if(err.name === 'MongoError' && err.code === 11000){
-
-      // }
       console.log(err);
       res.redirect("/tutorRegister");
     });
 };
 
-exports.CompanyRegisterPost = function (req, res) {
-  res.redirect("/Login");
+exports.CompanyRegisterPost = async function (req, res) {
+  const password = req.body.password1;
+  const hashPassword = await bcrypt.hash(password, saltRounds);
+
+  const details ={
+    username: req.body.username,
+    Name: req.body.fname,
+    Email: req.body.emailID,
+    Mobile: req.body.mobile,
+    Address: req.body.address,
+    Country: req.body.country,
+    password: hashPassword,
+  };
+
+  const doc = new companies(details);
+
+  doc.save().then(() => {
+      res.redirect("/Login");
+    })
+    .catch((err) => {
+      console.log(err);
+      res.redirect("/companyRegister");
+    });
 };
 
-exports.MentorRegisterPost = function (req, res) {
-  res.redirect("/Login");
+exports.MentorRegisterPost = async function (req, res) {
+  res.redirect('/Login');
 };
+
+
+
+
+
 
 exports.StudentLandingLoadUp = function (req, res) {
     if(req.cookies?.id) return  res.render("S_Landing");
@@ -212,6 +252,11 @@ exports.StudentProfilePost = async function(req, res){
         console.log(err);
     })
 };
+
+
+
+
+
 
 exports.JobseekerLandingLoadUp = function(req, res){
   if(req.cookies?.id) return  res.render("Jobseeker_Landing");

@@ -9,4 +9,6 @@ const Courses = new mongoose.Schema({
     Mode: String,
 });
 
-exports.courses_cards = mongoose.model('courses', Courses);
+const courses= mongoose.model('courses', Courses);
+
+module.exports = courses;
