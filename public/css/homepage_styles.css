@@ -413,6 +413,35 @@ body{
 }
 
 
-/* responsive-mediascreens */
+/* OPP-CARD Animations*/
+.hidden1
+{
+  /* transition : all 1s; */
+  opacity: 0;
+  transition : transform 1s, filter 1s;
+  transform: translateX(100%);
+  filter : blur(0.5rem);
+}
 
+.animate1
+{
+  opacity :1;
+  filter: blur(0);
+  transform: translate(0);
+}
 
+.hidden2
+{
+  /* transition : all 1s; */
+  opacity : 0;
+  transition : transform 1s, filter 1s;
+  transform: translateX(-100%);
+  filter : blur(0.5rem);
+}
+
+.animate2
+{
+  opacity: 1;
+  filter: blur(0);
+  transform: translate(0);
+}

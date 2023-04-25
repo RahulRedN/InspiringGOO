@@ -7,8 +7,8 @@ router.get('/',Homepage_Controllers.LandingPageLoadUp);
 router.get('/Login', Homepage_Controllers.Login);
 router.post('/Login', Homepage_Controllers.LoginPost);
 router.get('/Logout', Homepage_Controllers.Logout);
-
-
+router.get('/AboutUs', Homepage_Controllers.AboutUs);
+router.get('/services', Homepage_Controllers.Services);
 
 
 
@@ -37,5 +37,7 @@ router.post('/mentorRegister', Homepage_Controllers.MentorRegisterPost);
 router.get('/S_Landing', Homepage_Controllers.StudentLandingLoadUp);
 router.get('/student_profile', Homepage_Controllers.StudentProfile);
 router.post('/student_profile', Homepage_Controllers.StudentProfilePost);
+
+
 
 module.exports = router;

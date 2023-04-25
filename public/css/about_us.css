@@ -1,0 +1,672 @@
+body{
+  margin:0;
+  padding:0;
+  background-image: url('resources/background.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+
+
+/* About us */
+
+.aboutus h1 {
+ 
+  margin-top: 0;
+  font-size: 70px;
+  color: #0a0a5a;
+  padding-top:5%;
+  text-align: center;
+
+  
+}
+
+.aboutus p {
+  font-size: 14px;
+  color:#0a0a5a ;
+  margin-bottom: 0px;
+  text-align: center;
+
+}
+
+.symbol {
+  font-size: 28px;
+  color: #000000;
+  margin-bottom: 10%;
+}
+
+
+
+
+/* Heading styles */
+
+.headingstory {
+text-align: center;
+
+border-radius: 20px;
+padding-bottom: 6%;
+margin: 14px;
+margin-bottom: 6%;
+/* background-image: url('backgrounddiv.jpg'); */
+background-repeat: no-repeat;
+background-size: cover;
+}
+
+.headingstory h2 {
+font-size: 4rem;
+margin-bottom: 1rem;
+color: #0a0a5a;
+}
+
+.headingstory p {
+font-size: 1.5rem;
+line-height: 1.5;
+color: #100C08;
+padding-left: 5%;
+padding-right: 5%;
+}
+
+
+
+@media only screen and (max-width: 768px) {
+  .headingstory h2 {
+      font-size: 40px;
+  }
+  
+ 
+}
+
+@media only screen and (max-width: 480px) {
+  .headingstory h2 {
+      font-size: 30px;
+  }
+  
+  
+}
+
+
+
+/* Story card styles */
+
+.storycard-container {
+
+display: grid;
+grid-template-columns: repeat(2, 1fr); 
+
+grid-gap: 20px;
+
+margin-bottom: 14px; 
+position: relative;
+
+padding-top:50PX ;
+margin: 7% 7% 7% 7%;
+
+padding-left:50px;
+ 
+
+}
+
+.storycard {
+padding: 8px;
+width: 75%;
+height: 85%;
+box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+border-radius: 5px;
+overflow: hidden; 
+transition: all 0.3s ease;
+border: 1px solid #ccc;
+text-align: center;
+
+}
+
+.storycard:hover {
+transform: translateY(-10px);
+box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.3);
+}
+
+.storycard img {
+width: 50%;
+height:auto;
+object-fit: cover;
+}
+
+.storycard h3 {
+margin: 0;
+padding: 1.5rem 0;
+background-color: #f8f8f8;
+color: #333;
+}
+
+.storycard p {
+margin: 0;
+padding: 1.5rem 0;
+font-size: 1.5rem;
+color: #000000;
+
+}
+
+
+
+
+
+@media screen and (max-width: 768px) {
+  .storycard-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  .storycard-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (min-width: 1025px) {
+  .storycard-container {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+
+
+
+    /*our processs */
+
+    .ourprocess {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin-top: 50px;
+      background-image: url('backgrounddiv.jpg');
+
+    margin: 14px; 
+    border-radius: 20px;
+     }
+    
+    .totalprocess {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      margin-top: 50px;
+      max-width: 1200px;
+    }
+    
+    .processcnt1 {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 30px;
+      
+      border-radius: 10px;
+    }
+    
+    .processheading {
+      margin-bottom: 20px;
+    }
+    
+    .processcnt2 {
+      margin-bottom: 30px;
+      text-align: center;
+    }
+    
+    .processcnt2 p {
+      margin: 0;
+    }
+    
+    .seemore {
+      margin-top: 30px;
+    }
+    
+    .seemore a {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #003d59;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 5px;
+      transition: background-color 0.2s;
+    }
+    
+    .seemore a:hover {
+      background-color: #004e73;
+    }
+    
+    .processimg {
+      margin-left: 50px;
+    }
+    
+    .processimg img {
+      max-width: 100%;
+      height: auto;
+    }
+     
+/* Media queries */
+@media screen and (max-width: 1200px) {
+  .totalprocess {
+    flex-wrap: wrap;
+  }
+
+  .processcnt1,
+  .processimg {
+    flex-basis: 100%;
+    text-align: center;
+    padding-right: 0;
+  }
+
+  .processcnt2 {
+    padding-bottom: 50px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .process-title {
+    font-size: 30px;
+  }
+
+  .process-subtitle {
+    padding: 10%;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .process-title {
+    font-size: 24px;
+  }
+
+  .process-subtitle {
+    padding: 20%;
+  }
+
+  .seemore a {
+    font-size: 14px;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+/*What make us different */
+
+
+/* set the display property to grid for the parent container */
+.differnt-container {
+display: grid;
+grid-template-columns: repeat(2, 1fr);
+grid-gap: 20px;
+margin: 50px auto;
+width: 100%;
+height:450px;
+
+background-repeat: no-repeat;
+background-size: cover;
+padding-bottom: 6%;
+
+
+}
+
+/* set the styles for each section element */
+.difcard {
+position: relative;
+display: flex;
+align-items: center;
+justify-content: space-between;
+background-color: #95c4e4;
+border-radius: 10px;
+overflow: hidden;
+cursor: pointer;
+transition: transform 0.2s ease-in-out;
+height: 100%;
+}
+
+.difcard:hover {
+transform: scale(1.05);
+}
+
+.difcontent {
+padding: 20px;
+text-align: center;
+flex-basis: 50%;
+flex-basis: fit-content;
+}
+
+.difimg {
+width: 100%;
+max-width: 400px;
+height: 0;
+padding-bottom: 75%;
+position: relative;
+overflow: hidden;
+flex-basis: 50%;
+border-radius: 0px;
+height: fit-content;
+}
+
+.difimg img {
+position: absolute;
+margin-top: 50%;
+ width: 100%;
+  height: 55%;
+
+} 
+
+.difcontent h3 {
+margin: 0px;
+font-size: 24px;
+font-weight: bold;
+}
+
+.difcontent p {
+margin: 10px 0;
+font-size: 16px;
+line-height: 1.5;
+}
+
+.difcontent a {
+display: inline-block;
+padding: 10px 20px;
+border-radius: 20px;
+background-color: #333;
+color: #fff;
+font-weight: bold;
+text-decoration: none;
+transition: background-color 0.4s ease-in-out;
+}
+
+.difcontent a:hover {
+background-color: #666;
+}
+
+
+
+@media (max-width: 768px) {
+.differnt-container {
+grid-template-columns: 1fr;
+grid-gap: 10px;
+margin: 20px auto;
+height: auto;
+}
+
+/* adjust the layout for smaller screens */
+@media (max-width: 500px) {
+.difcontent h3 {
+font-size: 20px;
+}
+.difcontent p {
+font-size: 14px;
+}
+.difcontent a {
+font-size: 12px;
+}
+}
+
+/* adjust the layout for smaller screens */
+@media (max-width: 320px) {
+.difcontent h3 {
+font-size: 18px;
+}
+.difcontent p {
+font-size: 12px;
+}
+.difcontent a {
+font-size: 10px;
+padding: 8px 16px;
+}
+}
+}
+
+
+
+/*What make us different */
+
+
+/* footer */
+
+footer{
+  background-color: #0a0a5a;
+  width: 100vw;
+  overflow-x: hidden;
+}
+.middle_heads_light
+{
+  color :#4dc3ff;
+  text-decoration: none;
+  font-size:2.5rem;;
+  margin:0;
+}
+.main_footer
+{
+  width: 100vw;
+  height: auto;
+  display:flex;
+  justify-content:space-around;
+  /* align-items: center; */
+  margin:10px 12px;
+  /* border: #48466D 1px solid ; */
+}
+.main_footer a, .main_footer p /*, .main_footer h2*/
+{
+  font-size: 20px;
+  text-decoration: none;
+  color :#4dc3ff;
+  margin: 10px 0px ;
+}
+.company_footer h2, .cservice_footer h2
+{
+  margin:0.1rem;
+}
+.main_footer a:hover
+{
+  color:#fff;
+}
+.missout_section,.company_footer, .cservice_footer ,.explore_footer
+{
+  display :flex ;
+  flex-direction: column;
+  padding : 2px;
+  text-align: center;
+}
+.cnctwithus
+{
+  display: flex;
+  justify-content: flex-start;
+  align-items: baseline;
+}
+.cnctwithus p{
+  font-size: medium;
+  margin-left: 0.3rem ;
+}
+.company_footer, .cservice_footer/*explore_footer */
+{
+  width:15rem;
+}
+
+.missout_section{
+  width:50%;
+  justify-content: flex-start;
+   /* space-around; */
+  align-items: center;
+}
+
+.link_section
+{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  /* margin-top: 25px; */
+  width: 50%;
+}
+.link_top
+{
+  display: flex;
+  justify-content: space-around;
+  padding-bottom: 1.5rem;
+  padding-left: 1.5rem;
+  /* height: 40%; */
+}
+.link_bottom
+{
+  display: flex;
+  flex-direction: column;
+  justify-content:space-between;
+  align-items: center;
+  flex-wrap: nowrap;
+}
+.social_media
+{
+  width:100%;
+  display: flex;
+  justify-content:center;
+  align-items: center;
+  flex-wrap: wrap;
+  /* margin-top: 20px; */
+}
+.social_media img{
+  width:80px;
+  aspect-ratio: 1/1;
+  margin:0px 10px;
+}
+.copywrite
+{
+  color :#4dc3ff;
+text-align: center;
+font-size: 1.3rem;
+}
+.copywrite p
+{
+  margin: 0;
+}
+
+/* .information1{
+  display: flex;
+  flex-direction: column;
+} */
+
+@media screen and ( max-width:835px) and (min-width:710px) {
+  .company_footer a, .cservice_footer a/*explore_footer */
+  {
+    font-size: 1.5rem;
+  }
+  .company_footer h2, .cservice_footer h2
+  {
+    margin:0.4rem;
+  }
+    .social_media img
+    {
+      width:70px;
+      aspect-ratio: 1/1;
+    }
+    .copywrite
+    {
+      font-size: 1.1rem;
+    }
+}
+
+@media screen and  (max-width:710px)and (min-width:670px) {
+  .company_footer a, .cservice_footer a/*explore_footer */
+  {
+       font-size: 1.3rem;
+  }
+  .company_footer h2, .cservice_footer h2
+  {
+    margin:0.3rem;
+    font-size: 0.8rem;
+  }
+  .social_media img
+  {
+        width:70px;
+        margin:0px 0.2rem;
+    }
+    .copywrite
+    {
+      font-size: 1rem;
+    }
+}
+
+@media screen and  (max-width:670px)and (min-width:425px) {
+  .missout_section, .link_section
+  {
+      width:90%;
+  }
+  .link_top
+  {
+    justify-content: center;
+    padding: 0;
+  }
+  .company_footer a, .cservice_footer a
+{
+  font-size: small;
+  margin:3px;
+}
+.company_footer h2, .cservice_footer h2
+{
+  margin:0.3rem;
+  font-size: 0.7rem;
+}
+  .social_media img{
+    width:50px;
+    margin:0px 5px;
+}
+.social_media
+{
+  justify-content:center;
+}
+.copywrite
+{
+  font-size: 0.9rem;
+}
+}
+@media screen and  (max-width:424px)
+{
+  .main_footer
+  {
+      display:flex;
+      flex-direction: column;
+      justify-content:flex-start;
+      align-items: center;
+      margin:5px 7px;
+  }
+  .company_footer a, .cservice_footer a
+  {
+    font-size: 0.8rem;   
+  }
+  .company_footer h2, .cservice_footer h2
+  {
+    margin:0.1rem;
+    font-size: 0.5rem;
+  }
+  .missout_section, .link_section
+  {
+      width:85%;
+  }
+  .link_top
+  {
+    justify-content: center;
+    padding: 0;
+  }
+  .social_media img
+  {
+    width:40px;
+    margin:0px 4px;
+  }
+  .social_media
+  {
+    justify-content:center;
+  }
+  .copywrite
+  {
+    font-size: 0.8rem;
+  }
+}
+
+
+
+

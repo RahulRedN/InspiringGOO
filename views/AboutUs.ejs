@@ -1,79 +1,162 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>About Us</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="../css/homePage_nav.css">
-    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@1,700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Arimo:wght@500&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Alkatra&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../css/footer_styles.css">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us </title>
+  <link rel="stylesheet" href="../css/homePage_nav.css">
+  <link rel="stylesheet" href="css/about_us.css">
+  <link rel="stylesheet" href="css/footer_styles.css">
+  <style>
+  body{
 
-    <style>
-        *
-        {
-            margin: 0;
-        }
-
-        .head
-        {
-            background-image: url("abstractBackground.jpg");
-            mask-repeat: no-repeat;
-            background-size: cover;
-            padding: 5rem;
-            width: 100%;
-            box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;            
-            font-family: 'Josefin Sans', sans-serif;
-            font-size: 4rem;
-        }
-
-        .content
-        {
-            font-size: large;
-            /* font-family: 'Arimo', sans-serif; */
-            /* font-family: 'Alkatra', cursive; */
-            font-family: 'Montserrat Alternates', sans-serif;
-
-        }
-        .container
-        {
-            display: flex;
-            flex-direction: column;
-            gap: 2rem;
-            align-items: flex-start;
-            justify-content: flex-start;
-            background-color: rgb(236, 236, 236);
-            padding: 2rem;
-            width: 99%;
-
-            margin:auto;
-        }
+    background-color: #ffffff;
+     padding: 0; 
+     font-family: "UBUNTU", sans-serif;
+    
+    }
     </style>
 </head>
 <body>
+  <%- include('partials/navbar'); -%>
 
-    <%- include('partials/navbar'); -%>
+<div class="aboutus">
+  <h1> About Inspirng Go </h1>
+  <p>  <span class="symbol">&#9755; 
+    </span>Your success is our top  priority   <span class="symbol">&#9754;
+    </span> </p>
+  
+  </div>
 
-    <div class="head">
-        <h1 style="text-align: center; color: lightseagreen;">About Us</h1>
+
+  <div style="background-image: url('resources/backgrounddiv.jpg'); margin: 14px; border-radius: 20px;">
+ 
+<div class="headingstory">
+   
+  <div>
+    <h2 style="text-align:justify; color: #0a0a5a; font-size: 50px; padding-left: 6%; padding-top: 6%;  ">  Our Story</h2> 
+   
+  </div>
+
+
+   <p>
+    
+    Welcome to Inspiringo! We are a leading consultancy company dedicated to helping students reach their academic and professional goals. Our team of experienced tutors specialize in providing top-notch tutoring and coaching services for competitive exams.
+
+    At Inspiringo, we understand the importance of preparing for competitive exams and have developed a comprehensive tutoring and coaching program to help students succeed. Our tutors are highly knowledgeable and experienced in the areas of math, science, English, and social studies, and they will work with you to develop an individualized plan to help you reach your goals.
+    
+    We also offer a variety of other services, including essay writing and career counseling. Our tutors are dedicated to helping students achieve their dreams and will work with you to identify your strengths and weaknesses, develop strategies for success, and provide necessary guidance and support along the way.
+    
+    We are committed to delivering the highest quality of service and we strive to make our tutoring experience as enjoyable and beneficial as possible. Our team is here to help you succeed and we are confident that you will find our services to be valuable and effective. Thank you for choosing Inspiringo for your tutoring needs.
+    
+     </p>
+
+  
+   </div>
+
+
+
+  
+   <div class="storycard-container" >
+
+    <div class="storycard" style="background-color:#C9EEFF ;">
+      <img src="resources/work.png" alt="Card Image">
+     
+      <P> Best Work Efforts </p>
     </div>
-    <div class="container">
-        <p class="content">*We are a third-party platform dedicated to connecting students of all levels with top-notch tutors all across our country.</p>
-        <p class="content">*Our mission is to help students achieve academic success by providing them with personalized tutoring services that reflect their unique needs and learning styles.</p>
-        <p class="content">*We understand that every student is different, and that's why we've built a platform that allows you to find a tutor who's right for you.</p>
-        <p class="content">*Whether you are struggling with a specific topic, preparing for an competitive exam, or just looking to improve your overall academic performance, we've got you covered.</p>
-        <p class="content">*Our platform is designed to be easy to use and accessible, providing students with a convenient way to find and connect with a tutor from anywhere in the world, at any time of day. 
-        </p>
-        <p class="content">*We offer a variety of tools and resources to help you get started, including a search function that lets you filter tutors based on their qualifications, experience, and availability.</p>
-        <p class="content">*At Inspiring Go, we are committed to providing a positive and supportive learning environment for all our students. Our tutors are passionate about teaching and are dedicated to helping you succeed.
-        </p>
-        <p class="content">*Thank you for choosing Student Tutor as your go-to platform for finding a tutor. We look forward to helping you achieve academic success and reach your full potential.</p>
+    
+     <div class="storycard" style="background-color: #efe92d;">
+      <img src="resources/tutor.png" alt="Card Image">
+      
+      <p> providing Best Tutors </p>
+    </div>
+    
+    <div class="storycard" style="background-color: aqua;">
+      <img src="resources/tutor.png" alt="Card Image">
+      
+      <p> 25+ years experience </p>
+    </div>
+    
+    <div class="storycard" style="background-color:#00AFBC;"> 
+      <img src="resources/educator.png" alt="Card Image">
+      
+      <p>Best Place to Newbies </p>
+    </div>
+    
+  </div>
+
+</div>
+
+
+<div style="background-image: url('resources/backgrounddiv.jpg'); margin: 14px;
+border-radius: 20px;" >
+
+  <div>
+
+  <h2 style="color:#0a0a5a; text-align: center; font-size:50px; margin: 80px 0px 40px 0px; padding-top: 3%; ">What makes us different</h2>
+
+</div>
+
+  <div class="differnt-container">
+
+    
+    <section class="difcard">
+
+      <div class="difimg">
+        <img  class="difimg" src="resources/Unique Pre-selection.jpg" alt="">
+      </div>
+      
+        <div class="difcontent">
+          <h3>Unique Pre-selection</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean auctor nunc est, sit amet auctor lorem ultricies eu. Morbi quis pharetra lacus.</p>
+          <a href="#">Learn More</a>
+        </div>
+        
+      </section>
+      
+      
+      <section class="difcard">
+        <div class="difimg">
+          <img  class="difimg" src="resources/10years.jpg" alt="">
+      </div>
+        <div class="difcontent">
+          <h3> Best Place to Newbies </h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean auctor nunc est, sit amet auctor lorem ultricies eu. Morbi quis pharetra lacus.</p>
+          <a href="#">Learn More</a>
+        </div>
+       
+      </section>
+
+      <section class="difcard">
+        <div class="difcontent">
+          <h3>Tutor </h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean auctor nunc est, sit amet auctor lorem ultricies eu. Morbi quis pharetra lacus.</p>
+          <a href="#">Learn More</a>
+        </div>
+        <div class="difimg">
+            <img  class="difimg" src="resources/tutor.jpg" alt="">
+        </div>
+      </section>
+
+      <section class="difcard">
+        <div class="difcontent">
+          <h3>Placement</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean auctor nunc est, sit amet auctor lorem ultricies eu. Morbi quis pharetra lacus.</p>
+          <a href="#">Learn More</a>
+        </div>
+        <div class="difimg">
+          <img src="resources/placement.jpg" alt="">
+        </div>
+      </section>
+      
     </div>
 
-    <br>
-    <%- include('partials/footer'); -%>
+    </div>
+
+
+
+<!-- Leader ship container -->
+<%- include('partials/footer'); -%>
 </body>
 </html>

@@ -32,3 +32,36 @@ showSlide(slideIndex);
 
 prevButton.addEventListener('click', prevSlide);
 nextButton.addEventListener('click', nextSlide);
+
+//animations for oppcards intersection observer
+const obsodd = new IntersectionObserver((entries)=>
+{
+  entries.forEach((entry)=>
+  {
+    console.log(entry);
+    if(entry.isIntersecting)
+    {
+      entry.target.classList.add('animate1');
+    }
+  });
+});
+
+const oppodd = document.querySelectorAll('.hidden1');
+oppodd.forEach((card)=> obsodd.observe(card));
+
+//even
+
+const obseven = new IntersectionObserver((entries)=>
+{
+  entries.forEach((entry)=>
+  {
+    console.log(entry);
+    if(entry.isIntersecting)
+    {
+      entry.target.classList.add('animate2');
+    }
+  });
+});
+
+const oppeven = document.querySelectorAll('.hidden2');
+oppeven.forEach((card)=> obseven.observe(card));
