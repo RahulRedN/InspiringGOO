@@ -1,9 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap');
+
+
 *
 {
     margin:0px;
-    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-family:'Ubuntu',sans-serif;
 }
 
+body{
+    background-image: url('https://img.freepik.com/free-photo/abstract-grunge-decorative-relief-navy-blue-stucco-wall-texture-wide-angle-rough-colored-background_1258-28311.jpg?size=626&ext=jpg&uid=R97086655&semt=ais');
+}
 
 /* .search
 {
@@ -17,17 +23,6 @@ select{
     border: 2px solid black;
 }
 
-.main_div
-{
-    background-color: lightblue;
-    text-align: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    gap:30px;
-    padding: 20px 15px;
-}
 
 .box
 {
@@ -92,9 +87,9 @@ select:hover
 {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 2rem;
     padding-left: 10px;
-    border-left: 1px solid skyblue
+    border-left: 1px solid skyblue;
 }
 
 .row-flex
@@ -107,9 +102,11 @@ select:hover
 
 .card
 {
-    min-width: 600px;
+    width:30%;
     display: flex;
+    min-height:45vh;
     flex-direction: column;
+    justify-content: space-between;
     gap: 10px; 
     padding: 10px 20px;
     border-radius: 10px;
@@ -123,14 +120,12 @@ select:hover
 {
     display: flex;
     flex-direction: column;
-    gap: 5px;
+    gap: 0.5rem;
 }
 
 .card-name
 {
     font-weight: 600;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    color: darkcyan;
 }
 
 .other-name
@@ -140,7 +135,6 @@ select:hover
 
 .other-title
 {
-    color: dodgerblue;
     font-weight: 600;
     padding-right: 15px;
 }
@@ -148,19 +142,30 @@ select:hover
 .cards
 {
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    flex-wrap: wrap;
     justify-content: center;
+    align-items: center;
     padding-top: 20px;
     padding-bottom: 20px;
     gap: 30px;
-    background-color: #C9EEFF;
+    margin-top: 2rem;
+    width: 96%;
+    margin-left: auto;
+    margin-right: auto;
+    background: rgba(255, 255, 255, 0.356);
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 5px );
+    -webkit-backdrop-filter: blur( 5px );
+    border-radius: 10px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 ); 
+    /* background-color: #C9EEFF; */
 }
 
 .subject-title
 {
     color:midnightblue;
     padding-right: 10px;
+    font-size: 1.5rem;
 }
 
 .fee
@@ -171,11 +176,11 @@ select:hover
 
 .fee-span
 {
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+   
     font-size: 15px;
     padding-right: 10px;
     font-weight: 600;
-    color: chartreuse;
+
 }
 
 .duration
@@ -186,17 +191,17 @@ select:hover
 
 .duration-span
 {
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    
     font-size: 15px;
     padding-right: 10px;
     font-weight: 600;
-    color: darkcyan;
+
 }
 
 .mode-span
 {
     font-weight: 700;
-    color: indianred;
+ 
     padding-right: 10px;
 }
 
@@ -204,13 +209,13 @@ select:hover
 {
     background-color: lightgreen;
     border-radius: 20px;
-    padding: 2px 5px;
+    padding: 0.1rem 0.5rem;
     color: black;
 }
 
 .In-person
 {
-    background-color: chocolate;
+    background-color: rgb(179, 181, 182);
     color: black;
     border-radius: 20px;
     padding: 2px 5px;
@@ -221,22 +226,76 @@ select:hover
     text-align: center;
 }
 
-.contact-now
-{
-    padding: 10px;
-    border-radius: 50px;
-    border: 2px solid black;
-    font-weight: 600;
-}
+.contact-now{
 
-.contact-now:hover
-{
-    background-color:lawngreen;
+    border: none;
+    outline: 0;
+    padding: 12px;
     color: white;
+    background-color: #000;
+    text-align: center;
     cursor: pointer;
-    transition: 0.3s;
+    width: fit-content;
+    font-size: 16px;
+    align-items: center;
+    border-radius: 10px;
+    transition: 0.4s;
+  }
+  
+  .contact-now:hover {
+    scale: 1.1;
 }
+input{
+    display: flex;
+    align-items: flex-start;
+    border: none;
+    background-color: rgb(194, 194, 194);
+    color: black;
+    padding: 1rem 0.5rem;
+    padding-left: calc(0.5rem*4);
+    border-radius: 100px;
+    width: 80%;
+    margin-top: 2rem;
+    margin-left:auto;
+    margin-right: auto;
+  }
+  
+ input:focus {
+    background-color: rgb(255, 255, 255);
+  }
 
+
+  .filter {
+    margin-bottom: 1rem;
+    margin-left:2rem;
+  }
+
+  .filter_dropdown{
+
+
+    display:flex;
+  }
+  
+
+
+
+  .filter_section{
+
+    width: 96%;
+    margin-top: 2rem;
+    margin:auto;
+    display: flex;
+    flex-direction: column;
+    gap:2rem;
+    align-items: flex-start;
+    background: rgba(255, 255, 255, 0.356);
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 5px );
+    -webkit-backdrop-filter: blur( 5px );
+    border-radius: 10px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 ); 
+  }
+  
 /* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */ 
 @media screen and (max-width: 50%) {
     .inputs
@@ -254,6 +313,7 @@ select:hover
         align-items: center;
         justify-content: center;
         min-width: 400px;
+        min-height:40vh;
         gap: 10px;
     }
 

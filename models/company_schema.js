@@ -4,10 +4,6 @@ const Job_Employee = new mongoose.Schema({
     Jobseeker_Name: String,
     Jobseeker_Username: String,
     Jobseeker_Email: String,
-    Status: {
-        type: Boolean,
-        default: false,
-    }
 });
 
 const Jobs = new mongoose.Schema({
@@ -35,6 +31,10 @@ const userSchema_Company = new mongoose.Schema({
     },
     password: String,
     myJobs: [Jobs],
+    Status: {
+        type: Boolean,
+        default: false,
+    },
 });
 
 const companies = mongoose.model('companies', userSchema_Company);

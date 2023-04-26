@@ -2,10 +2,11 @@ const mongoose = require('mongoose');
 
 const Courses = new mongoose.Schema({
     Tutor_Name: String,
-    Tutor_Mail: String,
+    Tutor_Email: String,
+    Tutor_Number: String,
     Course_Name: String,
-    Reg_Date: String,
-    End_Date: String
+    Course_Fee: Number,
+    Mode: String,
 })
 
 const userSchema_Student = new mongoose.Schema({
@@ -26,9 +27,10 @@ const userSchema_Student = new mongoose.Schema({
         unique: true,
     },
     password: String,
-    myCourses: [Courses]
+    myCourses: [Object]
 });
 
 const students = mongoose.model('students', userSchema_Student);
+const coursers = mongoose.model('coursers', Courses);
 
-module.exports = students;
+module.exports = {students, coursers};

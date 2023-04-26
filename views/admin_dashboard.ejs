@@ -99,7 +99,7 @@
             <div class="cardBox">
                 <div class="card">
                     <div>
-                        <div class="numbers">80</div>
+                        <div class="numbers"><%= tutor.length %></div>
                         <div class="cardName">Tutors</div>
                     </div>
 
@@ -110,7 +110,7 @@
 
                 <div class="card">
                     <div>
-                        <div class="numbers">284</div>
+                        <div class="numbers"><%= company.length %></div>
                         <div class="cardName">Companies</div>
                     </div>
 
@@ -121,7 +121,7 @@
 
                 <div class="card">
                     <div>
-                        <div class="numbers">1,504</div>
+                        <div class="numbers"><%= company.length%></div>
                         <div class="cardName">Students</div>
                     </div>
 
@@ -132,7 +132,7 @@
 
                 <div class="card">
                     <div>
-                        <div class="numbers">1,504</div>
+                        <div class="numbers"><%= jobseeker.length%> </div>
                         <div class="cardName">Jobseekers</div>
                     </div>
 
@@ -161,21 +161,44 @@
                         </thead>
 
                         <tbody>
-                            <tr>
-                                <td>MatherFather</td>
-                                <td>Tutor</td>
-                                <td>something@gmail.com</td>
-                                <td>
-                                    <form action="post">
-                                        <span class="status">
-                                            <button name="status
-                                            " value="accept Username">Accept</button>
-                                            <button name="status
-                                            " value="reject Username">Reject</button>
-                                        </span>
-                                    </form>
-                                </td>
-                            </tr>
+
+                        <% for(let i=0; i < tutor.length ; i++){ %>
+                            <% if(!tutor[i].Status){ %>
+                                <tr>
+                                    <td><%= tutor[i].First_Name %></td>
+                                    <td>Tutor</td>
+                                    <td><%= tutor[i].Email %></td>
+                                    <td>
+                                        <form method="post">
+                                            <span class="status">
+                                                <button type="submit" name="name" value="accept tut <%= tutor[i].username %>">Accept</button>
+                                                <button type="submit" name="name" value="reject tut <%= tutor[i].username %>">Reject</button>
+                                            </span>
+                                        </form>
+                                    </td>
+                                </tr>
+                            <% } %>
+                        <% } %>
+
+                       <% for(let i=0; i < company.length ; i++){ %>
+                          <%  if(!company[i].Status){  %>
+                                <tr>
+                                    <td><%= company[i].Name %></td>
+                                    <td>Company</td>
+                                    <td><%= company[i].Email %></td>
+                                    <td>
+                                        <form method="post">
+                                            <span class="status">
+                                                <button type="submit" name="status
+                                                " value="accept com <%=company[i].username%>">Accept</button>
+                                                <button type="submit" name="status
+                                                " value="reject com <%=company[i].username%>">Reject</button>
+                                            </span>
+                                        </form>
+                                    </td>
+                                </tr>
+                         <%   }  %>
+                     <%   }  %>
                     </table>
                 </div>
 
@@ -200,27 +223,49 @@
                                 Email
                             </th>
                         </tr>
-                        <tr>
-                            <td>
-                                Pumka
-                            </td>
-                            <td>
-                                Sonish
-                            </td>
-                            <td>
-                                Student
-                            </td>
-                            <td>
-                                pulkesh@gmail.com
-                            </td>
-                        </tr>
+
+
+
+                   <% for(let i = 0 ; i < 4; i++){ %>
+                    <tr>
+                        <td>
+                            <%= student[i].username%>
+                        </td>
+                        <td>
+                            <%= student[i].First_Name %>
+                        </td>
+                        <td>
+                        Student
+                        </td>
+                        <td>
+                            <%= student[i].Email %>
+                        </td>
+                    </tr>
+               <% } %>
+
+               <% for(let i = 0 ; i < 4; i++){ %>
+                <tr>
+                    <td>
+                        <%= jobseeker[i].username%>
+                    </td>
+                    <td>
+                        <%= jobseeker[i].First_Name %>
+                    </td>
+                    <td>
+                    Jobseeker
+                    </td>
+                    <td>
+                        <%= jobseeker[i].Email %>
+                    </td>
+                </tr>
+           <% } %>
                     </table>
                 </div>
             </div>
         </div>
 
     <!-- =========== Scripts =========  -->
-    <script src="js/main.js"></script>
+    <script src="/js/main.js"></script>
 
 </body>
 </html>

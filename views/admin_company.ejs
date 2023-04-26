@@ -37,7 +37,7 @@
                         <span class="icon">
                             <i class="fa-solid fa-graduation-cap"></i>
                         </span>
-                        <span class="title">Sudent</span>
+                        <span class="title">Student</span>
                     </a>
                 </li>
 
@@ -87,7 +87,7 @@
                 </div>
 
                 <div class="search">
-                    <input type="text" placeholder="search companies">
+                    <input id="search-input" type="text" placeholder="Search Company" onkeyup="search()">
                     <label for="search"><i class="fa-solid fa-magnifying-glass"></i></label>
                 </div>
 
@@ -109,13 +109,14 @@
                             <th>Email</th>
                             <th></th>
                         </tr>
-                        <tr>
-                            <td>MatherFather</td>
-                            <td>Fuckingfuck</td>
-                            <td>something@gmail.com</td>
-                            <form method="POST"> <td><button type="su
-                                " name="remove" value="username">Remove</button></td></form> 
-                        </tr>     
+                        <%   for(let i = 0 ; i < company.length ; i++){ %>
+                            <tr class="card1">
+                                <td class="name111"><%=company[i].Name%></td>
+                                <td><%= company[i].username%></td>
+                                <td><%= company[i].Email %></td>
+                                <form method="POST"> <td><button type="submit" name="remove" value="<%=company[i].username%>">Remove</button></td></form> 
+                            </tr>     
+                      <%  }  %>   
                 </table>
             </div>
         </div>

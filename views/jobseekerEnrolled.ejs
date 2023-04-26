@@ -31,7 +31,7 @@
                 <!-- ================= New Users ================ -->
                 <div class="recentUsers">
                     <div class="cardHeader">
-                        <h2>Students Enrolled</h2>
+                        <h2>Employee Enrolled</h2>
                     </div>
 
                     <table>
@@ -40,9 +40,15 @@
                         <th>Role</th>
                         <th>Employee EmailId</th>
                         <tr>
-                           <td>Employee nameejs </td>
-                           <td> jobnameejs </td>
-                           <td> emailejs </td>
+                            <% for(let i = 0; i< company.myJobs.length; i++){%>
+                                <% for(let j =0; j < company.myJobs[i].myEmployee.length ; j++){ %>
+                                    <tr>
+                                        <td><%= company.myJobs[i].myEmployee[j].Student_Name %></td>
+                                        <td> <%= company.myJobs[i].Job_Name  %></td>
+                                        <td> <%= company.myJobs[i].myEmployee[j].Student_Email %></td>
+                                     </tr>
+                                    <% } %>
+                                <% } %>
                         </tr>
                     </table>
                 </div>

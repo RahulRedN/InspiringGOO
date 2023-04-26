@@ -10,9 +10,9 @@
     <script src="https://kit.fontawesome.com/21198450f8.js" crossorigin="anonymous"></script>
 </head>
 <body >
-    <%- include('partials/navbar_Student') -%>
-            <div class="details">
-                <img src="resources/peeps-avatar.png" alt="ProfilePic">
+    <%- include('partials/navbar_jobSeeker') -%>
+        <div class="details">
+                <img src="/images.jpeg" alt="ProfilePic">
                 <div class="txtdetail">
                     <p><%= User.First_Name %></p>
                     <p><%= User.Email %></p>
@@ -27,30 +27,27 @@
             <div class="rhs rhs_courses dpn">
               <h1>Courses Enrolled </h1>
             <div class="enrolled">
-               <% if(User.myCourses.length == 0){ %>
-                    <p>No Courses Enrolled</p>
+               <% if(User.myJobs.length == 0){ %>
+                    <p>No Jobs Applied</p>
                <% } else{ %>  
-                   <% for(let i = 0 ; i < User.myCourses.length ; i++){ %>
+                   <% for(let i = 0 ; i < User.myJobs.length ; i++){ %>
                         <div class="card_course">
-                            <img src="resources/tutor_card_img.jpg" alt="Tutor">
+                            <img src="/tutor_card_img.jpg" alt="Tutor">
                             <div class="trans">
                                 <h4 class="cardtitle">
-                                  <%= User.myCourses[i].Course_Name %>
+                                  <%= User.myJobs[i].Job_Name %>
                                 </h4>
                         <div class="personaldetail">
                                 <h4>
-                            <i class="fa-solid fa-user"></i><%= User.myCourses[i].Tutor_Name %>
+                            <i class="fa-solid fa-user"></i><%= User.myJobs[i].Company_Name %>
                                 </h4>     
                                 <h4>
-                                    <i class="fa-solid fa-headset"></i>
-                                    <%= User.myCourses[i].Tutor_Number %></h4>
+                                    <i class="fa-solid fa-coins"></i>
+                                    <%= User.myJobs[i].Salary %></h4>
                               </div >
                                 <div class="coursedetail">
-                                    <h4><%= User.myCourses[i].Mode %></h4>
-                                    <h4>
-                                        <i class="fa-solid fa-coins"></i>
-                                        <%= User.myCourses[i].Course_Fee %></h4>
-                                    <h4 class="status">Status</h4>
+
+                                    <h4><i class="fa-solid fa-calendar"></i><%= User.myJobs[i].Join_Date %></h4>
                                 </div>
                             </div>
                         </div>
@@ -61,7 +58,7 @@
         <div class="rhs rhs_vprofile dpn">
 
             <table>
-               
+            
             <tr class="name">
                 <th class="lhead">
                     Name 
@@ -102,22 +99,36 @@
 
             <tr class="hq">
                 <th class="lhq">
-                    Qualification
+                    <td>Qualification</td>
                 </th>
                 <td>:</td>
                 <td>
                     <%= User.Qualification %>
+
                 </td>
+            </tr>
+
+            <tr class="skills">
+                <th class="lskill">
+                    Skills
+                </th>
+                <td>:</td>
+                <td>
+
+        <% let string = "";%>
+    <%for(let i= 0, i< User.Skills.length;i++) {%>
+             <%  string = User.Skills[i]+","; %>
+            <% } %>
+                <td><%= string %></td>
             </tr>
 
         </table>
         </div>
-        <form method="post">
+        <form  method="post">
         <div class="rhs rhs_eprofile dpn">
             <div class="box">
                 <div class="float-group">
                  <div class="years">
-                    
                     <input type="text" placeholder="Name" name="name">
                  </div>
                     <div class="years">

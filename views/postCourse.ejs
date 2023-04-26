@@ -38,7 +38,7 @@
         <div class="main">
             <%- include('partials/topbar'); -%>
             <div class="container_form">
-                <form action="/PostCourse" method="post" class="form">
+                <form method="post" class="form">
                 <h1>PostCourse</h1>
                 <br>
                 <p class="validations" id="validation-details">&nbsp;</p>
@@ -52,10 +52,11 @@
                     placeholder=" "
                     name="coursename"
                     required
-                    onkeyup="firstName()"
                   />
                   <label for="fname" class="float-label">Course Name *</label>
                 </div>
+              </div>
+            <div class="row">
                 <div class="user-details float-group">
                     <input
                       class="not-required"
@@ -65,7 +66,6 @@
                       title="Please enter valid email-address including '@'"
                       required
                       id="emailID"
-                      onkeyup="email()"
                     />
                     <label for="emailID" class="float-label">Course Fee(₹) *</label>
                 </div>
@@ -77,20 +77,21 @@
                       class="required"
                       type="number"
                       maxlength="10"
-                      name="mobile"
+                      name="duration"
                       title="Please enter exactly 10 digits"
                       placeholder=" "
                       required
                       id="mobile"
-                      onkeyup="mobile_valid()"
                     />
                     <label for="mobile" class="float-label"
                       >Course Duration(months)*</label
                     >
                   </div>
+                </div>
+                <div class="row">
                   <div class="row address">
                     <div class="user-details float-group address">
-                      <select name="mode" id="" class="select">
+                      <select name="mode" id="" class="select" required>
                         <option value="0" selected>Select mode</option>
                         <option value="online">Online</option>
                         <option value="offline">Offline</option>
@@ -100,7 +101,7 @@
             </div>
             <br><br>
             <button class="but" type="submit">POST</button>
-      </div>
+      </div>
                        </div>
 
     <!-- =========== Scripts =========  -->

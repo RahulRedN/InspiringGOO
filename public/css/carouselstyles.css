@@ -1,6 +1,6 @@
 
   .slider {
-    width: 100vw;
+    width: 85vw;
     position: relative;
     background-color: antiquewhite;
     border: 2px solid black;
@@ -32,25 +32,29 @@
   }
 
   @keyframes slide {
-    0%,10%
-    {
-        transform: translateX(0);
-    }
-    25%,35% {
-      transform: translateX(-95vw);
-    } 
-  
-    50%,60% {
-      transform: translateX(-190vw);
-    }
-  
-    75%,85% {
-      transform: translateX(-285vw);
-    }
-  
-    100% {
-      transform: translateX(-380vw);
-    } 
+    0%,
+  10% {
+    transform: translateX(0);
+  }
+
+  25%,
+  35% {
+    transform: translateX(-867px);
+  }
+
+  50%,
+  60% {
+    transform: translateX(-1734px);
+  }
+
+  75%,
+  85% {
+    transform: translateX(-2608px);
+  }
+
+  100% {
+    transform: translateX(-3468px);
+  }
   }
   
 

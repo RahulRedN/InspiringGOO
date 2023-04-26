@@ -1,5 +1,5 @@
-const students = require("../models/student_schema.js");
-const jobseekers = require("../models/jobseeker_schema.js");
+const {students} = require("../models/student_schema.js");
+const {jobseekers} = require("../models/jobseeker_schema.js");
 const tutors = require("../models/tutor_schema.js");
 const companies = require("../models/company_schema.js");
 const jobs = require("../models/jobs_schema.js");
@@ -224,7 +224,7 @@ exports.TutorRegisterPost = async function (req, res) {
     Country: req.body.country,
     password: hashPassword,
   };
-  const doc = new wait_tutors(details);
+  const doc = new tutors(details);
 
   doc.save().then(() => {
       res.redirect("/loginSecondary");
@@ -249,7 +249,7 @@ exports.CompanyRegisterPost = async function (req, res) {
     password: hashPassword,
   };
 
-  const doc = new wait_companies(details);
+  const doc = new companies(details);
 
   doc.save().then(() => {
       res.redirect("/loginSecondary");

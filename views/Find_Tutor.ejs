@@ -1,169 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Find | Tutor</title>
-    <link rel="stylesheet" href="/css/FT.css">
-    <link rel="stylesheet" href="/css/footer_styles.css">
-    <link rel="stylesheet" href="/css/homePage_nav.css">
-    <link rel="stylesheet" href="/css/res3.css">
-    <link rel="stylesheet" href="/css/res4.css">
-    <link rel="shortcut icon" type="image/jpg" href="/resources/Vista Logos/logo-svg.svg"/>
-    <script src="https://kit.fontawesome.com/21198450f8.js" crossorigin="anonymous"></script>
-
-    <script>
-        function search(){
-            const searchbox = document.getElementById("search-input").value.toLowerCase();
-            const res = document.querySelectorAll('.card');
-
-            for(var i=0;i<res.length;i++)
-            {
-                let match = res[i].getElementsByClassName('subject-title')[0];
-
-                if(match)
-                {
-                    let textvalue = match.textContent || match.innerHTML
-
-                    if(textvalue.toLowerCase().indexOf(searchbox) > -1)
-                    {
-                        res[i].style.display = "";
-                    }
-                    else
-                    {
-                        res[i].style.display="none";
-                    }
-                }
-            }
-        }
-    </script>
-
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Find Tutor</title>
+    <link rel="stylesheet" href="/css/FT.css" />
+    <link rel="stylesheet" href="/css/footer_styles.css" />
+    <link rel="stylesheet" href="/css/homePage_nav.css" />
+    <link rel="stylesheet" href="/css/res3.css" />
+    <link rel="stylesheet" href="/css/res4.css" />
+    <script src="/js/Find_Tutor.js"></script>
+    <script
+      src="https://kit.fontawesome.com/21198450f8.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
     <%- include("partials/navbar_Student") -%>
-    
-    <div class="main_div">
-        <div class="head" style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
-            <h2>Find a Tutor</h2>
-            <p style="width: 70%; font-size: small;">Please enter the subject name below. This will enable us to locate tutors who both specialise in the subject you require, and are in close proximity to you.</p>
-        </div>
-        <div class="search-wrap">
-            <label for="search">Search Users</label>
-            <input type="search" id="search-input" placeholder="Search subject..." onkeyup="search()">
-        </div>
+
+    <div class="filter_section">
+
+      <h1>FIND JOBS</h1>
+        <input
+        type="search"
+        placeholder="🔍 Search...."
+        id="search-input"
+        style="font-size: 1.2rem"
+        onkeyup="search()"
+      />
+
+      <div class="filter_dropdown">
+          <div class="filter">
+              <label for="filter">Filter by:</label>
+              <select id="filter_mode" onchange="filter_mode()">
+                <option value="all">All</option>
+                <option value="online">Online</option>
+                <option value="offline">Offline</option>
+              </select>
+            </div>
+      </div>
     </div>
 
     <div class="cards result-div">
-        <div class="card">
-            <div class="row-flex">
-                <div class="img">
-                    <img src="/resources/profile.png" alt="Profile-Photo" style="width: 12rem;">
-                </div>
-                <div class="content" style="width: 100%;">
-                    <h3 class="card-name">Tutor 1</h3>
-                    <div class="info">
-                        <div class="subject-title">Maths</div>
-                        <p class="other-name"><span class="other-title">Qualifications:</span>--- --- ---</p>
-                        <p class="other-name"><span class="other-title">Experience:</span></p>
-                        <p class="fee"><span class="fee-span">Fee:</span>₹2000 / month</p>
-                        <p class="duration"><span class="duration-span">Duration:</span>9 - 12 months</p>
-                        <p class="Mode"><span class="mode-span">Mode:</span><span class="online">Online</span> , <span class="In-person">In-person</span></p>
-                    </div>
-                </div>
-            </div>
-                <div class="contact">
-                    <button class="contact-now">Contact Me</button>
-                </div>
-        </div>
 
-        <div class="card">
-            <div class="row-flex">
-                <div class="img">
-                    <img src="../resources/profile.png" alt="Profile-Photo" style="width: 12rem;">
-                </div>
-                <div class="content" style="width: 100%;">
-                    <h3 class="card-name">Tutor 2</h3>
-                    <div class="info">
-                        <div class="subject-title">Core Engineering</div>
-                        <p class="other-name"><span class="other-title">Qualifications:</span>--- --- ---</p>
-                        <p class="other-name"><span class="other-title">Experience:</span></p>
-                        <p class="fee"><span class="fee-span">Fee:</span>₹3000 / month</p>
-                        <p class="duration"><span class="duration-span">Duration:</span>9 - 12 months</p>
-                        <p class="Mode"><span class="mode-span">Mode:</span><span class="online">Online</span></p>
-                    </div>
-                </div>
+      <%  for(let i = 0 ; i < course.length ; i ++){ %>
+      <div class="card">
+        <div class="row-flex">
+          <div class="img">
+            <img
+              src="/resources/tutor.png"
+              alt="Profile-Photo"
+              style="width: 12rem"
+            />
+          </div>
+          <div class="content" style="width: 100%">
+            <h3 class="card-name"><%= course[i].Tutor_Name %></h3>
+            <div class="info">
+              <div class="subject-title"><%= course[i].Course_Name %></div>
+              <p class="fee"><span class="fee-span">Fee:</span>₹<%= course[i].Course_Fee %> / month</p>
+              <p class="duration">
+                <span class="duration-span">Duration:</span><%= course[i].Duration %> months
+              </p>
+              <p class="Mode">
+                <span class="mode-span">Mode:</span
+                ><span class="In-person"><%= course[i].Mode %></span>
+              </p>
             </div>
-                <div class="contact">
-                    <button class="contact-now">Contact Me</button>
-                </div>
+          </div>
         </div>
-
-        <div class="card">
-            <div class="row-flex">
-                <div class="img">
-                    <img src="../resources/profile.png" alt="Profile-Photo" style="width: 12rem;">
-                </div>
-                <div class="content" style="width: 100%;">
-                    <h3 class="card-name">Tutor 3</h3>
-                    <div class="info">
-                        <div class="subject-title">JEE Coaching</div>
-                        <p class="other-name"><span class="other-title">Qualifications:</span>--- --- ---</p>
-                        <p class="other-name"><span class="other-title">Experience:</span></p>
-                        <p class="fee"><span class="fee-span">Fee:</span>₹5000 / month</p>
-                        <p class="duration"><span class="duration-span">Duration:</span>9 - 12 months</p>
-                        <p class="Mode"><span class="mode-span">Mode:</span><span class="In-person">In-person</span></p>
-                    </div>
-                </div>
-            </div>
-                <div class="contact">
-                    <button class="contact-now">Contact Me</button>
-                </div>
+        <div class="contact">
+            <form method="post">
+                <button type="submit" value="<%= course[i]._id %>" name="apply" class="contact-now"><span style="white-space:nowrap">Contact Me</span></button>
+            </form>
         </div>
-
-        <div class="card">
-            <div class="row-flex">
-                <div class="img">
-                    <img src="../resources/profile.png" alt="Profile-Photo" style="width: 12rem;">
-                </div>
-                <div class="content" style="width: 100%;">
-                    <h3 class="card-name">Tutor 4</h3>
-                    <div class="info">
-                        <div class="subject-title">Java</div>
-                        <p class="other-name"><span class="other-title">Qualifications:</span>--- --- ---</p>
-                        <p class="other-name"><span class="other-title">Experience:</span></p>
-                        <p class="fee"><span class="fee-span">Fee:</span>₹3000 / month</p>
-                        <p class="duration"><span class="duration-span">Duration:</span>9 - 12 months</p>
-                        <p class="Mode"><span class="mode-span">Mode:</span><span class="online">Online</span></p>
-                    </div>
-                </div>
-            </div>
-                <div class="contact">
-                    <button class="contact-now">Contact Me</button>
-                </div>
-        </div>
-
-        <div class="card">
-            <div class="row-flex">
-                <div class="img">
-                    <img src="../resources/profile.png" alt="Profile-Photo" style="width: 12rem;">
-                </div>
-                <div class="content" style="width: 100%;">
-                    <h3 class="card-name">Tutor 5</h3>
-                    <div class="info">
-                        <div class="subject-title">Python</div>
-                        <p class="other-name"><span class="other-title">Qualifications:</span>--- --- ---</p>
-                        <p class="other-name"><span class="other-title">Experience:</span></p>
-                        <p class="fee"><span class="fee-span">Fee:</span>₹3000 / month</p>
-                        <p class="duration"><span class="duration-span">Duration:</span>9 - 12 months</p>
-                        <p class="Mode"><span class="mode-span">Mode:</span><span class="online">Online</span></p>
-                    </div>
-                </div>
-            </div>
-                <div class="contact">
-                    <button class="contact-now">Contact Me</button>
-                </div>
-        </div>
-
+      </div>
+      
+   <% } %>
     </div>
     <%-include('partials/footer'); -%>
-</body>
+  </body>
 </html>

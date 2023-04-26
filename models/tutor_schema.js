@@ -31,6 +31,10 @@ const userSchema_Tutor = new mongoose.Schema({
     },
     password: String,
     myCourses: [Courses],
+    Status: {
+        type: Boolean,
+        default: false,
+    },
 });
 
 const tutors = mongoose.model('tutors', userSchema_Tutor);

@@ -47,66 +47,39 @@
     <section class="job-list" id="jobs" style=" background-color: rgba(255, 255, 255, 0.7);width: 98%;margin: auto;border-radius:20px;">
 
         <h1 class="section-title">LATEST JOBS!</h1>
-        <div class="job-card">
-            <div class="job-name">
-                <i class="fa-regular fa-building" style="font-size: 5rem;"></i>
-                <div class="job-detail">
-                    <h4>Company Name</h4>
-                    <h3>Company Position</h3>
-                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
+        <% for(let i =jobs.length-1; i< jobs.length-5;i++) { %>
+            <div class="job-card">
+                <div class="job-name">
+                    <i class="fa-regular fa-building" style="font-size: 5rem;"></i>
+                    <div class="job-detail">
+                        <h4><%=jobs[i].Company_Name></h4>
+                        <h3><%=jobs[i].Job_Name></h3>
+                        <p><%= jobs[i].Job_Description %></p>
+                    </div>
+                </div>
+                <div class="job-label">
+                    <% for(let j =0; j< jobs[i].Skills.length;j++){ %>
+                    <a class="label-a"><%= jobs[i].Skills[j] %></a>
+                   <% } %>
                 </div>
             </div>
-            <div class="job-label">
-                <a class="label-a" href="#">HTML</a>
-                <a class="label-b" href="#">CSS</a>
-                <a class="label-c" href="#">Javascript</a>
-            </div>
-            <div class="job-posted">
-                <p>Job posted <span class="job-posted-time">2 min</span> ago.</p>
-            </div>
-        </div>
+            <% }%>
+
     </section>
     <br>
     <!--Featured Companies-->
     <section class="featured" id="companies" style=" background-color: rgba(255, 255, 255, 0.7);width: 98%;margin: auto;border-radius:20px;">
         <h1 class="section-title">Featured Companies</h1>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia, reprehenderit. Voluptates dignissimos obcaecati veniam ipsam</p>
+        <p>These are recognized for their exceptional performance, innovation, or customer satisfaction. They  have a strong commitment to corporate social responsibility, environmental sustainability, or diversity and inclusion initiatives.</p>
         <div class="featured-wrapper">
+
+            <% for(let k =0; k< 5;k++) { %>
             <div class="featured-card">
                 <i class="fa-solid fa-building-user" style="font-size: 5rem;"></i>
-                <p class="company-name">Company Name</p>
-                <button class="featured-button">View <span class="jobs-available">10</span> Jobs</button>
+                <p class="company-name">jobs[k].Company_Name</p>
+                <button class="featured-button"><%= jobs[k].Vacancies %> Jobs</button>
             </div>
-            <div class="featured-card">
-                <i class="fa-solid fa-building-user" style="font-size: 5rem;"></i>
-                <p class="company-name">Company Name</p>
-                <button class="featured-button">View <span class="jobs-available">10</span> Jobs</button>
-            </div>
-            <div class="featured-card">
-                <i class="fa-solid fa-building-user" style="font-size: 5rem;"></i>
-                <p class="company-name">Company Name</p>
-                <button class="featured-button">View <span class="jobs-available">10</span> Jobs</button>
-            </div> 
-            <div class="featured-card">
-                <i class="fa-solid fa-building-user" style="font-size: 5rem;"></i>
-                <p class="company-name">Company Name</p>
-                <button class="featured-button">View <span class="jobs-available">10</span> Jobs</button>
-            </div> 
-            <div class="featured-card">
-                <i class="fa-solid fa-building-user" style="font-size: 5rem;"></i>
-                <p class="company-name">Company Name</p>
-                <button class="featured-button">View <span class="jobs-available">10</span> Jobs</button>
-            </div>
-            <div class="featured-card">
-                <i class="fa-solid fa-building-user" style="font-size: 5rem;"></i>
-                <p class="company-name">Company Name</p>
-                <button class="featured-button">View <span class="jobs-available">10</span> Jobs</button>
-            </div>
-            <div class="featured-card">
-                <i class="fa-solid fa-building-user" style="font-size: 5rem;"></i>
-                <p class="company-name">Company Name</p>
-                <button class="featured-button">View <span class="jobs-available">10</span> Jobs</button>
-            </div>
+            
         </div>
     </section>
     <br>

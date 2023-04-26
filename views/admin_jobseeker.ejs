@@ -37,7 +37,7 @@
                         <span class="icon">
                             <i class="fa-solid fa-graduation-cap"></i>
                         </span>
-                        <span class="title">Sudent</span>
+                        <span class="title">Student</span>
                     </a>
                 </li>
 
@@ -87,7 +87,7 @@
                 </div>
 
                 <div class="search">
-                    <input type="text" placeholder="search Jobseekers">
+                    <input id="search-input" type="text" placeholder=Search Jobseekers" onkeyup="search()">
                     <label for="search"><i class="fa-solid fa-magnifying-glass"></i></label>
                 </div>
 
@@ -103,25 +103,27 @@
                 <br>
                 <br>
                 <table id="seekers">
-                        <tr>
+                        <t>
                             <th>Name</th>
                             <th>Username</th>
                             <th>Email</th>
-                            <th></th>
+                            <th>Status</th>
                         </tr>
-                        <tr>
-                            <td>MatherFather</td>
-                            <td>Fuckingfuck</td>
-                            <td>something@gmail.com</td>
-                            <form method="POST"> <td><button type="su
-                                " name="remove" value="username">Remove</button></td></form> 
+
+                     <%   for(let i = 0 ; i < jobseeker.length ; i++){ %>
+                        <tr class="card1">
+                            <td class="name111"><%= jobseeker[i].First_Name%></td>
+                            <td><%= jobseeker[i].username%></td>
+                            <td><%= jobseeker[i].Email %></td>
+                            <form method="POST"> <td><button type="submit" name="remove" value="<%=jobseeker[i].username%>">Remove</button></td></form> 
                         </tr>     
+                  <%  }  %>
                 </table>
             </div>
         </div>
 
     <!-- =========== Scripts =========  -->
-    <script src="js/main.js"></script>
+    <script src="/js/main.js"></script>
 
 </body>
 </html>

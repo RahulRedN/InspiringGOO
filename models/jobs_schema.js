@@ -12,6 +12,10 @@ const Jobs = new mongoose.Schema({
     Duration: String,
     Img: String,
     Responsibilities: [String],
+    Status: {
+        type: Boolean,
+        default: false,
+    },
 });
 
 const jobs = mongoose.model('jobs', Jobs);

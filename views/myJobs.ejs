@@ -38,17 +38,22 @@
                     <table>
 
                        <tr> 
-                        <th>Course Name</th>
-                        <th>Course Duration</th>
-                        <th>Course Mode</th>
-                        <th>No.of Students Enrolled</th>
+                        <th>Job Name</th>
+                        <th>Salary</th>
+                        <th>Vacancies</th>
+                        <th>Duration</th>
+                        <th>No. of Employee</th>
                      </tr>
                         <tr>
-                            <td>nameejs</td>
-                            <td>Durationejs</td>
-                            <td>Modeejs</td>
-                            <td>stucountejs</td>
+                    <% for(let i =0; i< company.myJobs.length; i++){ %>
+                        <% let a = company.myJobs[i]; %>
+                        <td><%= a.Job_Name %></td>
+                        <td><%= a.Salary %></td>
+                        <td><%= a.Vacancies %></td>
+                        <td><%= a.Duration %></td>
+                        <td><%= a.myEmployee.length %></td>
                         </tr>
+                     <% } %>
                     </table>
                 </div>
             </div>

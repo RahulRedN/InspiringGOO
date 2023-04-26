@@ -10,10 +10,18 @@ router.get('/', Student_Controllers.StudentLandingLoadUp);
 //student viewprofile 
 router.get('/profile', Student_Controllers.StudentProfile);
 
-//post is to update profile in databse
+//student edit profile post
 router.post('/profile', Student_Controllers.StudentProfilePost);
 
+router.get('/Find_Tutor',Student_Controllers.Find_Tutor);
+
+router.post('/Find_Tutor',Student_Controllers.Find_TutorPost);   
 
 router.get('/FAQ',Student_Controllers.FAQ);
 
 module.exports = router;
+
+
+
+
+

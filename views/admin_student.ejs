@@ -87,7 +87,7 @@
                 </div>
 
                 <div class="search">
-                    <input type="text" placeholder="search students">
+                    <input id="search-input" type="text" placeholder="Search students" onkeyup="search()">
                     <label for="search"><i class="fa-solid fa-magnifying-glass"></i></label>
                 </div>
 
@@ -109,19 +109,20 @@
                             <th>Email</th>
                             <th></th>
                         </tr>
-                        <tr>
-                            <td>MatherFather</td>
-                            <td>Fuckingfuck</td>
-                            <td>something@gmail.com</td>
-                            <form method="POST"> <td><button type="su
-                                " name="remove" value="username">Remove</button></td></form> 
-                        </tr>     
+                        <%   for(let i = 0 ; i < student.length ; i++){ %>
+                            <tr class="card1">
+                                <td class="name111"><%= student[i].First_Name%></td>
+                                <td><%= student[i].username%></td>
+                                <td><%= student[i].Email %></td>
+                                <form method="POST"> <td><button type="submit" name="remove" value="<%=student[i].username%>">Remove</button></td></form> 
+                            </tr>     
+                      <%  }  %>  
                 </table>
             </div>
         </div>
 
     <!-- =========== Scripts =========  -->
-    <script src="js/main.js"></script>
+    <script src="/js/main.js"></script>
 
 </body>
 </html>

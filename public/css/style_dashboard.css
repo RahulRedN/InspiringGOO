@@ -109,9 +109,6 @@ body {
   width: calc(100% - 300px);
   left: 300px;
   min-height: 100vh;
-  background-image: url('https://img.freepik.com/free-photo/abstract-grunge-decorative-relief-navy-blue-stucco-wall-texture-wide-angle-rough-colored-background_1258-28311.jpg?size=626&ext=jpg&uid=R97086655&semt=ais');
-    background-size: contain;
-    backdrop-filter: blur(10px);
   transition: 0.5s;
 }
 .main.active {
@@ -214,6 +211,7 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 500px;
+  font-size: 0.9rem;
   background: var(--white);
   padding: 20px;
   box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
@@ -291,6 +289,8 @@ body {
 .recentUsers {
   position: relative;
   min-height: 500px;
+  width: fit-content;
+  font-size: 0.8rem;
   padding: 20px;
   background: var(--white);
   box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);

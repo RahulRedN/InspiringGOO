@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const Jobs = new mongoose.Schema({
     Company_Name: String,
-    Company_Mail: String,
+    Salary: Number,
     Job_Name: String,
     Join_Date: String,
 })
@@ -25,9 +25,10 @@ const Jobs = new mongoose.Schema({
         unique: true,
     },
     password: String,
-    myJobs: [Jobs]
+    myJobs: [Object]
 });
 
-const jobseeker_user = mongoose.model('jobseekers', userSchema_Jobseeker);
+const jobseekers = mongoose.model('jobseekers', userSchema_Jobseeker);
+const jobers = mongoose.model('jobers', Jobs);
 
-module.exports = jobseeker_user;
+module.exports = {jobseekers, jobers};

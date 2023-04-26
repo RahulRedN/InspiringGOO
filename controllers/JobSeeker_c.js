@@ -1,6 +1,7 @@
-const jobseekers = require("../models/jobseeker_schema.js");
+const {jobseekers, jobers} = require("../models/jobseeker_schema.js");
 const jobs = require("../models/jobs_schema.js");
 const companies= require("../models/company_schema.js");
+const { Schema } = require("mongoose");
 
 exports.JobseekerLandingLoadUp = function(req, res){
 
@@ -50,39 +51,67 @@ exports.JobseekerLandingLoadUp = function(req, res){
     }
   }
   
-  exports.JobseekerFilterPagePost = async function(req, res){
+  exports.JobseekerFilterPagePost = async function(req, res)
+  {
 
     let id = req.body.apply;  //CARD ID COMPANY
-    let card_details=await jobs.findOne({_id:id});
-    let {Company_Username,Job_Name}=card_details;
-    
-
-    let user = req.cookies.id;  //USER ID
-
-    let {First_Name,username,Email}=await jobseekers.findOne({username:user});  //USER DETAILS NEED TO BE PUSHED
-
-    let company=await companies.findOne({username:Company_Username});
-    let my_jobs=company.myJobs;
-    // console.log(typeof(myJobs),"...");
-    let applied_job=my_jobs.filter((job)=>job.Job_Name==Job_Name);
-    console.log(applied_job);
-
-
-
-
-    // jobseekers.findOne({username:id}).then((jobseekerdata)=>
-    // {
-    //   jobs.findOne({_id:id}).then((card)=>{
-    //     let job_name=card.Job_Name;
-    //     let {First_Name,username,Email}=jobseekerdata;  //USER DETAILS NEED TO BE PUSHED
-
-
-    //     // companies.findOneAndUpdate({username:card.Company_Username}).then((company)=>{
-
-    //   // const name = jobseekerdata.First_Name;
-
-    //     // })
-    //   })
-    // })
-  }
   
+    let user = req.cookies.id;  //USER ID
+    
+    let date = new Date();
+
+    jobseekers.findOne({_id:id}).then((result) => {
+      let a =new jobers({
+        Company_Name: result.Company_Name,
+        Job_Name: result.Job_Name,
+        Salary: result.Salary,
+        Join_Date: date.toDateString(),
+      });
+  
+      jobseekers.findOne({username: user}).then(async (result) => {
+        result.myJobs.push(a);
+        await result.save();
+        res.redirect('/Jobseeker_Landing');
+      })
+    });
+
+  }
+
+
+  exports.JobseekerProfile = function (req, res) {
+  
+    if(req.cookies?.id) {
+      jobseekers.findOne({username:req.cookies.id}).then((result)=>{
+        if(result){
+          jobseekers.findOne({username:req.cookies.id }).then((data)=>{
+            res.render('profile_stu',{User:data})
+           }).catch((err)=>{
+           console.log(err);
+           })
+           }
+           else{
+            res.redirect('/Login')
+           }
+        })
+      }else{
+        res.redirect('/Login')
+      }
+    
+}
+
+exports.JobseekerProfilePost = async function(req, res){
+  const name = req.body.name;
+  const password = req.body.password;
+  const hashPassword = await bcrypt.hash(password, 10);
+  const email = req.body.email;
+  const phone = req.body.mobile;
+
+  jobseekers.findOneAndUpdate({username:req.cookies.id},{"$set":{"First_Name":name , "password": hashPassword , "Email":email,"Mobile":phone}}).then((data)=>
+  {
+      console.log('Successfully updated')
+      res.redirect('/JobSeeker_Landing/')
+  }).catch((err)=>{
+      
+      console.log(err);
+  })
+};
