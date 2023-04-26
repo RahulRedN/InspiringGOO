@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Waiting</title>
+    <link rel="stylesheet" href="/css/profile_tut_cmp.css">
+    <link rel="shortcut icon" type="image/jpg" href="/resources/Vista Logos/logo-svg.svg"/>
+    <style>
+        .navigation ul li:nth-child(1) {
+            margin-bottom: 40px;
+            pointer-events: none;
+          }
+        .navigation ul li:nth-child(6) {
+            background-color: var(--white);
+        }
+        .navigation ul li:nth-child(6) a {
+            color: var(--blue);
+        }
+
+    </style>
+    <script src="https://kit.fontawesome.com/21198450f8.js" crossorigin="anonymous"></script>
+
+</head>
+<body>
+    <div class="container">
+        <%- include('partials/profile_sidebar_tutor'); -%>
+        <!-- ========================= Main ==================== -->
+        <div class="main Dashboard">
+            <%- include('partials/topbar'); -%>
+            <div class="details">
+                <!-- ================ Request List ================= -->
+                <div class="recentRequest">
+                    <div class="cardHeader">
+                        <h2>Recent Requests</h2>
+                    </div>
+
+                    <table>
+                        <thead>
+                            <tr>
+                            <td>Student Name</td>
+                                <td>Contact</td>
+                                <td>Mobile</td>
+                                <td>Course Name</td>
+                                <td>Status</td>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+<% for(let i = 0; i< Tutor.Pending.length; i++){%>
+  <% for(let j =0; j < Tutor.Pending[i].Students.length ; j++){ %>
+    <% let a = Tutor.Pending[i].Students; %>
+         <td><%= a.Student_Name %></td>
+                    <td><%= a.Student_Email %></td>
+                     <td><<%= a.Student_Number %></td>
+                 <td><%= Tutor.Pending[i].Course_Name %></td>
+                                <td>
+                                    <form action="post">
+                                        <span class="status">
+                                            <button name="status"
+                                            type="submit" 
+                                            value="accept StudentUsername">Accept</button>
+                                            <button name="status"
+                                            type="submit"
+                                             value="reject StudentUsername">Reject</button>
+                                        </span>
+                                    </form>
+                                </td>
+                            </tr>
+                            <% } %>
+                            <% } %>
+                    </table>
+                </div>
+                <!-- ================= New Users ================ -->
+            </div>
+        </div>
+    <script src="/js/main.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Approve | Job Seeker</title>
+    <link rel="stylesheet" href="/css/profile_tut_cmp.css">
+    <style>
+        .navigation ul li:nth-child(1) {
+            margin-bottom: 40px;
+            pointer-events: none;
+          }
+        .navigation ul li:nth-child(6) {
+            background-color: var(--white);
+        }
+        .navigation ul li:nth-child(6) a {
+            color: var(--blue);
+        }
+
+    </style>
+    <script src="https://kit.fontawesome.com/21198450f8.js" crossorigin="anonymous"></script>
+
+</head>
+<body>
+    <div class="container">
+        <%- include('partials/profile_sidebar_Company'); -%>
+        <!-- ========================= Main ==================== -->
+        <div class="main Dashboard">
+            <%- include('partials/topbar'); -%>
+            <div class="details">
+                <!-- ================ Request List ================= -->
+                <div class="recentRequest">
+                    <div class="cardHeader">
+                        <h2>Recent Requests</h2>
+                    </div>
+
+                    <table>
+                        <thead>
+                            <tr>
+                                <td>job Name</td>
+                            <td>Employee Name</td>
+                                <td>Contact</td>
+                                <td>Mobile</td>
+                                <td>Status</td>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <td>jobnameejs</td>
+                                <td>jseeker namejs</td>
+                                <td>jseeker emailejs</td>
+                                <td>jseeker phnejs</td>
+                                <td>
+                                    <form action="post">
+                                        <span class="status">
+                                            <button name="status"
+                                            type="submit" 
+                                            value="accept JobseekerUsername">Accept</button>
+                                            <button name="status"
+                                            type="submit"
+                                             value="reject JobseekerUsername">Reject</button>
+                                        </span>
+                                    </form>
+                                </td>
+                            </tr>
+                    </table>
+                </div>
+                <!-- ================= New Users ================ -->
+            </div>
+        </div>
+    <script src="js/main.js"></script>
+
+</body>
+</html>

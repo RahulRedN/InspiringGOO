@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jobseeker | Enrolled</title>
+    <link rel="stylesheet" href="/css/profile_tut_cmp.css">
+    <style>
+        .navigation ul li:nth-child(1) {
+            margin-bottom: 40px;
+            pointer-events: none;
+          }
+        .navigation ul li:nth-child(4) {
+            background-color: var(--white);
+        }
+        .navigation ul li:nth-child(4) a {
+            color: var(--blue);
+        }
+
+    </style>
+    <script src="https://kit.fontawesome.com/21198450f8.js" crossorigin="anonymous"></script>
+
+</head>
+<body>
+    <div class="container">
+        <%- include('partials/profile_sidebar_Company'); -%>
+        <!-- ========================= Main ==================== -->
+        <div class="main Dashboard">
+            <%- include('partials/topbar'); -%>
+                <!-- ================= New Users ================ -->
+                <div class="recentUsers">
+                    <div class="cardHeader">
+                        <h2>Students Enrolled</h2>
+                    </div>
+
+                    <table>
+
+                        <th>Name of Employee</th>
+                        <th>Role</th>
+                        <th>Employee EmailId</th>
+                        <tr>
+                           <td>Employee nameejs </td>
+                           <td> jobnameejs </td>
+                           <td> emailejs </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    <script src="/js/main.js"></script>
+
+</body>
+</html>

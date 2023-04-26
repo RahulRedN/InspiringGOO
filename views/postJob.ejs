@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post a job</title>
+</head>
+<body>
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PostJob</title>
+    <link rel="stylesheet" href="/css/profile_tut_cmp.css">
+    <link rel="shortcut icon" type="image/jpg" href="/resources/Vista Logos/logo-svg.svg"/>
+
+    <style>
+        .navigation ul li:nth-child(5) {
+            background-color: var(--white);
+        }
+        .navigation ul li:nth-child(5) a {
+            color: var(--blue);
+        }
+        .navigation ul li:nth-child(1) {
+            margin-bottom: 40px;
+            pointer-events: none;
+          }
+    </style>
+    <script src="https://kit.fontawesome.com/21198450f8.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <!-- =============== Navigation ================ -->
+    <div class="container">
+        <%- include('partials/profile_sidebar_Company'); -%>
+        <!-- ========================= Main ==================== -->
+        <div class="main">
+            <%- include('partials/topbar'); -%>
+            <div class="container_form">
+                <form action="/PostCourse" method="post" class="form">
+                <h1>PostCourse</h1>
+                <br>
+                <p class="validations" id="validation-details">&nbsp;</p>
+                <hr>
+                <br><br>
+            <div class="row">
+                <div class="user-details float-group">
+                  <input
+                    class="required"
+                    type="text"
+                    placeholder=" "
+                    name="jobname"
+                    required
+                  />
+                  <label for="fname" class="float-label">Job Name *</label>
+                </div>
+                <div class="user-details float-group">
+                    <input
+                      class="not-required"
+                      type="number"
+                      placeholder=" "
+                      name="salary"
+                      required
+                      id="emailID"
+\                    />
+                    <label for="emailID" class="float-label">Salary(₹)*</label>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="user-details float-group">
+                    <input
+                      class="required"
+                      type="number"
+                      maxlength="10"
+                      name="jobduration"
+                      placeholder=" "
+                      required
+                      id="jobduration"
+                    />
+                    <label for="JobDuration" class="float-label">
+                        Job Duration(months)*</label
+                    >
+                  </div>
+                  <div class="user-details float-group">
+                    <input
+                      class="not-required"
+                      type="number"
+                      placeholder=" "
+                      name="vacancies"
+                      required
+                      id="vacancies"
+                    />
+                    <label for="emailID" class="float-label">No. of Vacancies *</label>
+                </div>
+            </div>
+
+            <div class="row">
+              <div class="user-details float-group">
+                <input
+                  class="required"
+                  type="text"
+                  placeholder=" "
+                  name="responsibilities"
+                  required
+                />
+                <label for="responsibilities" class="float-label">Responsibilities *(seperated by comma)</label>
+              </div>
+              <div class="user-details float-group">
+                  <input
+                    class="not-required"
+                    type="text"
+                    placeholder=" "
+                    name="skills"
+                    required
+                    id="emailID"
+                  />
+                  <label for="skills" class="float-label">Skills Required *(seperated by comma)</label>
+              </div>
+          </div>
+
+
+          <div class="row">
+            <div class="user-details float-group">
+              <input
+                class="required"
+                type="text"
+                placeholder=" "
+                name="jobdescription"
+                required
+              />
+              <label for="description" class="float-label">Job Description</label>
+            </div>
+        </div>
+
+            <br><br>
+            <button class="but" type="submit">POST</button>
+      </div>
+                       </div>
+
+    <!-- =========== Scripts =========  -->
+    <script src="js/main.js"></script>
+
+</body>
+</html>
+</body>
+</html>

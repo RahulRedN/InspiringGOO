@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin | Student</title>
+    <link rel="stylesheet" href="/css/style_student.css">
+    <link rel="shortcut icon" type="image/jpg" href="/resources/Vista Logos/logo-svg.svg"/>
+    <script src="https://kit.fontawesome.com/21198450f8.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <!-- =============== Navigation ================ -->
+    <div class="container">
+        <div class="navigation">
+            <ul>
+                <li>
+                    <a>
+                        <span class="icon">
+                            <i class="fa-solid fa-house"></i>
+                        </span>
+                        <span class="title">INSPIRING GO</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="/Admin/dashboard">
+                        <span class="icon">
+                            <i class="fa-solid fa-clipboard"></i>
+                        </span>
+                        <span class="title">Dashboard</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="/Admin/student">
+                        <span class="icon">
+                            <i class="fa-solid fa-graduation-cap"></i>
+                        </span>
+                        <span class="title">Sudent</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="/Admin/jobseeker">
+                        <span class="icon">
+                            <i class="fa-solid fa-user-tie"></i>
+                        </span>
+                        <span class="title">Jobseeker</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="/Admin/tutor">
+                        <span class="icon">
+                            <i class="fa-solid fa-book"></i>
+                        </span>
+                        <span class="title">Tutor</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="/Admin/company">
+                        <span class="icon">
+                            <i class="fa-solid fa-building"></i>
+                        </span>
+                        <span class="title">Company</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="/Logout">
+                        <span class="icon">
+                            <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                        </span>
+                        <span class="title">Sign Out</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <!-- =========== Students ========== -->
+        <div class="main student">
+            <div class="topbar">
+                <div class="toggle">
+                    <i class="fa-solid fa-bars"></i>
+                </div>
+
+                <div class="search">
+                    <input type="text" placeholder="search students">
+                    <label for="search"><i class="fa-solid fa-magnifying-glass"></i></label>
+                </div>
+
+                <div>
+                    <p>&nbsp;</p>
+                </div>
+            </div>
+
+            <div class="students">
+                <div class="cardHeader">
+                    <h2>Recent Students</h2>
+                </div>
+                <br>
+                <br>
+                <table id="students">
+                        <tr>
+                            <th>Name</th>
+                            <th>Username</th>
+                            <th>Email</th>
+                            <th></th>
+                        </tr>
+                        <tr>
+                            <td>MatherFather</td>
+                            <td>Fuckingfuck</td>
+                            <td>something@gmail.com</td>
+                            <form method="POST"> <td><button type="su
+                                " name="remove" value="username">Remove</button></td></form> 
+                        </tr>     
+                </table>
+            </div>
+        </div>
+
+    <!-- =========== Scripts =========  -->
+    <script src="js/main.js"></script>
+
+</body>
+</html>

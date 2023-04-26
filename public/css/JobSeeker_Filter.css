@@ -7,8 +7,12 @@
 body{
    margin: 0;
   padding: 0;
-    background-image: url('https://img.freepik.com/free-photo/abstract-grunge-decorative-relief-navy-blue-stucco-wall-texture-wide-angle-rough-colored-background_1258-28311.jpg?size=626&ext=jpg&uid=R97086655&semt=ais');
-    background-size: contain;
+    /* background-image: url('https://img.freepik.com/free-photo/abstract-grunge-decorative-relief-navy-blue-stucco-wall-texture-wide-angle-rough-colored-background_1258-28311.jpg?size=626&ext=jpg&uid=R97086655&semt=ais');
+    background-size: contain; */
+    /* background-color: #e1f1fd; */
+    background-image: linear-gradient(to left top, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 50%);
+
+    /* background-color: #c1d8f0; */
     backdrop-filter: blur(1px);
 }
 
@@ -37,36 +41,59 @@ body{
   gap: 20px;
 }
 
-.container input{
-
+.boxes{
   display: flex;
-  align-items: flex-start;
+  align-items: baseline;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.input_filter{
+  width: 85%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  background: rgba(255, 255, 255, 0.356);
+  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+  backdrop-filter: blur( 5px );
+  -webkit-backdrop-filter: blur( 5px );
+  border-radius: 10px;
+  border: 1px solid rgba( 255, 255, 255, 0.18 ); 
+  padding: 40px;
+
+}
+.input_filter input{
+
     border: none;
     background-color: rgb(194, 194, 194);
     color: black;
     padding: 1rem 0.5rem;
     padding-left: calc(0.5rem*4);
     border-radius: 100px;
-    width: 80%;
+    width: 50%;
 }
 
-.container input:focus {
+.input_filter input:focus {
   background-color: rgb(255, 255, 255);
 }
 
 
 
 
-
 .cards{
-  max-width: 80%;
+  width: 80%;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
-  background-color: linear-gradient(to right, #cadbff, #ffffff); 
-  gap: 40px;
+  gap: 2rem;
+  background: rgba(255, 255, 255, 0.356);
+  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );  border-radius: 10px;
+  border: 1px solid rgba( 255, 255, 255, 0.18 ); 
   padding: 40px;
+  margin: auto;
 }
 
 
@@ -93,7 +120,8 @@ body{
   justify-content: center;
   background-color: rgb(179, 181, 182);
   padding: 5px;
-  height: 1.5rem;
+  height: fit-content;
+  font-size:0.9rem ;
   color: white;
   border-radius: 20px;
 }
@@ -103,12 +131,13 @@ body{
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.6);
     width: 40vh;
     background-color: rgb(246, 254, 255);
-    height: 40%;
-    display: flex;
+    height: 30%;
+    min-height: 100vh;
+    display: flex !important;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
     padding:20px;
-    align-items: center;
+    align-items: start;
     text-align: center;
     border-radius: 20px;
   }
@@ -118,8 +147,7 @@ body{
     font-size: 22px;
   }
   
-.card button{
-
+.card a{
     border: none;
     outline: 0;
     padding: 12px;
@@ -132,18 +160,45 @@ body{
     align-items: center;
     border-radius: 10px;
     transition: 0.4s;
+    text-decoration: none;
+
   }
   
-  .card button:hover {
+.card a:hover {
     scale: 1.1;
 }
 
-button  i{
+
+.button1{
+
+    outline: 0;
+    padding: 12px;
+    color: white;
+    background-color: #000;
+    text-align: center;
+    cursor: pointer;
+    width: 10%;
+    font-size: 16px;
+    align-items: center;
+    border-radius: 10px;
+    transition: 0.4s;
+    text-decoration: none;
+
+  }
+
+  .button1:hover{
+    scale:(1.1);
+
+  }
+
+
+.popup i{
+  color: white;
+  margin-top: -8rem;
+  font-size: 10rem;
+  background-color: black;
+  padding:1rem;
   border-radius: 50%;
-  color: rgb(244, 244, 244);
-  font-size: 2.5rem;
-  background-color: rgb(20, 19, 19);
-  padding: 0.5rem 0.5rem;
 }
 
 .popup{
@@ -208,6 +263,7 @@ button  i{
 
 .info{
   display: flex;
+  padding: 1rem;
   width: 100%;
   justify-content: space-between;
 }
@@ -217,6 +273,43 @@ button  i{
   display: flex;
   justify-content: space-between;
 }
+
+
+.filter {
+  margin-bottom: 1rem;
+  margin-left:2rem;
+}
+
+.filter_dropdown{
+
+width: fit-content;
+  display:flex;
+}
+
+.filter_section{
+
+  width: 96%;
+  margin-top: 2rem;
+  margin:auto;
+  display: flex;
+  flex-direction: column;
+  gap:2rem;
+  align-items: flex-start;
+  background: rgba(255, 255, 255, 0.356);
+  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+  backdrop-filter: blur( 5px );
+  -webkit-backdrop-filter: blur( 5px );
+  border-radius: 10px;
+  border: 1px solid rgba( 255, 255, 255, 0.18 ); 
+}
+
+#filter,
+#filter_mode{
+
+  padding: 1rem 0.5rem;
+  border-radius: 10px;
+}
+
 
  @media only screen and (max-width: 555px){
 
@@ -230,7 +323,7 @@ button  i{
     padding: 0.5rem 0.2rem;
     padding-left: calc(0.5rem*4);
     border-radius: 100px;
-    width: 100%;
+    width: 80%;
   }
 
   .content{
@@ -240,4 +333,4 @@ button  i{
   }
 
  
-} 
+}

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PostCourse</title>
+    <link rel="stylesheet" href="/css/profile_tut_cmp.css">
+    <link rel="shortcut icon" type="image/jpg" href="/resources/Vista Logos/logo-svg.svg"/>
+
+    <style>
+        .navigation ul li:nth-child(5) {
+            background-color: var(--white);
+        }
+        .navigation ul li:nth-child(5) a {
+            color: var(--blue);
+        }
+        .navigation ul li:nth-child(1) {
+            margin-bottom: 40px;
+            pointer-events: none;
+          }
+    </style>
+    <script src="https://kit.fontawesome.com/21198450f8.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <!-- =============== Navigation ================ -->
+    <div class="container">
+        <%- include('partials/profile_sidebar_tutor'); -%>
+        <!-- ========================= Main ==================== -->
+        <div class="main">
+            <%- include('partials/topbar'); -%>
+            <div class="container_form">
+                <form action="/PostCourse" method="post" class="form">
+                <h1>PostCourse</h1>
+                <br>
+                <p class="validations" id="validation-details">&nbsp;</p>
+                <hr>
+                <br><br>
+            <div class="row">
+                <div class="user-details float-group">
+                  <input
+                    class="required"
+                    type="text"
+                    placeholder=" "
+                    name="coursename"
+                    required
+                    onkeyup="firstName()"
+                  />
+                  <label for="fname" class="float-label">Course Name *</label>
+                </div>
+                <div class="user-details float-group">
+                    <input
+                      class="not-required"
+                      type="number"
+                      placeholder=" "
+                      name="coursefee"
+                      title="Please enter valid email-address including '@'"
+                      required
+                      id="emailID"
+                      onkeyup="email()"
+                    />
+                    <label for="emailID" class="float-label">Course Fee(₹) *</label>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="user-details float-group">
+                    <input
+                      class="required"
+                      type="number"
+                      maxlength="10"
+                      name="mobile"
+                      title="Please enter exactly 10 digits"
+                      placeholder=" "
+                      required
+                      id="mobile"
+                      onkeyup="mobile_valid()"
+                    />
+                    <label for="mobile" class="float-label"
+                      >Course Duration(months)*</label
+                    >
+                  </div>
+                  <div class="row address">
+                    <div class="user-details float-group address">
+                      <select name="mode" id="" class="select">
+                        <option value="0" selected>Select mode</option>
+                        <option value="online">Online</option>
+                        <option value="offline">Offline</option>
+                      </select>
+                    </div>
+                  </div>
+            </div>
+            <br><br>
+            <button class="but" type="submit">POST</button>
+      </div>
+                       </div>
+
+    <!-- =========== Scripts =========  -->
+    <script src="js/main.js"></script>
+
+</body>
+</html>
+</body>
+</html>

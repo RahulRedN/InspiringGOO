@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin | Dashboard</title>
+    <link rel="stylesheet" href="/css/style_dashboard.css">
+    <link rel="shortcut icon" type="image/jpg" href="/resources/Vista Logos/logo-svg.svg"/>
+    <script src="https://kit.fontawesome.com/21198450f8.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <!-- =============== Navigation ================ -->
+    <div class="container">
+        <div class="navigation">
+            <ul>
+                <li>
+                    <a>
+                        <span class="icon">
+                            <i class="fa-solid fa-house"></i>
+                        </span>
+                        <span class="title">INSPIRING GO</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="/Admin/dashboard">
+                        <span class="icon">
+                            <i class="fa-solid fa-clipboard"></i>
+                        </span>
+                        <span class="title">Dashboard</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="/Admin/student">
+                        <span class="icon">
+                            <i class="fa-solid fa-graduation-cap"></i>
+                        </span>
+                        <span class="title">Sudent</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="/Admin/jobseeker">
+                        <span class="icon">
+                            <i class="fa-solid fa-user-tie"></i>
+                        </span>
+                        <span class="title">Jobseeker</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="/Admin/tutor">
+                        <span class="icon">
+                            <i class="fa-solid fa-book"></i>
+                        </span>
+                        <span class="title">Tutor</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="/Admin/company">
+                        <span class="icon">
+                            <i class="fa-solid fa-building"></i>
+                        </span>
+                        <span class="title">Company</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="/Logout">
+                        <span class="icon">
+                            <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                        </span>
+                        <span class="title">Sign Out</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <!-- ========================= Main ==================== -->
+        <div class="main Dashboard">
+            <div class="topbar">
+                <div class="toggle">
+                    <i class="fa-solid fa-bars"></i>
+                </div>
+
+                <div class="header-logo">
+                    <p>INSPIRING GO</p>
+                </div>
+
+                <div>
+                    <p>&nbsp;</p>
+                </div>
+            </div>
+
+            <!-- ======================= Cards ================== -->
+            <div class="cardBox">
+                <div class="card">
+                    <div>
+                        <div class="numbers">80</div>
+                        <div class="cardName">Tutors</div>
+                    </div>
+
+                    <div class="iconBx">
+                        <i class="fa-solid fa-chalkboard"></i>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div>
+                        <div class="numbers">284</div>
+                        <div class="cardName">Companies</div>
+                    </div>
+
+                    <div class="iconBx">
+                        <i class="fa-solid fa-city"></i>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div>
+                        <div class="numbers">1,504</div>
+                        <div class="cardName">Students</div>
+                    </div>
+
+                    <div class="iconBx">
+                        <i class="fa-solid fa-users"></i>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div>
+                        <div class="numbers">1,504</div>
+                        <div class="cardName">Jobseekers</div>
+                    </div>
+
+                    <div class="iconBx">
+                        <i class="fa-solid fa-users"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="details">
+                <!-- ================ Request List ================= -->
+                <div class="recentRequest">
+                    <div class="cardHeader">
+                        <h2>Recent Requests</h2>
+                        <a href="#" class="btn">View All</a>
+                    </div>
+
+                    <table>
+                        <thead>
+                            <tr>
+                                <td>Name</td>
+                                <td>Role</td>
+                                <td>Email</td>
+                                <td>Status</td>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <td>MatherFather</td>
+                                <td>Tutor</td>
+                                <td>something@gmail.com</td>
+                                <td>
+                                    <form action="post">
+                                        <span class="status">
+                                            <button name="status
+                                            " value="accept Username">Accept</button>
+                                            <button name="status
+                                            " value="reject Username">Reject</button>
+                                        </span>
+                                    </form>
+                                </td>
+                            </tr>
+                    </table>
+                </div>
+
+                <!-- ================= New Users ================ -->
+                <div class="recentUsers">
+                    <div class="cardHeader">
+                        <h2>Recent Users</h2>
+                    </div>
+
+                    <table>
+                        <tr>
+                            <th>
+                                Username
+                            </th>
+                            <th>
+                                Name
+                            </th>
+                            <th>
+                                Role
+                            </th>
+                            <th>
+                                Email
+                            </th>
+                        </tr>
+                        <tr>
+                            <td>
+                                Pumka
+                            </td>
+                            <td>
+                                Sonish
+                            </td>
+                            <td>
+                                Student
+                            </td>
+                            <td>
+                                pulkesh@gmail.com
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    <!-- =========== Scripts =========  -->
+    <script src="js/main.js"></script>
+
+</body>
+</html>

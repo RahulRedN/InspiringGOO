@@ -3,7 +3,11 @@ const mongoose = require('mongoose');
 const Job_Employee = new mongoose.Schema({
     Jobseeker_Name: String,
     Jobseeker_Username: String,
-    Jobseeker_Email: String
+    Jobseeker_Email: String,
+    Status: {
+        type: Boolean,
+        default: false,
+    }
 });
 
 const Jobs = new mongoose.Schema({

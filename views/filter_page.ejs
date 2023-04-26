@@ -4,591 +4,137 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../css/JobSeeker_Filter.css" />
-    <link rel="stylesheet" href="../css/homePage_nav.css" />
-    <link rel="stylesheet" href="../css/footer_styles.css" />
-    <link rel="stylesheet" href="../css/res3.css">
-    <link rel="stylesheet" href="../css/res4.css">
+    <link rel="stylesheet" href="/css/JobSeeker_Filter.css" />
+    <link rel="stylesheet" href="/css/homePage_nav.css" />
+    <link rel="stylesheet" href="/css/footer_styles.css" />
+    <link rel="stylesheet" href="/css/res3.css">
+    <link rel="shortcut icon" type="image/jpg" href="/resources/Vista Logos/logo-svg.svg"/>
+    <link rel="stylesheet" href="/css/res4.css">
     <script src="https://kit.fontawesome.com/21198450f8.js" crossorigin="anonymous"></script>
-
     <title>Filter | Page</title>
   </head>
   <body>
-    <%- include('partials/navbar_jobSeeker'); -%>
+   <%- include('partials/navbar_jobSeeker'); -%>  
+    <div class="container">    
+      <div class="input_filter">
+        <h1>FIND JOBS</h1>
+        <div class="boxes">
+          <input
+          type="search"
+          placeholder="🔍 Search..."
+          id="search-input"
+          style="font-size: 1.2rem"
+          onkeyup="search()"
+          onchange="search()"
+          value=""
+        />
 
-    <div class="container">
-      <input
-        type="search"
-        placeholder="🔍 Search...."
-        id="search-input"
-        style="font-size: 1.2rem"
-        onkeyup="search()"
-      />
-      <div class="cards">
-        <div class="card">
-          <div class="img">
-            <img src="../resources/youtube.svg" alt="Denim Jeans" style="width: 100%" />
-          </div>
-          <div class="content" style="width: 100%">
-            <h2>YouTube</h2>
-            <div class="info">
-              <h3 style="font-style: normal; color: rgb(80, 80, 80)">
-                Junior Dev
-              </h3>
-              <div class="roles">
-                <div class="val">
-                  Web
-                </div>
-                <div class="val">
-                  Development
-                </div>
+        <div class="filter_dropdown">
+            <div class="filter">
+                <label for="filter">Filter by:</label>
+                <select id="filter_mode" onchange="filter_mode()">
+                  <option value="all">All</option>
+                  <option value="online">Online</option>
+                  <option value="offline">Offline</option>
+                </select>
               </div>
-            </div>
-
-            <div class="Jar" style="  background-color: rgb(168, 168, 168); 
-            width: 100%;
-            max-height: 10px;
-            border-radius: 100px;">
-              <div class="bar" style="  background-color: rgb(27, 80, 224);
-              color: white;
-              max-height: 10px;
-              text-align: right;
-              border-radius: 100px;
-              width: 64%;">.</div>
-            </div>
-            <br />
-            <span>32 out of 50</span>
-            <br />
-            <div class="Period" style="width: 100%">
-              <div class="calender-full">
-                <div class="calender">
-                  <img src="../resources/calendar.png" style="max-width: 1.2rem" />
-                  <span>Duration</span>
-                </div>
-                <p style="display: flex; align-items: flex-start">6 Months</p>
-              </div>
-
-              <div class="stipend-full">
-                <div class="stipend">
-                  <img src="../resources/money-bag.png" style="max-width: 1.2rem" />
-                  <span>Stipend</span>
-                </div>
-                <p style="display: flex; align-items: flex-start">₹ 12,000</p>
-              </div>
-            </div>
-
-            <div class="button">
-              <div class="btn">
-                <p><button onclick="popup('<%= popup_id >')" >Apply now</button></p>
-              </div>
-            </div>
-          </div>
         </div>
-
-        <div class="card">
-          <div class="img">
-            <img src="../resources/ford_written.svg" alt="Denim Jeans" style="width: 100%" />
-          </div>
-          <div class="content" style="width: 100%">
-            <h2>Ford</h2>
-            <div class="info">
-              <h3 style="font-style: normal; color: rgb(80, 80, 80)">
-               Developer
-              </h3>
-              <div class="roles">
-                <div class="val"
-                >
-                  Web
-                </div>
-                <div class="val"
-                >
-                  Kotlin
-                </div>
-              </div>
-            </div>
-
-            <div class="Jar" style="  background-color: rgb(168, 168, 168); 
-            width: 100%;
-            max-height: 10px;
-            border-radius: 100px;">
-              <div class="bar" style="  background-color: rgb(27, 80, 224);
-              color: white;
-              max-height: 10px;
-              text-align: right;
-              border-radius: 100px;
-              width: 20%;">.</div>
-            </div>
-            <br />
-            <span>10 out of 50</span>
-            <br />
-            <div class="Period" style="width: 100%">
-              <div class="calender-full">
-                <div class="calender">
-                  <img src="../resources/calendar.png" style="max-width: 1.2rem" />
-                  <span>Duration</span>
-                </div>
-                <p style="display: flex; align-items: flex-start">4 Months</p>
-              </div>
-
-              <div class="stipend-full">
-                <div class="stipend">
-                  <img src="../resources/money-bag.png" style="max-width: 1.2rem" />
-                  <span>Stipend</span>
-                </div>
-                <p style="display: flex; align-items: flex-start">₹ 10,000</p>
-              </div>
-            </div>
-
-            <div class="button">
-              <div class="btn">
-                <p><button onclick="popup()">Apply now</button></p>
-              </div>
-            </div>
-          </div>
         </div>
-
-        <div class="card">
-          <div class="img">
-            <img src="../resources/samsung.svg" alt="Denim Jeans" style="width: 100%" />
-          </div>
-          <div class="content" style="width: 100%">
-            <h2>Samsung</h2>
-            <div class="info">
-              <h3 style="font-style: normal; color: rgb(80, 80, 80)">
-               Senior Developer
-              </h3>
-              <div class="roles">
-                <div class="val">
-                  App
-                </div>
-                <div class="val">
-                  Java
-                </div>
-              </div>
-            </div>
-
-            <div class="Jar" style="  background-color: rgb(168, 168, 168); 
-            width: 100%;
-            max-height: 10px;
-            border-radius: 100px;">
-              <div class="bar" style="  background-color: rgb(27, 80, 224);
-              color: white;
-              max-height: 10px;
-              text-align: right;
-              border-radius: 100px;
-              width: 80%;">.</div>
-            </div>
-            <br />
-            <span>40 out of 50</span>
-            <br />
-            <div class="Period" style="width: 100%">
-              <div class="calender-full">
-                <div class="calender">
-                  <img src="../resources/calendar.png" style="max-width: 1.2rem" />
-                  <span>Duration</span>
-                </div>
-                <p style="display: flex; align-items: flex-start">1-2 Years</p>
-              </div>
-
-              <div class="stipend-full">
-                <div class="stipend">
-                  <img src="../resources/money-bag.png" style="max-width: 1.2rem" />
-                  <span>Stipend</span>
-                </div>
-                <p style="display: flex; align-items: flex-start">₹ 90,000</p>
-              </div>
-            </div>
-
-            <div class="button">
-              <div class="btn">
-                <p><button>Apply now</button></p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="img">
-            <img src="../resources/oracle.svg" alt="Denim Jeans" style="width: 100%" />
-          </div>
-          <div class="content" style="width: 100%">
-            <h2>Oracle</h2>
-            <div class="info">
-              <h3 style="font-style: normal; color: rgb(80, 80, 80)">
-               Data Analyst
-              </h3>
-              <div class="roles">
-                <div class="val"
-                >
-                  Web
-                </div>
-                <div class="val"
-                >
-                  Development
-                </div>
-              </div>
-            </div>
-
-            <div class="Jar" style="  background-color: rgb(168, 168, 168); 
-            width: 100%;
-            max-height: 10px;
-            border-radius: 100px;">
-              <div class="bar" style="  background-color: rgb(27, 80, 224);
-              color: white;
-              max-height: 10px;
-              text-align: right;
-              border-radius: 100px;
-              width: 10%;">.</div>
-            </div>
-            <br />
-            <span>5 out of 50</span>
-            <br />
-            <div class="Period" style="width: 100%">
-              <div class="calender-full">
-                <div class="calender">
-                  <img src="../resources/calendar.png" style="max-width: 1.2rem" />
-                  <span>Duration</span>
-                </div>
-                <p style="display: flex; align-items: flex-start">2 Years</p>
-              </div>
-
-              <div class="stipend-full">
-                <div class="stipend">
-                  <img src="../resources/money-bag.png" style="max-width: 1.2rem" />
-                  <span>Stipend</span>
-                </div>
-                <p style="display: flex; align-items: flex-start">₹ 100,000</p>
-              </div>
-            </div>
-
-            <div class="button">
-              <div class="btn">
-                <p><button>Apply now</button></p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="img">
-            <img src="../resources/puma.svg" alt="Denim Jeans" style="width: 100%" />
-          </div>
-          <div class="content" style="width: 100%">
-            <h2>Puma</h2>
-            <div class="info">
-              <h3 style="font-style: normal; color: rgb(80, 80, 80)">
-               UI Designer
-              </h3>
-              <div class="roles">
-                <div class="val">
-                  Figma
-                </div>
-                <div class="val">
-                  UI
-                </div>
-              </div>
-            </div>
-
-            <div class="Jar" style="  background-color: rgb(168, 168, 168); 
-            width: 100%;
-            max-height: 10px;
-            border-radius: 100px;">
-              <div class="bar" style="  background-color: rgb(27, 80, 224);
-              color: white;
-              max-height: 10px;
-              text-align: right;
-              border-radius: 100px;
-              width: 60%;">.</div>
-            </div>
-            <br />
-            <span>30 out of 50</span>
-            <br />
-            <div class="Period" style="width: 100%">
-              <div class="calender-full">
-                <div class="calender">
-                  <img src="../resources/calendar.png" style="max-width: 1.2rem" />
-                  <span>Duration</span>
-                </div>
-                <p style="display: flex; align-items: flex-start">1 Year</p>
-              </div>
-
-              <div class="stipend-full">
-                <div class="stipend">
-                  <img src="../resources/money-bag.png" style="max-width: 1.2rem" />
-                  <span>Stipend</span>
-                </div>
-                <p style="display: flex; align-items: flex-start">₹ 40,000</p>
-              </div>
-            </div>
-
-            <div class="button">
-              <div class="btn">
-                <p><button>Apply now</button></p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="img">
-            <img src="../resources/fitbit.svg" alt="Denim Jeans" style="width: 100%" />
-          </div>
-          <div class="content" style="width: 100%">
-            <h2>Fitbit</h2>
-            <div class="info">
-              <h3 style="font-style: normal; color: rgb(80, 80, 80)">
-               UI/UX Designer
-              </h3>
-              <div class="roles">
-                <div class="val">
-                  Figma
-                </div>
-                <div class="val">
-                  Designer
-                </div>
-              </div>
-            </div>
-
-            <div class="Jar" style="  background-color: rgb(168, 168, 168); 
-            width: 100%;
-            max-height: 10px;
-            border-radius: 100px;">
-              <div class="bar" style="  background-color: rgb(27, 80, 224);
-              color: white;
-              max-height: 10px;
-              text-align: right;
-              border-radius: 100px;
-              width:40%;">.</div>
-            </div>
-            <br />
-            <span>20 out of 50</span>
-            <br />
-            <div class="Period" style="width: 100%">
-              <div class="calender-full">
-                <div class="calender">
-                  <img src="../resources/calendar.png" style="max-width: 1.2rem" />
-                  <span>Duration</span>
-                </div>
-                <p style="display: flex; align-items: flex-start">2 Year</p>
-              </div>
-
-              <div class="stipend-full">
-                <div class="stipend">
-                  <img src="../resources/money-bag.png" style="max-width: 1.2rem" />
-                  <span>Stipend</span>
-                </div>
-                <p style="display: flex; align-items: flex-start">₹ 80,000</p>
-              </div>
-            </div>
-
-            <div class="button">
-              <div class="btn">
-                <p><button>Apply now</button></p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="img">
-            <img src="../resources/flipkart_written.svg" alt="Denim Jeans" style="width: 100%" />
-          </div>
-          <div class="content" style="width: 100%">
-            <h2>Flipkart</h2>
-            <div class="info">
-              <h3 style="font-style: normal; color: rgb(80, 80, 80)">
-               Developer
-              </h3>
-              <div class="roles">
-                <div class="val">
-                  App
-                </div>
-                <div class="val">
-                  Kotlin
-                </div>
-              </div>
-            </div>
-
-            <div class="Jar" style="  background-color: rgb(168, 168, 168); 
-            width: 100%;
-            max-height: 10px;
-            border-radius: 100px;">
-              <div class="bar" style="  background-color: rgb(27, 80, 224);
-              color: white;
-              max-height: 10px;
-              text-align: right;
-              border-radius: 100px;
-              width: 50%;">.</div>
-            </div>
-            <br />
-            <span>25 out of 50</span>
-            <br />
-            <div class="Period" style="width: 100%">
-              <div class="calender-full">
-                <div class="calender">
-                  <img src="../resources/calendar.png" style="max-width: 1.2rem" />
-                  <span>Duration</span>
-                </div>
-                <p style="display: flex; align-items: flex-start">3 Years</p>
-              </div>
-
-              <div class="stipend-full">
-                <div class="stipend">
-                  <img src="../resources/money-bag.png" style="max-width: 1.2rem" />
-                  <span>Stipend</span>
-                </div>
-                <p style="display: flex; align-items: flex-start">₹ 70,000</p>
-              </div>
-            </div>
-
-            <div class="button">
-              <div class="btn">
-                <p><button onclick="popup()">Apply now</button></p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="img">
-            <img src="../resources/ebay.svg" alt="Denim Jeans" style="width: 100%" />
-          </div>
-          <div class="content" style="width: 100%">
-            <h2>GoPro</h2>
-            <div class="info">
-              <h3 style="font-style: normal; color: rgb(80, 80, 80)">
-               UX Designer
-              </h3>
-              <div class="roles">
-                <div class="val">
-                  Figma
-                </div>
-                <div class="val">
-                 Design
-                </div>
-              </div>
-            </div>
-
-            <div class="Jar" style="  background-color: rgb(168, 168, 168); 
-            width: 100%;
-            max-height: 10px;
-            border-radius: 100px;">
-              <div class="bar" style="  background-color: rgb(27, 80, 224);
-              color: white;
-              max-height: 10px;
-              text-align: right;
-              border-radius: 100px;
-              width:44%;">.</div>
-            </div>
-            <br />
-            <span>22 out of 50</span>
-            <br />
-            <div class="Period" style="width: 100%">
-              <div class="calender-full">
-                <div class="calender">
-                  <img src="../resources/calendar.png" style="max-width: 1.2rem" />
-                  <span>Duration</span>
-                </div>
-                <p style="display: flex; align-items: flex-start">1.5 Years</p>
-              </div>
-
-              <div class="stipend-full">
-                <div class="stipend">
-                  <img src="../resources/money-bag.png" style="max-width: 1.2rem" />
-                  <span>Stipend</span>
-                </div>
-                <p style="display: flex; align-items: flex-start">₹ 71,000</p>
-              </div>
-            </div>
-
-            <div class="button">
-              <div class="btn">
-                <p><button>Apply now</button></p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="img">
-            <img src="../resources/cocacola.svg" alt="Denim Jeans" style="width: 100%" />
-          </div>
-          <div class="content" style="width: 100%">
-            <h2>CocaCola</h2>
-            <div class="info">
-              <h3 style="font-style: normal; color: rgb(80, 80, 80)">
-              Graphic Designer
-              </h3>
-              <div class="roles">
-                <div class="val">
-                Design
-                </div>
-                <div class="val">
-                  UI
-                </div>
-              </div>
-            </div>
-
-            <div class="Jar" style="  background-color: rgb(168, 168, 168); 
-            width: 100%;
-            max-height: 10px;
-            border-radius: 100px;">
-              <div class="bar" style="  background-color: rgb(27, 80, 224);
-              color: white;
-              max-height: 10px;
-              text-align: right;
-              border-radius: 100px;
-              width: 80%;">.</div>
-            </div>
-            <br />
-            <span>40 out of 50</span>
-            <br />
-            <div class="Period" style="width: 100%">
-              <div class="calender-full">
-                <div class="calender">
-                  <img src="../resources/calendar.png" style="max-width: 1.2rem" />
-                  <span>Duration</span>
-                </div>
-                <p style="display: flex; align-items: flex-start">4 months</p>
-              </div>
-
-              <div class="stipend-full">
-                <div class="stipend">
-                  <img src="../resources/money-bag.png" style="max-width: 1.2rem" />
-                  <span>Stipend</span>
-                </div>
-                <p style="display: flex; align-items: flex-start">₹ 40,000</p>
-              </div>
-            </div>
-
-            <div class="button">
-              <div class="btn">
-                <p><button>Apply now</button></p>
-              </div>
-            </div>
-          </div>
-        </div>
-
       </div>
-      <div class="popup-container" id="popup-container <%= popup_id >">
-        <div class="popup">
-            <div class="button">
-                <button type="submit" onclick="popupclose()"><i class="fa-solid fa-arrow-left" id="button-back"></i></button>
+
+      <br>
+      <br>
+  
+      </div>
+      <div class="cards">
+        <% for(let i=0; i<Company.length; i++){ %>
+          <% if(Company[i].vacancies != 0){ %>
+            <% let width = (Company[i].Total - Company[i].Vacancies)/Company[i].Total * 100 %>
+          <div class="card">
+            <div class="img">
+              <img src="/resources/placement.jpg" alt="" style="width: 25vh; height: 25vh" />
             </div>
-            
+            <div class="content" style="width: 100%">
+              <h2><%=Company[i].Company_Name %></h2>
+              <div class="info">
+                <h3 style="font-style: normal; color: rgb(80, 80, 80)">
+                    <%= Company[i].Job_Name %>
+                </h3>
+                <div class="roles">
+                  <% for(let j=0; j<Company[i].Skills.length; j++){ %>
+                    <div class="val">
+                      <%= Company[i].Skills[j] %>
+                    </div>
+                  <% } %>
+                </div>
+              </div>
+        
+              <div class="Jar" style="  background-color: rgb(168, 168, 168); 
+              width: 100%;
+              max-height: 10px;
+              border-radius: 100px;">
+                <div class="bar" style="  background-color: rgb(27, 80, 224);
+                color: white;
+                max-height: 10px;
+                text-align: right;
+                border-radius: 100px;
+                width: <%= width %>%;">.</div>
+              </div>
+              <br />
+              <span><%= Company[i].Vacancies %> out of <%= Company[i].Total %></span>
+              <br />
+              <div class="Period" style="width: 100%">
+                <div class="calender-full">
+                  <div class="calender">
+                    <img src="/resources/calendar.png" style="max-width: 1.2rem" />
+                    <span>Duration</span>
+                  </div>
+                  <p style="display: flex; align-items: flex-start"><%= Company[i].Duration %></p>
+                </div>
+        
+                <div class="stipend-full">
+                  <div class="stipend">
+                    <img src="/resources/money-bag.png" style="max-width: 1.2rem" />
+                    <span>Stipend</span>
+                  </div>
+                  <p style="display: flex; align-items: flex-start">$<%= Company[i].Salary %></p>
+                </div>
+              </div>
+        
+
+            </div>
+            <div class="button">
+              <div class="btn">
+                <p><a href="/jobseeker_Landing/filter_page?id=<%= Company[i]._id %>">View Details</a></p>
+              </div>
+            </div>
+          </div>
+          <% } %>
+        <% } %>
+      </div>
+      <% if(Job!=""){ %>
+      <div class="popup-container" id="popup-container">
+          <div class="popup">
+            <div class="button">
+                <button type="submit" onclick="popupclose()">
+                  <i class="fa-solid fa-arrow-left" id="button-back" style="font-size: 1rem;"></i></button>
+                  <h1><%= Job.Company_Name %></h1>
+            </div>
+          
             <div class="pop-content">
-              <h2>Relationship Manager</h2>
-              <p>As a Relationship Manager, you will be responsible for building and maintaining relationships with clients, understanding their needs, and providing them with financial solutions. You should have strong communication and interpersonal skills, as well as a good understanding of finance and investment products.</p>
+              <% let pmonth = Math.floor(Job.Salary/12); %>
+
+              <h2><%= Job.Job_Name %></h2>
+              <p><%= Job.Job_Description %></p>
               <h3>Required Skills:</h3>
               <ul>
-                <li>Excellent communication and interpersonal skills</li>
-                <li>Good understanding of finance and investment products</li>
-                <li>Ability to build and maintain relationships with clients</li>
-                <li>Problem-solving and analytical skills</li>
-                <li>Experience in sales or customer service is a plus</li>
+                
+             <% for(let i = 0 ; i < Job.Skills.length ; i++){ %>
+                <li><%= Job.Skills[i] %></li>
+                <% } %>
               </ul>
               <h3>Salary:</h3>
-              <p>Competitive, based on experience</p>
+              <p><%= Job.Salary %></p>
               <h3>Perks:</h3>
               <ul>
                 <li>Health insurance</li>
@@ -596,24 +142,17 @@
                 <li>Retirement savings plan</li>
                 <li>Employee discounts</li>
               </ul>
-              <h3>Number of openings:</h3> <p>3</p>
+              <h3>Number of openings:</h3> <p><%= Job.Vacancies %></p>
               
           
               <h3>Key responsibilities:</h3>
               <ul>
-                <li>Act as relationship manager for the paid customers of NoBroker</li>
-                <li>Build sustainable relationships and trust with customer accounts through open and interactive communication</li>
-                <li>Identify and assess customers' needs</li>
-                <li>Dial outbound and attend inbound calls of customers and leads (comfortable taking 130-150 calls a day)</li>
-                <li>Keep the customer up-to-date on the progress of their account</li>
-                <li>Follow communication procedures, guidelines, and policies</li>
-                <li>Go the extra mile to provide excellent customer service</li>
-              </ul>
-              <h3>Skill(s) required:</h3>
-              <ul>
-                <li>Sales</li>
-                <li>Sales and Marketing</li>
-              </ul>
+                
+                <% for(let i = 0 ; i < Job.Responsibilities.length ; i++){ %>
+                   <li><%= Job.Responsibilities[i] %></li>
+                   <% } %>
+                 </ul>
+
               <h3>Earn certifications in these skills:</h3>
               <ul>
                 <li>Learn Business Communication</li>
@@ -621,26 +160,24 @@
               <h3>Salary Probation:</h3>
           
               <ul>
-                <li>Duration: 3 months</li>
-                <li>Salary during probation: 21,000 - 23,000 /month</li>
-              </ul>
-          
-              <h3>After probation:</h3>
-          
-              <ul>
-                <li>Annual CTC: 3 - 3.3 LPA</li>
-                </ul>
-          
-                <h3>Annual CTC breakup:</h3>
-                <ul>
-                  <li>Fixed component: 70%</li>
-                  <li>Variable component: 30%</li>
-                </ul>
+                <li>Duration:<%= Job.Duration %> months</li>
+                <li>Salary during probation: <%= pmonth %>/month </li>
               </ul>
             </div>
-          </div>
-        </div>
+            <form method="post">
+              <div class="button1">
+                <button type="submit" name="apply" value="<%= Job._id %>">Apply Now</button> 
+              </div>
+              
+            </form>
+          </div> 
+      </div>
+      <% } %>
     </div>
+
+    <br>
+    <br>
+
     <%- include('partials/footer') -%>
     <script
       src="https://kit.fontawesome.com/3e8ef7fc9d.js"
