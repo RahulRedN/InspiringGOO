@@ -4,24 +4,24 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Student HomePage</title>
+    <title>Profile | JobSeeker</title>
     <link rel="stylesheet" href="/css/profile_stu.css">
     <link rel="shortcut icon" type="image/jpg" href="/resources/Vista Logos/logo-svg.svg"/>
     <script src="https://kit.fontawesome.com/21198450f8.js" crossorigin="anonymous"></script>
 </head>
 <body >
-    <%- include('partials/navbar_jobSeeker') -%>
         <div class="details">
-                <img src="/images.jpeg" alt="ProfilePic">
+                <img src="/resources/peeps-avatar.png" alt="ProfilePic">
                 <div class="txtdetail">
                     <p><%= User.First_Name %></p>
                     <p><%= User.Email %></p>
                     <p><%= User.Mobile %></p>     
                 </div>
                 <div class="btndiv">
-                    <button class ="btn" onclick="tabchange(0)">Courses</button>
+                    <button class ="btn" onclick="tabchange(0)">Jobs</button>
                     <button class ="btn" onclick="tabchange(1)">View Profile</button>
                     <button class ="btn" onclick="tabchange(2)">Edit Profile</button>
+                    <button class="btn"><a href="/Jobseeker_Landing" style="text-decoration: none;color: white;">Back</a></button>
                 </div>
             </div>
             <div class="rhs rhs_courses dpn">
@@ -32,7 +32,7 @@
                <% } else{ %>  
                    <% for(let i = 0 ; i < User.myJobs.length ; i++){ %>
                         <div class="card_course">
-                            <img src="/tutor_card_img.jpg" alt="Tutor">
+                            <img src="/resources/stock-photo-businessman-hand-working-with-new.jpeg" alt="Company">
                             <div class="trans">
                                 <h4 class="cardtitle">
                                   <%= User.myJobs[i].Job_Name %>
@@ -99,7 +99,7 @@
 
             <tr class="hq">
                 <th class="lhq">
-                    <td>Qualification</td>
+                    Qualification
                 </th>
                 <td>:</td>
                 <td>
@@ -107,21 +107,6 @@
 
                 </td>
             </tr>
-
-            <tr class="skills">
-                <th class="lskill">
-                    Skills
-                </th>
-                <td>:</td>
-                <td>
-
-        <% let string = "";%>
-    <%for(let i= 0, i< User.Skills.length;i++) {%>
-             <%  string = User.Skills[i]+","; %>
-            <% } %>
-                <td><%= string %></td>
-            </tr>
-
         </table>
         </div>
         <form  method="post">

@@ -2,10 +2,6 @@ const {students} = require("../models/student_schema.js");
 const {jobseekers} = require("../models/jobseeker_schema.js");
 const tutors = require("../models/tutor_schema.js");
 const companies = require("../models/company_schema.js");
-const jobs = require("../models/jobs_schema.js");
-const courses = require("../models/courses_schema.js");
-const wait_tutors = require("../models/tutor_WaitSchema.js");
-const wait_companies = require("../models/company_wait.js");
 
 exports.LoginAdmin = function (req, res) {
     res.render("login_admin");

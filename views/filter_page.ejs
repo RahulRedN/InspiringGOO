@@ -25,7 +25,6 @@
           id="search-input"
           style="font-size: 1.2rem"
           onkeyup="search()"
-          onchange="search()"
           value=""
         />
 
@@ -47,7 +46,8 @@
   
       </div>
       <div class="cards">
-        <% for(let i=0; i<Company.length; i++){ %>
+
+        <% for(let i=0; i< Company.length; i++){ %>
           <% if(Company[i].vacancies != 0){ %>
             <% let width = (Company[i].Total - Company[i].Vacancies)/Company[i].Total * 100 %>
           <div class="card">

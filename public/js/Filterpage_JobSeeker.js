@@ -1,16 +1,19 @@
 function search() {
   const searchbox = document.getElementById("search-input").value.toLowerCase();
+  console.log(searchbox);
+
 
   const res = document.querySelectorAll(".card");
 
   for (var i = 0; i < res.length; i++) {
-    let match = res[i].getElementsByClassName("val")[0].innerHTML.toLowerCase();
-    let match1 = res[i].getElementsByClassName("val")[1].innerHTML.toLowerCase();
-    let match2 = res[i].getElementsByClassName("val")[2].innerHTML.toLowerCase();
-    let match3 = res[i].getElementsByClassName("val")[3].innerHTML.toLowerCase();
+    let match = res[i].getElementsByClassName("val")[0].innerText.toLowerCase();
+    let match1 = res[i].getElementsByClassName("val")[1].innerText.toLowerCase();
+    let match2 = res[i].getElementsByClassName("val")[2].innerText.toLowerCase();
+    let match3 = res[i].getElementsByClassName("val")[3].innerText.toLowerCase();
+    console.log(match);
 
     if (match1.includes(searchbox) || match.includes(searchbox) || match2.includes(searchbox) || match3.includes(searchbox)) {
-        res[i].style.display = "block";
+        res[i].style.display = "flex";
       } else {
         res[i].style.display = "none";
       }
@@ -39,38 +42,7 @@ function search() {
 //     }
 // }
 
-function filter_role() {
-  const filterSelect = document.querySelector('#filter').value.toLowerCase();
-  console.log(filterSelect);
-  const res = document.querySelectorAll(".card");
-  const val = document.querySelectorAll(".val")
 
-
-  for (var i = 0; i < res.length; i++) {
-
-    match=[];
-
-    for (let j = 0; j < val.length; j++) {
-       match[j] = res[i].getElementsByClassName("val")[j];     
-    }
-
-    for (let index = 0; index < val.length; index++) {
-      
-      if (match[index]) {
-        let textvalue = match[index].textContent || match[index].innerHTML;
-        console.log(textvalue);
-
-        if (textvalue.toLowerCase().indexOf(filterSelect) > -1) {
-          res[i].style.display = "block";
-        } else {
-          res[i].style.display = "none";
-        }
-      }
-    }
-      
-    }
-      
-}
 
 
 function popup(){
@@ -97,5 +69,5 @@ function popupclose(){
   document.body.style.overflow = "auto";
 }
 
-search();
+
 

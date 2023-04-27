@@ -2,10 +2,6 @@ const {students} = require("../models/student_schema.js");
 const {jobseekers} = require("../models/jobseeker_schema.js");
 const tutors = require("../models/tutor_schema.js");
 const companies = require("../models/company_schema.js");
-const jobs = require("../models/jobs_schema.js");
-const courses = require("../models/courses_schema.js");
-const wait_tutors = require("../models/tutor_WaitSchema.js");
-const wait_companies = require("../models/company_wait.js");
 const saltRounds = 10;
 const bcrypt = require('bcrypt');
 
@@ -39,6 +35,8 @@ exports.LoginPost = function (req, res) {
                 res.redirect("/S_Landing");
             }
             });
+        }else{
+          res.redirect('/Login');
         }
         })
         .catch((err) => {
@@ -55,6 +53,8 @@ exports.LoginPost = function (req, res) {
                   res.redirect("/JobSeeker_Landing");
               }
               });
+          }else{
+            res.redirect('/Login');
           }
           })
           .catch((err) => {
@@ -62,7 +62,7 @@ exports.LoginPost = function (req, res) {
           });
     }
     else{
-      res.render('/Login')
+      res.redirect('/Login')
     }
 };
 
@@ -83,6 +83,9 @@ exports.LoginTutComPost = function (req, res) {
             }
             });
         }
+        else{
+          res.redirect('/loginSecondary');
+        }
         })
         .catch((err) => {
         console.log(err);
@@ -99,10 +102,15 @@ exports.LoginTutComPost = function (req, res) {
               }
               });
           }
+          else{
+            res.redirect('/loginSecondary');
+          }
           })
           .catch((err) => {
           console.log(err);
           });
+    }else{
+      res.redirect('/loginSecondary');
     }
 };
 

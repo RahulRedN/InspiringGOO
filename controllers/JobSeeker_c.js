@@ -1,14 +1,14 @@
 const {jobseekers, jobers} = require("../models/jobseeker_schema.js");
 const jobs = require("../models/jobs_schema.js");
-const companies= require("../models/company_schema.js");
-const { Schema } = require("mongoose");
 
 exports.JobseekerLandingLoadUp = function(req, res){
 
     if(req.cookies?.id) {
       jobseekers.findOne({username:req.cookies.id}).then((result)=>{
       if(result){
-        res.render('jobseeker_landing');
+        jobs.find().then((job) => {
+          res.render('jobseeker_landing', {jobs: job});
+        })
       }
       else{
         res.redirect('/Login')
@@ -60,17 +60,23 @@ exports.JobseekerLandingLoadUp = function(req, res){
     
     let date = new Date();
 
-    jobseekers.findOne({_id:id}).then((result) => {
-      let a =new jobers({
+    jobs.findOne({_id:id}).then((result) => {
+      let a ={
         Company_Name: result.Company_Name,
         Job_Name: result.Job_Name,
         Salary: result.Salary,
         Join_Date: date.toDateString(),
-      });
-  
+      };
+
+      let vac = result.Vacancies - 1 ;
+      
+      jobs.findOneAndUpdate({_id:id},{"$set":{"Vacancies":vac}}).then((status)=>{
+        console.log("Updated vacancies");
+      })
       jobseekers.findOne({username: user}).then(async (result) => {
         result.myJobs.push(a);
         await result.save();
+        console.log("Successfully updated");
         res.redirect('/Jobseeker_Landing');
       })
     });
@@ -84,7 +90,7 @@ exports.JobseekerLandingLoadUp = function(req, res){
       jobseekers.findOne({username:req.cookies.id}).then((result)=>{
         if(result){
           jobseekers.findOne({username:req.cookies.id }).then((data)=>{
-            res.render('profile_stu',{User:data})
+            res.render('profile_jobseeker',{User:data})
            }).catch((err)=>{
            console.log(err);
            })

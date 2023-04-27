@@ -43,9 +43,9 @@
                             <% for(let i = 0; i< company.myJobs.length; i++){%>
                                 <% for(let j =0; j < company.myJobs[i].myEmployee.length ; j++){ %>
                                     <tr>
-                                        <td><%= company.myJobs[i].myEmployee[j].Student_Name %></td>
+                                        <td><%= company.myJobs[i].myEmployee[j].Jobseeker_Name %></td>
                                         <td> <%= company.myJobs[i].Job_Name  %></td>
-                                        <td> <%= company.myJobs[i].myEmployee[j].Student_Email %></td>
+                                        <td> <%= company.myJobs[i].myEmployee[j].Jobseeker_Email %></td>
                                      </tr>
                                     <% } %>
                                 <% } %>

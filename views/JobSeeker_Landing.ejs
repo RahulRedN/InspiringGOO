@@ -47,13 +47,13 @@
     <section class="job-list" id="jobs" style=" background-color: rgba(255, 255, 255, 0.7);width: 98%;margin: auto;border-radius:20px;">
 
         <h1 class="section-title">LATEST JOBS!</h1>
-        <% for(let i =jobs.length-1; i< jobs.length-5;i++) { %>
+        <% for(let i =jobs.length-1; i> jobs.length-5;i--) { %>
             <div class="job-card">
                 <div class="job-name">
                     <i class="fa-regular fa-building" style="font-size: 5rem;"></i>
                     <div class="job-detail">
-                        <h4><%=jobs[i].Company_Name></h4>
-                        <h3><%=jobs[i].Job_Name></h3>
+                        <h4><%= jobs[i].Company_Name %></h4>
+                        <h3><%= jobs[i].Job_Name %></h3>
                         <p><%= jobs[i].Job_Description %></p>
                     </div>
                 </div>
@@ -63,7 +63,7 @@
                    <% } %>
                 </div>
             </div>
-            <% }%>
+            <% } %>
 
     </section>
     <br>
@@ -76,10 +76,10 @@
             <% for(let k =0; k< 5;k++) { %>
             <div class="featured-card">
                 <i class="fa-solid fa-building-user" style="font-size: 5rem;"></i>
-                <p class="company-name">jobs[k].Company_Name</p>
+                <p class="company-name"><%= jobs[k].Company_Name %></p>
                 <button class="featured-button"><%= jobs[k].Vacancies %> Jobs</button>
             </div>
-            
+            <% } %>
         </div>
     </section>
     <br>

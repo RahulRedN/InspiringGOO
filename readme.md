@@ -1,3 +1,14 @@
-1.Download and uzip the folder.
-2.Open the folder 2-8
-3.Run the app.js file with the command 'nodemon app.js' in the terminal.
+Prerequisite: Install Node
+
+Please install the following packages:
+
+npm init
+npm install
+
+Run the application:
+nodemon server.js
+
+Open the following link
+http://localhost:3000/
+
+GitHub Link: https://github.com/RahulRedN/InspiringGOO.git

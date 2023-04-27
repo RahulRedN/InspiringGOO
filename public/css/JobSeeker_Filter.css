@@ -133,7 +133,7 @@ body{
     background-color: rgb(246, 254, 255);
     height: 30%;
     min-height: 100vh;
-    display: flex !important;
+    display: flex;
     flex-direction: column;
     justify-content: space-between;
     padding:20px;
