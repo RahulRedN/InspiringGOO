@@ -224,7 +224,7 @@
 
 
 
-                   <% for(let i = 0 ; i < 4; i++){ %>
+                   <% for(let i = student.length - 1;  i > student.length - 8 ; i--){ %>
                     <tr>
                         <td>
                             <%= student[i].username%>
@@ -241,7 +241,7 @@
                     </tr>
                <% } %>
 
-               <% for(let i = 0 ; i < 4; i++){ %>
+               <% for(let i = jobseeker.length - 1;  i > jobseeker.length - 8 ; i--){ %>
                 <tr>
                     <td>
                         <%= jobseeker[i].username%>

@@ -10,9 +10,11 @@ function search() {
     let match1 = res[i].getElementsByClassName("val")[1].innerText.toLowerCase();
     let match2 = res[i].getElementsByClassName("val")[2].innerText.toLowerCase();
     let match3 = res[i].getElementsByClassName("val")[3].innerText.toLowerCase();
+    let match4 = res[i].getElementsByClassName('jobname')[0].innerText.toLowerCase();
+    let match5= res[i].getElementsByClassName('cname')[0].innerText.toLowerCase();
     console.log(match);
 
-    if (match1.includes(searchbox) || match.includes(searchbox) || match2.includes(searchbox) || match3.includes(searchbox)) {
+    if (match1.includes(searchbox) || match.includes(searchbox) || match2.includes(searchbox) || match3.includes(searchbox) || match4.includes(searchbox) ||match5.includes(searchbox)) {
         res[i].style.display = "flex";
       } else {
         res[i].style.display = "none";

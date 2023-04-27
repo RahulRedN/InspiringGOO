@@ -74,7 +74,7 @@ exports.LoginTutComPost = function (req, res) {
 
   if(check== "tutor"){
     tutors.findOne({ username: username }).then(function(foundUser) {
-        if (foundUser) {
+        if (foundUser && foundUser.Status) {
             bcrypt.compare(password, foundUser.password, function (err, result) {
             if (result === true) {
                 res.cookie('id',username);
@@ -93,7 +93,7 @@ exports.LoginTutComPost = function (req, res) {
     }
     else if(check == "company"){
       companies.findOne({ username: username }).then(function(foundUser) {
-          if (foundUser) {
+          if (foundUser && foundUser.Status) {
               bcrypt.compare(password, foundUser.password, function (err, result) {
               if (result === true) {
                   res.cookie('id',username);

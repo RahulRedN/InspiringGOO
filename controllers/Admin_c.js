@@ -2,6 +2,7 @@ const {students} = require("../models/student_schema.js");
 const {jobseekers} = require("../models/jobseeker_schema.js");
 const tutors = require("../models/tutor_schema.js");
 const companies = require("../models/company_schema.js");
+const nodemailer = require('nodemailer');
 
 exports.LoginAdmin = function (req, res) {
     res.render("login_admin");
@@ -47,17 +48,56 @@ exports.AdminDashboardPost = async function(req, res){
       tutors.findOneAndUpdate({username:arr[2]},{"$set":{"Status":true }}).then((data)=>
       {
           console.log('Successfully updated')
-          res.redirect('/admin/dashboard');
+          
+          let mailtransporter=nodemailer.createTransport({
+            service:"gmail",
+           auth:{
+             user:"contactmindmeld2023@gmail.com",
+             pass:"wgnfqhvyawxeziab"
+           }
+        
+          })
+          let details={
+            from:"contactmindmeld2023@gmail.com",
+            to:data.Email,
+            subject:"Regarding verificiation",
+            text:"You have been verified.You can login now and use our website.\nRegards,\nInspiringGo"
+          }
+          mailtransporter.sendMail(details,(err)=>{
+            if(err) console.log(err);
+           })
+           res.redirect('/admin/dashboard');
       }).catch((err)=>{
           
           console.log(err);
       })
+
+    
+
   }
     else{
       companies.findOneAndUpdate({username:arr[2]},{"$set":{"Status":true }}).then((data)=>
       {
           console.log('Successfully updated')
           res.redirect('/admin/dashboard');
+          let mailtransporter=nodemailer.createTransport({
+            service:"gmail",
+           auth:{
+             user:"contactmindmeld2023@gmail.com",
+             pass:"wgnfqhvyawxeziab"
+           }
+        
+          })
+          let details={
+            from:"contactmindmeld2023@gmail.com",
+            to:data.Email,
+            subject:"Regarding verificiation",
+            text:"You have been verified.You can login now and use our website.\nRegards,\nInspiringGo"
+          }
+          mailtransporter.sendMail(details,(err)=>{
+            if(err) console.log(err);
+           })
+           res.redirect('/admin/dashboard');
       }).catch((err)=>{
           console.log(err);
       })
@@ -67,13 +107,13 @@ exports.AdminDashboardPost = async function(req, res){
     if(arr[1] == "tut"){
       tutors.deleteOne({username: arr[2]}).then((something)=>{
         console.log("deleted .. ");
-        res.redirect("/admin/dashboard");
+         res.redirect('/admin/dashboard');
       })
     }
     else{
-      companies.deleteOne({username: arr[2]}).then((something)=>{
-        console.log("deleted .. ");
-        res.redirect("/admin/dashboard");
+      companies.deleteOne({username: arr[2]}).then((data)=>{
+        console.log("Company Deleted .. ");
+         res.redirect('/admin/dashboard');
       })
     }
   }
@@ -97,7 +137,7 @@ exports.AdminDashboardPost = async function(req, res){
     let name= req.body.remove;
     students.deleteOne({username: name}).then((result) => {
       console.log("Student deleted..");
-      res.redirect('/admin/student');
+       res.redirect('/admin/student');
     })
   }
   
@@ -115,6 +155,8 @@ exports.AdminDashboardPost = async function(req, res){
 
   exports.AdminDashboardJobseekerPost = async function(req, res){
     let name= req.body.remove;
+
+
     jobseekers.deleteOne({username: name}).then((result) => {
       console.log("jobseeker deleted..");
       res.redirect('/admin/jobseeker');
@@ -135,6 +177,8 @@ exports.AdminDashboardPost = async function(req, res){
 
   exports.AdminDashboardTutorPost = async function(req, res){
     let name= req.body.remove;
+
+
     tutors.deleteOne({username: name}).then((result) => {
       console.log("Tutor Deleted..");
       res.redirect('/admin/tutor');
@@ -155,6 +199,8 @@ exports.AdminDashboardPost = async function(req, res){
 
   exports.AdminDashboardCompanyPost = async function(req, res){
     let name = req.body.remove;
+
+
     companies.deleteOne({username: name}).then((result) => {
       console.log("Company deleted..");
       res.redirect('/admin/company');
