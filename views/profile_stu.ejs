@@ -12,7 +12,7 @@
 <body >
     <%- include('partials/navbar_Student') -%>
             <div class="details">
-                <img src="resources/peeps-avatar.png" alt="ProfilePic">
+                <img src="/resources/peeps-avatar.png" alt="ProfilePic">
                 <div class="txtdetail">
                     <p><%= User.First_Name %></p>
                     <p><%= User.Email %></p>
@@ -33,7 +33,7 @@
                <% } else{ %>  
                    <% for(let i = 0 ; i < User.myCourses.length ; i++){ %>
                         <div class="card_course">
-                            <img src="resources/tutor_card_img.jpg" alt="Tutor">
+                            <img src="/resources/tutor_card_img.jpg" alt="Tutor">
                             <div class="trans">
                                 <h4 class="cardtitle">
                                   <%= User.myCourses[i].Course_Name %>
