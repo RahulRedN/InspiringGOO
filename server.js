@@ -88,8 +88,6 @@ app.use('/JobSeeker_Landing/profile', JobseekerRoutes);
 
 
 
-
-
 /* Tutor Routes*/
 app.use('/tutorLanding',TutorRoutes);
 app.use('/tutorLanding/postCourse',TutorRoutes);

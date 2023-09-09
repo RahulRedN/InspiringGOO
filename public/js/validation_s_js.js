@@ -343,7 +343,7 @@ function validateForm() {
   }
 
   if(!mobile_valid()){
-    contact_block.scrollIntoView({behavior: 'smooth'}, true);
+    contact_block.scrollIntoView({ behavior: 'smooth' }, true);
     return false;
   }
 
