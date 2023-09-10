@@ -15,7 +15,7 @@ exports.LoginTutCom = function (req, res) {
 };
 
 exports.Login = function (req, res) {
-  res.render("Login");
+  res.render("Login",{flag:false});
 };
 
 
@@ -23,7 +23,7 @@ exports.LoginPost = function (req, res) {
   const username = req.body.username;
   const password = req.body.password;
   const check = req.body.WhoAreYou;
-
+  console.log("Post before");
 
   if(check== "student"){
     students.findOne({ username: username }).then(function(foundUser) {
@@ -39,7 +39,7 @@ exports.LoginPost = function (req, res) {
           res.redirect('/Login');
         }
         })
-        .catch((err) => {
+        .catch((err) => {  
         console.log(err);
         });
     }

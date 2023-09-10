@@ -74,17 +74,12 @@ app.use('/companyRegister', HomeRoutes);
 
 /* Student Routes*/
 app.use('/S_Landing', StudentRoutes);
-app.use('/S_Landing/profile', StudentRoutes);
-app.use('/S_Landing/FAQ', StudentRoutes);
-app.use('/S_Landing/Find_Tutor',StudentRoutes);
 
 
 
 
 /* JobSeeker Routes*/
 app.use('/JobSeeker_Landing', JobseekerRoutes);
-app.use('/JobSeeker_Landing/filter_page', JobseekerRoutes);
-app.use('/JobSeeker_Landing/profile', JobseekerRoutes);
 
 
 
@@ -92,18 +87,11 @@ app.use('/JobSeeker_Landing/profile', JobseekerRoutes);
 
 /* Tutor Routes*/
 app.use('/tutorLanding',TutorRoutes);
-app.use('/tutorLanding/postCourse',TutorRoutes);
-app.use('/tutorLanding/myCourses',TutorRoutes);
-app.use('/tutorLanding/studentsEnrolled',TutorRoutes);
 
 
 
 /* Company Routes*/
 app.use('/companyLanding',CompanyRoutes);
-app.use('/companyLanding/postjob',CompanyRoutes);
-app.use('/companyLanding/myJobs',CompanyRoutes);
-app.use('/companyLanding/jobseekerEnrolled',CompanyRoutes);
-
 
 
 app.listen(3000, function () {

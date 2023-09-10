@@ -232,3 +232,13 @@ h1 {
         padding: 300px;
     }
 }
+
+
+#wrong_info{
+
+    color: red;
+    margin-left: 1rem;
+    font-size: 1rem;
+    font-weight: 600;
+
+}
