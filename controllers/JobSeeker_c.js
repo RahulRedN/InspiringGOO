@@ -26,7 +26,7 @@ exports.JobseekerLandingLoadUp = function(req, res){
     if(req.cookies?.id){
       jobseekers.findOne({username:req.cookies.id}).then((result)=>{
         if(result){
-          jobs.find().then((result)=>{
+          jobs.find().limit(6).then((result)=>{
             let id = req.query.id;
             if(id){
               jobs.findOne({"_id": id}).then((result1)=>{
