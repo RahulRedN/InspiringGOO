@@ -10,7 +10,11 @@
     <link rel="stylesheet" href="../css/footer_styles.css" />
     <link rel="stylesheet" href="../css/res3.css" />
     <link rel="stylesheet" href="../css/res4.css" />
-    <link rel="shortcut icon" type="image/jpg" href="/resources/Vista Logos/logo-svg.svg"/>
+    <link
+      rel="shortcut icon"
+      type="image/jpg"
+      href="/resources/Vista Logos/logo-svg.svg"
+    />
     <script src="../js/validation_s_js.js"></script>
     <script
       src="https://kit.fontawesome.com/21198450f8.js"
@@ -42,7 +46,9 @@
               <p class="validations" id="validation-contact">&nbsp;</p>
               <div class="field">
                 <div class="row-radio">
-                  <label for="salutation">Salutation: &nbsp;&nbsp;&nbsp;&nbsp; </label>
+                  <label for="salutation"
+                    >Salutation: &nbsp;&nbsp;&nbsp;&nbsp;
+                  </label>
                   <div class="radios">
                     <input type="radio" name="salutation" />Mr.
                     &nbsp;&nbsp;&nbsp;
@@ -136,7 +142,9 @@
               <p class="validations" id="validation-personal">&nbsp;</p>
               <div class="field">
                 <div class="row-radio">
-                  <label for="gender">Select Gender: &nbsp;&nbsp;&nbsp;&nbsp;</label>
+                  <label for="gender"
+                    >Select Gender: &nbsp;&nbsp;&nbsp;&nbsp;</label
+                  >
                   <div class="radios">
                     <input type="radio" name="gender" value="male" />Male
                     &nbsp;&nbsp;&nbsp;
@@ -146,11 +154,25 @@
                 <div class="row">
                   <div class="user-details float-group">
                     <label>Date of Birth :</label>
-                    <input required type="date" name="DOB" placeholder=" " onchange="date_valid()" onfocus="date_valid()"/>
+                    <input
+                      required
+                      type="date"
+                      name="DOB"
+                      placeholder=" "
+                      onchange="date_valid()"
+                      onfocus="date_valid()"
+                    />
                   </div>
                   <div class="user-details center" style="padding-left: 1rem">
                     <label for="Nationality" class="nation">Nationality:</label>
-                    <select required name="country" class="select" id="country" onchange="country_valid()" onfocus="country_valid()">
+                    <select
+                      required
+                      name="country"
+                      class="select"
+                      id="country"
+                      onchange="country_valid()"
+                      onfocus="country_valid()"
+                    >
                       <option
                         value="0"
                         label="- Select a Country -"
@@ -675,8 +697,16 @@
                   <h4>Highest Qualification</h4>
                   <div class="row">
                     <div class="user-details float-group">
-                      <select name="qual" class="select" required onchange="qual_valid()" onfocus="qual_valid()">
-                        <option value="0" selected>Select a qualification type</option>
+                      <select
+                        name="qual"
+                        class="select"
+                        required
+                        onchange="qual_valid()"
+                        onfocus="qual_valid()"
+                      >
+                        <option value="0" selected>
+                          Select a qualification type
+                        </option>
                         <option value="high-school">High School Diploma</option>
                         <option value="certificate">Certificate</option>
                         <option value="diploma">Diploma</option>
@@ -806,7 +836,13 @@
               <button type="submit" onclick="return validateForm()" class="but">
                 SUBMIT
               </button>
-              <button type="reset" onreset="" class="but">RESET</button>
+              <button
+                type="reset"
+                onreset=""
+                class="but"
+              >
+                RESET
+              </button>
             </div>
           </div>
         </form>

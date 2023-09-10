@@ -45,10 +45,10 @@
       <br>
   
       </div>
-      <div class="cards">
-
+      <div>
+        <div class="cards">
         <% for(let i=0; i< Company.length; i++){ %>
-          <% if(Company[i].vacancies != 0){ %>
+          <% if(Company[i].Vacancies != 0){ %>
             <% let width = (Company[i].Total - Company[i].Vacancies)/Company[i].Total * 100 %>
           <div class="card">
             <div class="img">
@@ -111,6 +111,9 @@
           </div>
           <% } %>
         <% } %>
+      </div>
+      <div id="loader" style="text-align: center;margin-top: -52px; visibility: hidden;"><img src="/resources/loader.gif" alt="loading..." width="45" >
+      </div>
       </div>
       <% if(Job!=""){ %>
       <div class="popup-container" id="popup-container">

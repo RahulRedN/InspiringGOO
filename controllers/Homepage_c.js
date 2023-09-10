@@ -23,7 +23,6 @@ exports.LoginPost = function (req, res) {
   const username = req.body.username;
   const password = req.body.password;
   const check = req.body.WhoAreYou;
-  console.log("Post before");
 
   if(check== "student"){
     students.findOne({ username: username }).then(function(foundUser) {
