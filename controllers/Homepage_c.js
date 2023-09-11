@@ -1,9 +1,10 @@
-const { students } = require("../models/student_schema.js");
-const { jobseekers } = require("../models/jobseeker_schema.js");
+const {students} = require("../models/student_schema.js");
+const {jobseekers} = require("../models/jobseeker_schema.js");
 const tutors = require("../models/tutor_schema.js");
 const companies = require("../models/company_schema.js");
 const saltRounds = 10;
-const bcrypt = require("bcrypt");
+const bcrypt = require('bcrypt');
+
 
 exports.LandingPageLoadUp = function (req, res) {
   res.render("homePage");
@@ -14,55 +15,54 @@ exports.LoginTutCom = function (req, res) {
 };
 
 exports.Login = function (req, res) {
-  res.render("Login");
+  res.render("Login",{flag:false});
 };
+
 
 exports.LoginPost = function (req, res) {
   const username = req.body.username;
   const password = req.body.password;
   const check = req.body.WhoAreYou;
 
-  if (check == "student") {
-    students
-      .findOne({ username: username })
-      .then(function (foundUser) {
+  if(check== "student"){
+    students.findOne({ username: username }).then(function(foundUser) {
         if (foundUser) {
-          bcrypt.compare(password, foundUser.password, function (err, result) {
+            bcrypt.compare(password, foundUser.password, function (err, result) {
             if (result === true) {
-              res.cookie("id", username);
-              console.log("Login Successful");
-              res.redirect("/S_Landing");
+                res.cookie('id',username);
+                console.log("Login Successful");
+                res.redirect("/S_Landing");
             }
-          });
-        } else {
-          res.redirect("/Login");
+            });
+        }else{
+          res.redirect('/Login');
         }
-      })
-      .catch((err) => {
+        })
+        .catch((err) => {  
         console.log(err);
-      });
-  } else if (check == "jobseeker") {
-    jobseekers
-      .findOne({ username: username })
-      .then(function (foundUser) {
-        if (foundUser) {
-          bcrypt.compare(password, foundUser.password, function (err, result) {
-            if (result === true) {
-              res.cookie("id", username);
-              console.log("Login Successful");
-              res.redirect("/JobSeeker_Landing");
-            }
+        });
+    }
+    else if(check == "jobseeker"){
+      jobseekers.findOne({ username: username }).then(function(foundUser) {
+          if (foundUser) {
+              bcrypt.compare(password, foundUser.password, function (err, result) {
+              if (result === true) {
+                  res.cookie('id',username);
+                  console.log("Login Successful");
+                  res.redirect("/JobSeeker_Landing");
+              }
+              });
+          }else{
+            res.redirect('/Login');
+          }
+          })
+          .catch((err) => {
+          console.log(err);
           });
-        } else {
-          res.redirect("/Login");
-        }
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  } else {
-    res.redirect("/Login");
-  }
+    }
+    else{
+      res.redirect('/Login')
+    }
 };
 
 exports.LoginTutComPost = function (req, res) {
@@ -70,62 +70,63 @@ exports.LoginTutComPost = function (req, res) {
   const password = req.body.password;
   const check = req.body.WhoAreYou;
 
-  if (check == "tutor") {
-    tutors
-      .findOne({ username: username })
-      .then(function (foundUser) {
+
+  if(check== "tutor"){
+    tutors.findOne({ username: username }).then(function(foundUser) {
         if (foundUser && foundUser.Status) {
-          bcrypt.compare(password, foundUser.password, function (err, result) {
+            bcrypt.compare(password, foundUser.password, function (err, result) {
             if (result === true) {
-              res.cookie("id", username);
-              console.log("Login Successful");
-              res.redirect("/tutorLanding");
+                res.cookie('id',username);
+                console.log("Login Successful");
+                res.redirect("/tutorLanding");
             }
-          });
-        } else {
-          res.redirect("/loginSecondary");
+            });
         }
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  } else if (check == "company") {
-    companies
-      .findOne({ username: username })
-      .then(function (foundUser) {
-        if (foundUser && foundUser.Status) {
-          bcrypt.compare(password, foundUser.password, function (err, result) {
-            if (result === true) {
-              res.cookie("id", username);
-              console.log("Login Successful");
-              res.redirect("/companyLanding");
-            }
-          });
-        } else {
-          res.redirect("/loginSecondary");
+        else{
+          res.redirect('/loginSecondary');
         }
-      })
-      .catch((err) => {
+        })
+        .catch((err) => {
         console.log(err);
-      });
-  } else {
-    res.redirect("/loginSecondary");
-  }
+        });
+    }
+    else if(check == "company"){
+      companies.findOne({ username: username }).then(function(foundUser) {
+          if (foundUser && foundUser.Status) {
+              bcrypt.compare(password, foundUser.password, function (err, result) {
+              if (result === true) {
+                  res.cookie('id',username);
+                  console.log("Login Successful");
+                  res.redirect("/companyLanding");
+              }
+              });
+          }
+          else{
+            res.redirect('/loginSecondary');
+          }
+          })
+          .catch((err) => {
+          console.log(err);
+          });
+    }else{
+      res.redirect('/loginSecondary');
+    }
 };
 
-exports.Services = function (req, res) {
+exports.Services = function(req, res) {
   res.render("ourservices");
+ };
+
+exports.AboutUs = function(req, res) {
+ res.render("aboutus");
 };
 
-exports.AboutUs = function (req, res) {
-  res.render("aboutus");
-};
-
-exports.Logout = async function (req, res) {
-  await res.clearCookie("id");
+exports.Logout = async function(req, res) {
+   await res.clearCookie("id");
 
   res.redirect("/");
   console.log(req.cookies.id);
+
 };
 
 exports.StudentRegister = function (req, res) {
@@ -154,7 +155,7 @@ exports.StudentRegisterPost = async function (req, res) {
 
   const skills = req.body.skill.split(",");
 
-  const details = {
+  const details ={
     username: req.body.username,
     First_Name: req.body.fname,
     Last_Name: req.body.lname,
@@ -173,9 +174,7 @@ exports.StudentRegisterPost = async function (req, res) {
 
   const doc = new students(details);
 
-  doc
-    .save()
-    .then(() => {
+  doc.save().then(() => {
       res.redirect("/Login");
     })
     .catch((err) => {
@@ -206,9 +205,7 @@ exports.JobseekerRegisterPost = async function (req, res) {
   };
   const doc = new jobseekers(details);
 
-  doc
-    .save()
-    .then(() => {
+  doc.save().then(() => {
       res.redirect("/Login");
     })
     .catch((err) => {
@@ -236,9 +233,7 @@ exports.TutorRegisterPost = async function (req, res) {
   };
   const doc = new tutors(details);
 
-  doc
-    .save()
-    .then(() => {
+  doc.save().then(() => {
       res.redirect("/loginSecondary");
     })
     .catch((err) => {
@@ -251,7 +246,7 @@ exports.CompanyRegisterPost = async function (req, res) {
   const password = req.body.password1;
   const hashPassword = await bcrypt.hash(password, saltRounds);
 
-  const details = {
+  const details ={
     username: req.body.username,
     Name: req.body.fname,
     Email: req.body.emailID,
@@ -263,9 +258,7 @@ exports.CompanyRegisterPost = async function (req, res) {
 
   const doc = new companies(details);
 
-  doc
-    .save()
-    .then(() => {
+  doc.save().then(() => {
       res.redirect("/loginSecondary");
     })
     .catch((err) => {
@@ -275,5 +268,5 @@ exports.CompanyRegisterPost = async function (req, res) {
 };
 
 exports.MentorRegisterPost = async function (req, res) {
-  res.redirect("/Login");
+  res.redirect('/Login');
 };

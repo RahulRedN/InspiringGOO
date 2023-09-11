@@ -5,10 +5,10 @@ body{
     margin: 0px;
     font-family: 'Ubuntu',sans-serif;
     /* background-image: linear-gradient(to right, #cadbff, #ffffff); */
-    background-image: url('https://img.freepik.com/free-photo/abstract-grunge-decorative-relief-navy-blue-stucco-wall-texture-wide-angle-rough-colored-background_1258-28311.jpg?size=626&ext=jpg&uid=R97086655&semt=ais');
+    /* background-image: url('https://img.freepik.com/free-photo/abstract-grunge-decorative-relief-navy-blue-stucco-wall-texture-wide-angle-rough-colored-background_1258-28311.jpg?size=626&ext=jpg&uid=R97086655&semt=ais'); */
     background-size: contain;
     backdrop-filter: blur(10px);
-    /* background:linear-gradient(to right,#c7d6f8,#fff); */
+    background-color:#76c7ff;
     /* background-color: #FFF2F2; */
     /* background-color: #fff; */
     overflow-x: hidden;
