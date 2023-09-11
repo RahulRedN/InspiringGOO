@@ -18,14 +18,18 @@
     <%- include("partials/navbar_Student") -%>
 
     <div class="filter_section">
-      <h1>FIND JOBS</h1>
-      <input
-        type="search"
-        placeholder="🔍 Search...."
-        id="search-input"
-        style="font-size: 1.2rem"
-        onkeyup="search()"
-      />
+      <h1>Find Courses Offered</h1>
+      <div style="width: 100%; display: flex;flex-direction: column; align-items: center;position: relative;">
+        <input
+          type="search"
+          placeholder="🔍 Search...."
+          id="search-input"
+          style="font-size: 1.2rem"
+          class="search-input"
+        />
+        <table class="dropdown">
+        </table>
+      </div>
 
       <div class="filter_dropdown">
         <div class="filter">
@@ -61,7 +65,7 @@
                 </p>
                 <p class="duration">
                   <span class="duration-span">Duration:</span><%=
-                  course[i].Duration %> months
+                  course[i].Course_Duration %> months
                 </p>
                 <p class="Mode">
                   <span class="mode-span">Mode:</span
@@ -87,7 +91,13 @@
       </div>
       <div
         id="loader"
-        style="text-align: center; margin-top: -64px;margin-bottom: 1rem; visibility: hidden; z-index: 20;"
+        style="
+          text-align: center;
+          margin-top: -64px;
+          margin-bottom: 1rem;
+          visibility: hidden;
+          z-index: 20;
+        "
       >
         <img src="/resources/loader.gif" alt="loading..." width="45" />
       </div>

@@ -1,26 +1,53 @@
 const jobs = require("../models/jobs_schema");
 const courses = require("../models/courses_schema");
-const {students} = require('../models/student_schema');
-const jobseekers = require('../models/jobseeker_schema');
-const bcrypt = require('bcrypt');
+const { students } = require("../models/student_schema");
+const { jobseekers } = require("../models/jobseeker_schema");
+const bcrypt = require("bcrypt");
 const saltRounds = 10;
 
-exports.verify = async function(req,res){
-
-  const {username,password,WhoAreYou} = req.query;
-
-  if(WhoAreYou === "student"){
-
-    students.findOne({username:username}).then(function(foundUser){
-
-      if(!foundUser){
-        res.json({ error: "Not found",status:401 },);
-      }else{
-        res.status(401).json({ error: "Not found" });
-      }
-    })
+exports.verify = async function (req, res) {
+  const { username, password, WhoAreYou } = req.query;
+  if (WhoAreYou === "student") {
+    students
+      .findOne({ username: username })
+      .then(function (foundUser) {
+        if (foundUser) {
+          bcrypt.compare(password, foundUser.password, function (err, result) {
+            if (result === true) {
+              res.json({ error: "valid", status: 0 });
+            } else {
+              res.json({ error: "Not found", status: 401 });
+            }
+          });
+        } else {
+          res.json({ error: "Not found", status: 401 });
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  } else {
+    jobseekers
+      .findOne({ username: username })
+      .then(function (foundUser) {
+        if (foundUser) {
+          bcrypt.compare(password, foundUser.password, function (err, result) {
+            if (result === true) {
+              res.json({ error: "valid", status: 0 });
+            } else {
+              res.json({ error: "Not found", status: 401 });
+            }
+          });
+        } else {
+          res.json({ error: "Not found", status: 401 });
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }
-}
+};
+
 //Jobseeker_Filter_Page
 exports.getMoreJobs = async function (req, res) {
   const { s_idx } = req.query;
@@ -62,13 +89,12 @@ exports.getJobSearch = async (req, res) => {
       })
       .limit(10)
       .exec();
-      res.json(data);
-    } catch (err) {
-      console.error(err);
-      res.status(500).json({ error: "Server error" });
-    }
-  };
-  
+    res.json(data);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: "Server error" });
+  }
+};
 
 //Find_Tutor_Filter_Page
 exports.getMoreCourses = async function (req, res) {
@@ -83,3 +109,51 @@ exports.getMoreCourses = async function (req, res) {
   }
 };
 
+exports.getCourseSearch = async (req, res) => {
+  const { name } = req.query;
+
+  const matchRegex = new RegExp(".*" + name + ".*");
+
+  try {
+    const data = await courses
+      .find({
+        $or: [
+          { Course_Name: { $regex: matchRegex, $options: "i" } },
+          { Tutor_Name: { $regex: matchRegex, $options: "i" } },
+        ],
+      })
+      .limit(10)
+      .exec();
+    res.json(data);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: "Server error" });
+  }
+};
+
+//Register
+
+exports.checkUsername = async (req, res) => {
+  const { role, username } = req.query;
+  try {
+    if (role === "Student") {
+      students.findOne({ username: username }).then((result) => {
+        if (result) {
+          res.json({ check: true });
+        } else {
+          res.json({ check: false });
+        }
+      });
+    } else if (role === "Jobseeker") {
+      jobseekers.findOne({ username: username }).then((result) => {
+        if (result) {
+          res.json({ check: true });
+        } else {
+          res.json({ check: false });
+        }
+      });
+    }
+  } catch (err) {
+    console.error(err);
+  }
+};

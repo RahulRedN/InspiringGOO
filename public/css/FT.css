@@ -244,6 +244,33 @@ select:hover
   .contact-now:hover {
     scale: 1.1;
 }
+
+.dropdown {
+  position: absolute;
+  list-style-type: none;
+  width: 80%;
+  padding: 0;
+  top: 87px;
+  background-color: white;
+  border-collapse: collapse;
+  border: 1px solid black;
+  border-top: unset;
+}
+
+.dropdown tr:nth-child(even) {
+  background-color: rgb(239, 239, 239);
+}
+
+.dropdown tr {
+  cursor: pointer;
+}
+
+.dropdown td {
+  padding: 1rem;
+  font-size: large;
+  font-weight: 600;
+}
+
 input{
     display: flex;
     align-items: flex-start;
@@ -257,10 +284,13 @@ input{
     margin-top: 2rem;
     margin-left:auto;
     margin-right: auto;
+    transition: border-radius 0.3s;
   }
   
- input:focus {
+ input:focus, input:not(:placeholder-shown) {
     background-color: rgb(255, 255, 255);
+    border-radius: 0;
+    transition: border-radius 0.3s;
   }
 
 
