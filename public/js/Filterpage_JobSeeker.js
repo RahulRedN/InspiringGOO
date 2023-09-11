@@ -25,7 +25,7 @@ function search() {
 
     if (
       match1.includes(searchbox) ||
-      match.includes(searchbox) ||
+      match.includes(searchbox)  ||
       match2.includes(searchbox) ||
       match3.includes(searchbox) ||
       match4.includes(searchbox) ||
