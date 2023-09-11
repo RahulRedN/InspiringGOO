@@ -1,42 +1,26 @@
-function search() {
-  const searchbox = document.getElementById("search-input").value.toLowerCase();
-  console.log(searchbox);
+const searchInput = document.querySelector("#search-input");
+let debounceTimer;
 
-  const res = document.querySelectorAll(".card");
+searchInput.addEventListener("input", function () {
+  clearTimeout(debounceTimer);
 
-  for (var i = 0; i < res.length; i++) {
-    let match = res[i].getElementsByClassName("val")[0].innerText.toLowerCase();
-    let match1 = res[i]
-      .getElementsByClassName("val")[1]
-      .innerText.toLowerCase();
-    let match2 = res[i]
-      .getElementsByClassName("val")[2]
-      .innerText.toLowerCase();
-    let match3 = res[i]
-      .getElementsByClassName("val")[3]
-      .innerText.toLowerCase();
-    let match4 = res[i]
-      .getElementsByClassName("jobname")[0]
-      .innerText.toLowerCase();
-    let match5 = res[i]
-      .getElementsByClassName("cname")[0]
-      .innerText.toLowerCase();
-    console.log(match);
+  debounceTimer = setTimeout(getSearch, 1000);
+});
 
-    if (
-      match1.includes(searchbox) ||
-      match.includes(searchbox) ||
-      match2.includes(searchbox) ||
-      match3.includes(searchbox) ||
-      match4.includes(searchbox) ||
-      match5.includes(searchbox)
-    ) {
-      res[i].style.display = "flex";
-    } else {
-      res[i].style.display = "none";
+const getSearch = async () => {
+  const value = searchInput.value.trim();
+  const alphaRegex = /^[a-zA-Z0-9+#]*/;
+  if (value != "" && alphaRegex.test(value)) {
+    try {
+      const response = await fetch(`/api/getJobSearch?name=${value}`);
+      const data = await response.json();
+      console.log(data);
+    } catch (err) {
+      console.error(err);
     }
+  } else {
   }
-}
+};
 
 let start = 6;
 const cardBox = document.getElementsByClassName("cards")[0];
@@ -45,7 +29,6 @@ const loadMore = async (e) => {
   try {
     const response = await fetch(`/api/getMoreJobs?s_idx=${start}`);
     const data = await response.json();
-
     if (data.length === 0) {
       allLoaded = true;
     }
@@ -107,17 +90,86 @@ const loadMore = async (e) => {
             </div>
             <div class="button">
               <div class="btn">
-                <p><a href="/jobseeker_Landing/filter_page?id=${
-                  obj._id
-                }">View Details</a></p>
+                <p><a onclick="popupModal('${obj._id}')">View Details</a></p>
               </div>
             </div>
           </div>`;
     });
-    start += 10;
+    start += 6;
     setTimeout(function () {
       isLoading = false;
     }, 1000);
+  } catch (err) {
+    console.error(err);
+  }
+};
+
+const popupModal = async (objectId) => {
+  const modelBox = document.querySelector("#model");
+  try {
+    const response = await fetch(`/api/getJob?id=${objectId}`);
+    const Job = await response.json();
+    let pmonth = Math.floor(Job.Salary / 12);
+    let skills = "";
+    let responsibilities = "";
+    Job.Skills.forEach((skill) => {
+      skills += `<li>${skill}</li>`;
+    });
+    Job.Responsibilities.forEach((Res) => {
+      responsibilities += `<li>${Res}</li>`;
+    });
+    modelBox.innerHTML = `<div class="popup-container" id="popup-container">
+          <div class="popup">
+            <div class="button">
+                <button type="submit" onclick="popupclose()">
+                  <i class="fa-solid fa-arrow-left" id="button-back" style="font-size: 1rem;"></i></button>
+                  <h1>${Job.Company_Name}</h1>
+            </div>
+          
+            <div class="pop-content">
+              <h2>${Job.Job_Name}</h2>
+              <p>${Job.Job_Description}</p>
+              <h3>Required Skills:</h3>
+              <ul>
+                ${skills}
+              </ul>
+              <h3>Salary:</h3>
+              <p>${Job.Salary}</p>
+              <h3>Perks:</h3>
+              <ul>
+                <li>Health insurance</li>
+                <li>Paid time off</li>
+                <li>Retirement savings plan</li>
+                <li>Employee discounts</li>
+              </ul>
+              <h3>Number of openings:</h3> <p>${Job.Vacancies}</p>
+              
+          
+              <h3>Key responsibilities:</h3>
+              <ul>
+                ${responsibilities}
+                 </ul>
+
+              <h3>Earn certifications in these skills:</h3>
+              <ul>
+                <li>Learn Business Communication</li>
+              </ul>
+              <h3>Salary Probation:</h3>
+          
+              <ul>
+                <li>Duration:${Job.Duration} months</li>
+                <li>Salary during probation: ${pmonth}/month </li>
+              </ul>
+            </div>
+            <form method="post">
+              <div class="button1">
+                <button type="submit" name="apply" value="${Job._id}">Apply Now</button> 
+              </div>
+              
+            </form>
+          </div> 
+      </div>`;
+    popup();
   } catch (err) {
     console.error(err);
   }
@@ -128,19 +180,19 @@ function popup() {
   if (popUp) {
     popUp.classList.toggle("open-popup");
     window.scrollTo({
-      top: 95,
+      top: 99,
     });
     document.body.style.overflow = "hidden";
   } else {
   }
 }
 
-popup();
-
 function popupclose() {
   let popUp = document.getElementById("popup-container");
+  const modal = document.querySelector("#modal");
   popUp.classList.toggle("open-popup");
   document.body.style.overflow = "auto";
+  modal.innerHTML = "";
 }
 
 function iterateSkills(arr) {

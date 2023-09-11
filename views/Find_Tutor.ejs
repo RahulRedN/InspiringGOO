@@ -18,9 +18,8 @@
     <%- include("partials/navbar_Student") -%>
 
     <div class="filter_section">
-
       <h1>FIND JOBS</h1>
-        <input
+      <input
         type="search"
         placeholder="🔍 Search...."
         id="search-input"
@@ -29,52 +28,69 @@
       />
 
       <div class="filter_dropdown">
-          <div class="filter">
-              <label for="filter">Filter by:</label>
-              <select id="filter_mode" onchange="filter_mode()">
-                <option value="all">All</option>
-                <option value="online">Online</option>
-                <option value="offline">Offline</option>
-              </select>
-            </div>
+        <div class="filter">
+          <label for="filter_mode">Filter by:</label>
+          <select id="filter_mode" onchange="filter_mode()">
+            <option value="all">All</option>
+            <option value="online">Online</option>
+            <option value="offline">Offline</option>
+          </select>
+        </div>
       </div>
     </div>
 
-    <div class="cards result-div">
-
-      <%  for(let i = 0 ; i < course.length ; i ++){ %>
-      <div class="card">
-        <div class="row-flex">
-          <div class="img">
-            <img
-              src="/resources/tutor.png"
-              alt="Profile-Photo"
-              style="width: 12rem"
-            />
-          </div>
-          <div class="content" style="width: 100%">
-            <h3 class="card-name"><%= course[i].Tutor_Name %></h3>
-            <div class="info">
-              <div class="subject-title"><%= course[i].Course_Name %></div>
-              <p class="fee"><span class="fee-span">Fee:</span>₹<%= course[i].Course_Fee %> / month</p>
-              <p class="duration">
-                <span class="duration-span">Duration:</span><%= course[i].Duration %> months
-              </p>
-              <p class="Mode">
-                <span class="mode-span">Mode:</span
-                ><span class="In-person"><%= course[i].Mode %></span>
-              </p>
+    <div>
+      <div class="cards result-div" id="cards">
+        <% for(let i = 0 ; i < course.length ; i ++){ %>
+        <div class="card">
+          <div class="row-flex">
+            <div class="img">
+              <img
+                src="/resources/tutor.png"
+                alt="Profile-Photo"
+                style="width: 12rem"
+              />
+            </div>
+            <div class="content" style="width: 100%">
+              <h3 class="card-name"><%= course[i].Tutor_Name %></h3>
+              <div class="info">
+                <div class="subject-title"><%= course[i].Course_Name %></div>
+                <p class="fee">
+                  <span class="fee-span">Fee:</span>₹<%= course[i].Course_Fee %>
+                  / month
+                </p>
+                <p class="duration">
+                  <span class="duration-span">Duration:</span><%=
+                  course[i].Duration %> months
+                </p>
+                <p class="Mode">
+                  <span class="mode-span">Mode:</span
+                  ><span class="In-person"><%= course[i].Mode %></span>
+                </p>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="contact">
+          <div class="contact">
             <form method="post">
-                <button type="submit" value="<%= course[i]._id %>" name="apply" class="contact-now"><span style="white-space:nowrap">Contact Me</span></button>
+              <button
+                type="submit"
+                value="<%= course[i]._id %>"
+                name="apply"
+                class="contact-now"
+              >
+                <span style="white-space: nowrap">Contact Me</span>
+              </button>
             </form>
+          </div>
         </div>
+        <% } %>
       </div>
-      
-   <% } %>
+      <div
+        id="loader"
+        style="text-align: center; margin-top: -64px;margin-bottom: 1rem; visibility: hidden; z-index: 20;"
+      >
+        <img src="/resources/loader.gif" alt="loading..." width="45" />
+      </div>
     </div>
     <%-include('partials/footer'); -%>
   </body>
