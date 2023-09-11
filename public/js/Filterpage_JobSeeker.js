@@ -221,7 +221,7 @@ function isPageAtBottom() {
     document.documentElement.clientHeight
   );
 
-  return scrollTop + windowHeight >= documentHeight;
+  return scrollTop + windowHeight + 290>= documentHeight;
 }
 
 window.addEventListener("scroll", function (e) {

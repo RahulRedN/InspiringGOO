@@ -1,6 +1,5 @@
-var form = document.querySelector("form");
 
-form.addEventListener("submit", (e) => {
+const valid_Login = (e) => {
   let username = document.querySelector("#username").value;
   let password = document.querySelector("#password").value;
   let checkbox1 = document.querySelector("#val1").checked;
@@ -14,29 +13,26 @@ form.addEventListener("submit", (e) => {
     return false;
   }
 
-  const data = {
-    username: username,
-    password: password,
-    WhoAreYou: checkbox1 ? "student" : "jobseeker",
-    };
 
-    fetch("/Login", {
-        method: "POST",
-        headers: {
-        "Content-Type": "application/json",
-        },
-        body: JSON.stringify(data),
-    })
+    let WhoAreYou = checkbox1 ? "student" : "jobseeker";
+    
+
+    try {
+        fetch(`/api/verify?username=${username}&password=${password}&WhoAreYou=${WhoAreYou}`)
     .then((res) => res.json())
-    .then((data)=>{
-        if(data.status == 401){
+    .then((data1)=>{
+        if(data1.status === 401){
             error.innerHTML = "Invalid Credentials";
             return false;
         }
     })
+        
+    } catch (error) {
+        console.log(error);
+    }
 
   error.innerHTML = "";
   return true;
-});
+};
 
 const toggleMenuOpen = () => document.body.classList.toggle("open");
