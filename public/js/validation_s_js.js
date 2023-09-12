@@ -5,6 +5,8 @@ const regexPass = /^(?=.{8,})(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=]).*$/;
 
 const validation_experience = document.getElementById("validation-experience");
 
+let usernameError = false;
+
 function firstName(){
   var form = document.querySelector("form");
   const validation_contact = document.getElementById("validation-contact");
@@ -251,8 +253,10 @@ function username_valid(){
   return true;
 }
 
+
+
 async function database_check(role) {
-  console.log("yea");
+
   const username = document.querySelector("#username");
   const validation_login = document.getElementById("validation-login");
 
@@ -263,6 +267,7 @@ async function database_check(role) {
         .then((data) => {
           console.log(data);
           if (data.check) {
+            usernameError = true;
             validation_login.innerHTML =
               "<i class='fa-solid fa-exclamation'></i> Username Taken.";
             username.classList.add("not_valid");
@@ -270,6 +275,7 @@ async function database_check(role) {
           }
           validation_login.innerHTML = "&nbsp;";
           username.classList.remove("not_valid");
+          usernameError = false;
           return true;
         });
     } catch (error) {
@@ -318,7 +324,7 @@ function pass2_valid(){
   return true;
 }
 
-async function validateForm(role) {
+function validateForm(role) {
   const radios = document.getElementsByName("salutation");
   const validation_personal = document.getElementById("validation-personal");
   const validation_contact = document.getElementById("validation-contact");
@@ -450,8 +456,8 @@ async function validateForm(role) {
     return false;
   }
 
-  const bool = await database_check(role);
-  if (!bool) {
+  database_check(role)
+  if (usernameError) {
     login_block.scrollIntoView({ behavior: "smooth" }, true);
     return false;
   }

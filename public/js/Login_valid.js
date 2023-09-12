@@ -14,7 +14,7 @@ const valid_Login = async (e) => {
   let WhoAreYou = checkbox1 ? "student" : "jobseeker";
 
   try {
-    fetch(
+     fetch(
       `/api/verify?username=${username}&password=${password}&WhoAreYou=${WhoAreYou}`
     )
       .then((res) => res.json())
@@ -31,6 +31,8 @@ const valid_Login = async (e) => {
 
   error.innerHTML = "";
   return true;
+
 };
 
 const toggleMenuOpen = () => document.body.classList.toggle("open");
+
