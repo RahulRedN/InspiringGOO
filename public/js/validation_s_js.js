@@ -251,6 +251,33 @@ function username_valid(){
   return true;
 }
 
+async function database_check(role) {
+  console.log("yea");
+  const username = document.querySelector("#username");
+  const validation_login = document.getElementById("validation-login");
+
+  if (username.value.trim != "") {
+    try {
+      fetch(`/api/checkUsername?role=${role}&username=${username.value.trim()}`)
+        .then((result) => result.json())
+        .then((data) => {
+          console.log(data);
+          if (data.check) {
+            validation_login.innerHTML =
+              "<i class='fa-solid fa-exclamation'></i> Username Taken.";
+            username.classList.add("not_valid");
+            return false;
+          }
+          validation_login.innerHTML = "&nbsp;";
+          username.classList.remove("not_valid");
+          return true;
+        });
+    } catch (error) {
+      console.error(error);
+    }
+  }
+}
+
 function pass1_valid(){
   const password1 = document.querySelector("#pass1");
   const validation_login = document.getElementById("validation-login");
@@ -291,7 +318,7 @@ function pass2_valid(){
   return true;
 }
 
-function validateForm() {
+async function validateForm(role) {
   const radios = document.getElementsByName("salutation");
   const validation_personal = document.getElementById("validation-personal");
   const validation_contact = document.getElementById("validation-contact");
@@ -420,6 +447,12 @@ function validateForm() {
 
   if(!username_valid()){
     login_block.scrollIntoView({behavior: "smooth"}, true);
+    return false;
+  }
+
+  const bool = await database_check(role);
+  if (!bool) {
+    login_block.scrollIntoView({ behavior: "smooth" }, true);
     return false;
   }
 

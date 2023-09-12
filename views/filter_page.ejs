@@ -24,26 +24,11 @@
           placeholder="🔍 Search..."
           id="search-input"
           style="font-size: 1.2rem"
-          onkeyup="search()"
           value=""
         />
-
-        <div class="filter_dropdown">
-            <div class="filter">
-                <label for="filter">Filter by:</label>
-                <select id="filter_mode" onchange="filter_mode()">
-                  <option value="all">All</option>
-                  <option value="online">Online</option>
-                  <option value="offline">Offline</option>
-                </select>
-              </div>
+        <table class="dropdown">
+        </table>
         </div>
-        </div>
-      </div>
-
-      <br>
-      <br>
-  
       </div>
       <div>
         <div class="cards">
@@ -68,7 +53,6 @@
                   <% } %>
                 </div>
               </div>
-        
               <div class="Jar" style="  background-color: rgb(168, 168, 168); 
               width: 100%;
               max-height: 10px;
@@ -105,7 +89,7 @@
             </div>
             <div class="button">
               <div class="btn">
-                <p><a href="/jobseeker_Landing/filter_page?id=<%= Company[i]._id %>">View Details</a></p>
+                <p><a onclick="popupModal('<%= Company[i]._id %>')">View Details</a></p>
               </div>
             </div>
           </div>
@@ -115,67 +99,8 @@
       <div id="loader" style="text-align: center;margin-top: -52px; visibility: hidden;"><img src="/resources/loader.gif" alt="loading..." width="45" >
       </div>
       </div>
-      <% if(Job!=""){ %>
-      <div class="popup-container" id="popup-container">
-          <div class="popup">
-            <div class="button">
-                <button type="submit" onclick="popupclose()">
-                  <i class="fa-solid fa-arrow-left" id="button-back" style="font-size: 1rem;"></i></button>
-                  <h1><%= Job.Company_Name %></h1>
-            </div>
-          
-            <div class="pop-content">
-              <% let pmonth = Math.floor(Job.Salary/12); %>
-
-              <h2><%= Job.Job_Name %></h2>
-              <p><%= Job.Job_Description %></p>
-              <h3>Required Skills:</h3>
-              <ul>
-                
-             <% for(let i = 0 ; i < Job.Skills.length ; i++){ %>
-                <li><%= Job.Skills[i] %></li>
-                <% } %>
-              </ul>
-              <h3>Salary:</h3>
-              <p><%= Job.Salary %></p>
-              <h3>Perks:</h3>
-              <ul>
-                <li>Health insurance</li>
-                <li>Paid time off</li>
-                <li>Retirement savings plan</li>
-                <li>Employee discounts</li>
-              </ul>
-              <h3>Number of openings:</h3> <p><%= Job.Vacancies %></p>
-              
-          
-              <h3>Key responsibilities:</h3>
-              <ul>
-                
-                <% for(let i = 0 ; i < Job.Responsibilities.length ; i++){ %>
-                   <li><%= Job.Responsibilities[i] %></li>
-                   <% } %>
-                 </ul>
-
-              <h3>Earn certifications in these skills:</h3>
-              <ul>
-                <li>Learn Business Communication</li>
-              </ul>
-              <h3>Salary Probation:</h3>
-          
-              <ul>
-                <li>Duration:<%= Job.Duration %> months</li>
-                <li>Salary during probation: <%= pmonth %>/month </li>
-              </ul>
-            </div>
-            <form method="post">
-              <div class="button1">
-                <button type="submit" name="apply" value="<%= Job._id %>">Apply Now</button> 
-              </div>
-              
-            </form>
-          </div> 
+      <div id="model">
       </div>
-      <% } %>
     </div>
 
     <br>

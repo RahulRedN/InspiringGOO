@@ -14,7 +14,7 @@ exports.LoginTutCom = function (req, res) {
 };
 
 exports.Login = function (req, res) {
-  res.render("Login");
+  res.render("Login", { flag: false });
 };
 
 exports.LoginPost = function (req, res) {
@@ -35,7 +35,7 @@ exports.LoginPost = function (req, res) {
             }
           });
         } else {
-          res.redirect("/Login");
+          res.status(404);
         }
       })
       .catch((err) => {
@@ -54,7 +54,7 @@ exports.LoginPost = function (req, res) {
             }
           });
         } else {
-          res.redirect("/Login");
+          res.status(404);
         }
       })
       .catch((err) => {
@@ -83,7 +83,7 @@ exports.LoginTutComPost = function (req, res) {
             }
           });
         } else {
-          res.redirect("/loginSecondary");
+          res.status(404);
         }
       })
       .catch((err) => {
@@ -102,7 +102,7 @@ exports.LoginTutComPost = function (req, res) {
             }
           });
         } else {
-          res.redirect("/loginSecondary");
+          res.status(404);
         }
       })
       .catch((err) => {

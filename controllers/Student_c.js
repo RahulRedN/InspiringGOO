@@ -1,13 +1,13 @@
 const courses = require("../models/courses_schema.js");
 const tutors = require("../models/tutor_schema.js");
-const {students, coursers} = require("../models/student_schema.js");
-const bcrypt = require('bcrypt');
+const { students, coursers } = require("../models/student_schema.js");
+const bcrypt = require("bcrypt");
 
 exports.StudentLandingLoadUp = function (req, res) {
-    if(req.cookies?.id) {
-      students.findOne({username:req.cookies.id}).then((result)=>{
-      if(result){
-        res.render('S_landing');
+  if (req.cookies?.id) {
+    students.findOne({ username: req.cookies.id }).then((result) => {
+      if (result) {
+        res.render("S_landing");
       }
       else{
         res.redirect('/Login')
@@ -123,8 +123,8 @@ exports.Find_TutorPost = async function(req,res){
         console.log(err);
       })
     });
-  }).catch((err)=>{
-    console.log(err);
-  })
-
-}
+      })
+    .catch((err) => {
+      console.log(err);
+    });
+};

@@ -796,7 +796,7 @@
                     name="username"
                     id="username"
                     class="required"
-                    required
+                    onblur="database_check('<%= user %>')"
                     placeholder=" "
                     onkeyup="username_valid()"
                   />
@@ -833,7 +833,7 @@
             </div>
 
             <div class="section">
-              <button type="submit" onclick="return validateForm()" class="but">
+              <button type="submit" onclick="return validateForm('<%= user %>')" class="but">
                 SUBMIT
               </button>
               <button
