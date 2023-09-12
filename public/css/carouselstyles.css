@@ -1,13 +1,13 @@
 
   .slider {
-    width: 85vw;
+    width: 1023px;
     position: relative;
     background-color: antiquewhite;
     border: 2px solid black;
     border-radius: 10px;
     margin: auto;
     margin-top: 2rem;
-    /* aspect-ratio: 1.7; */
+    aspect-ratio: 1.9;
     /* max-height:680px; */
     /* max-width:1023px;90vw is not compatible with image size */
     overflow:hidden;    
@@ -39,21 +39,21 @@
 
   25%,
   35% {
-    transform: translateX(-867px);
+    transform: translateX(-1015px);
   }
 
   50%,
   60% {
-    transform: translateX(-1734px);
+    transform: translateX(-2038px);
   }
 
   75%,
   85% {
-    transform: translateX(-2608px);
+    transform: translateX(-3060px);
   }
 
   100% {
-    transform: translateX(-3468px);
+    transform: translateX(-4092px);
   }
   }
   

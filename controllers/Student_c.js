@@ -47,8 +47,11 @@ exports.StudentLandingLoadUp = function (req, res) {
       const hashPassword = await bcrypt.hash(password, 10);
       const email = req.body.email;
       const phone = req.body.mobile;
+      const add = req.body.address;
 
-      students.findOneAndUpdate({username:req.cookies.id},{"$set":{"First_Name":name , "password": hashPassword , "Email":email,"Mobile":phone}}).then((data)=>
+      console.log(password);
+
+      students.findOneAndUpdate({username:req.cookies.id},{"$set":{"First_Name":name , "password": hashPassword , "Email":email,"Mobile":phone, "Address": add}}).then((data)=>
       {
           console.log('Successfully updated')
           res.redirect('/S_Landing/profile');

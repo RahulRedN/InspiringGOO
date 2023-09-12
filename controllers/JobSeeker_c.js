@@ -1,5 +1,7 @@
 const {jobseekers, jobers} = require("../models/jobseeker_schema.js");
 const jobs = require("../models/jobs_schema.js");
+const saltRounds = 10;
+const bcrypt = require("bcrypt");
 
 exports.JobseekerLandingLoadUp = function(req, res){
 
@@ -108,11 +110,14 @@ exports.JobseekerLandingLoadUp = function(req, res){
 exports.JobseekerProfilePost = async function(req, res){
   const name = req.body.name;
   const password = req.body.password;
+  console.log(password);
   const hashPassword = await bcrypt.hash(password, 10);
   const email = req.body.email;
   const phone = req.body.mobile;
+  const add = req.body.address;
 
-  jobseekers.findOneAndUpdate({username:req.cookies.id},{"$set":{"First_Name":name , "password": hashPassword , "Email":email,"Mobile":phone}}).then((data)=>
+  
+  jobseekers.findOneAndUpdate({username:req.cookies.id},{"$set":{"First_Name":name , "password": hashPassword , "Email":email,"Mobile":phone, "Address": add}}).then((data)=>
   {
       console.log('Successfully updated')
       res.redirect('/JobSeeker_Landing/')

@@ -76,7 +76,7 @@ body
     padding :0.4rem;
     background-color: #0cbaba;
     background-color: #000000;
-    background-image: linear-gradient(147deg,  #0a0a5a 0%, #04619f 74%);
+    /* background-image: linear-gradient(147deg,  #0a0a5a 0%, #04619f 74%); */
 }
 
 .rhs_courses
@@ -84,19 +84,14 @@ body
     background:none;
 }
 
-table {
-    border-collapse: separate;
-    border-spacing: 50px 30px;
-    margin: auto;
-    color: rgba(254, 231, 98, 0.79);
-  }
+
 
 .rhs_vprofile{
     height: 90vh;
     text-align: center;
     font-size: 1.5rem;
     margin-top: 20px;
-    background-color: rgba(176, 161, 161, 0.7);
+    background-color: rgba(25, 161, 189, 0.7);
     border-radius: 2%;
 }
 
@@ -238,13 +233,13 @@ table {
     color: #000000;
     transition: 0.30s all ease;
 }
-
+ 
 .dpn
 {
     display: none;
 }
-
-
+ 
+ 
 .button {
   position: relative;
   overflow: hidden;
@@ -259,16 +254,16 @@ table {
 {
     cursor: pointer;
 }
-
+ 
 .button:hover::before {
   transform: scaleX(1);
 }
-
+ 
 .button-content {
   position: relative;
   z-index: 1;
 }
-
+ 
 .button::before {
   content: '';
   position: absolute;
@@ -282,4 +277,78 @@ table {
   background-image: linear-gradient(147deg,  #0a0a5a 0%, #04619f 74%);
   ;
   transition: all 0.475s;
+}
+ 
+ 
+.row-info
+{
+    margin-bottom: 5px;
+    display: flex; 
+    gap: 50px;
+    flex-direction: row; 
+    justify-content: center;
+    align-items: center;
+}
+ 
+.profile-input
+{
+    padding: 10px;
+    border-radius: 5px;
+    color: black;
+    font-weight: bold;
+    outline: none;
+    border: 2px solid navy;
+}
+ 
+ 
+ 
+.info-profile p{
+    font-size: 20px;
+}
+ 
+.info-profile
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+ 
+.personal
+{
+    width: 800px;
+    padding: 10px 0px; 
+    border-bottom: 1px solid gray;
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.buttons
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+ 
+ 
+.edit-button
+{
+    border-radius: 8px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    padding: 5px;
+    cursor: pointer;
+}
+
+#validation-email, #validation-mobile, #validation-address
+{
+    color: red;
+    font-weight: bold;
+    margin: 0;
+    font-size: medium;
 }

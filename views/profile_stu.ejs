@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Student | Profile</title>
+    <title>Profile | Student</title>
     <link rel="stylesheet" href="/css/profile_stu.css">
     <link rel="shortcut icon" type="image/jpg" href="/resources/Vista Logos/logo-svg.svg"/>
     <script src="https://kit.fontawesome.com/21198450f8.js" crossorigin="anonymous"></script>
@@ -21,7 +21,7 @@
                 <div class="btndiv">
                     <button class ="btn" onclick="tabchange(0)">Courses</button>
                     <button class ="btn" onclick="tabchange(1)">View Profile</button>
-                    <button class ="btn" onclick="tabchange(2)">Edit Profile</button>
+                    <!-- <button class ="btn" onclick="tabchange(2)">Edit Profile</button> -->
                     <button class="btn"><a href="/S_Landing" style="text-decoration: none;color:white; display: block;">Back</a></button>
                 </div>
             </div>
@@ -59,84 +59,59 @@
               <% } %>
             </div>
         </div>
+
+
+        <form  method="post" onsubmit="return (checkP('<%= User.password %>') && checkE() && checkM() && checkA())">
         <div class="rhs rhs_vprofile dpn">
-
-            <table>
-               
-            <tr class="name">
-                <th class="lhead">
-                    Name 
-                </th>
-                <td> : </td>
-                <td>
-                    <%= User.First_Name %>
-                </td>
-            </tr>
-            <tr class="email">
-                <th class="lemail">
-                    Email 
-                </th>
-                <td>:</td>
-                <td>
-                    <%= User.Email %>
-                </td>
-            </tr>
-            <tr class="phonenum">
-                <th class="lphn">
-                    PhoneNumber 
-                </th>
-                <td>:</td>
-                <td>
-                    <%= User.Mobile %>
-                </td>
-            </tr>
-
-            <tr class="gender">
-                <th class="lgender">
-                    Gender
-                </th>
-                <td>:</td>
-                <td>
-                    <%= User.Gender %>
-                </td>
-            </tr>
-
-            <tr class="hq">
-                <th class="lhq">
-                    Qualification
-                </th>
-                <td>:</td>
-                <td>
-                    <%= User.Qualification %>
-                </td>
-            </tr>
-
-        </table>
-        </div>
-        <form method="post">
-        <div class="rhs rhs_eprofile dpn">
-            <div class="box">
-                <div class="float-group">
-                 <div class="years">
-                    
-                    <input type="text" placeholder="Name" name="name">
-                 </div>
-                    <div class="years">
-                        <input type="password" name='password' placeholder="Enter Newpassword">
-                    <input type="password" placeholder="Confirm Newpassword">
-                    </div>
-                   <div class="years">
-                    <input type="text" placeholder="Email" name="email">
-                    <input   type="text" maxlength="10" name="mobile"
-                    title="Please enter exactly 10 digits" placeholder="Phone Number">
-                   </div>
-
+            <div class="info-profile">
+            <div class="personal">
+                <h4>PERSONAL INFORMATION</h4>
+                <br>
+                <!-- <div class="row-info">
+                    <p>Full Name: </p>
+                    <input type="text" class="profile-input" disabled value="<%= User.First_Name %> <%= User.Last_Name %> <%= User.Sur_Name %>">
+                </div> -->
+                
+                <div class="row-info">
+                    <p>Email: </p>
+                    <input type="text" id="email" onchange="return checkE()" name="email" class="profile-input" disabled value="<%= User.Email %>">
                 </div>
-                <button type="submit">Edit</button>
+                <p id="validation-email" style="color: red;"></p>                    
+                
+                <div class="row-info">
+                    <p>Mobile: </p>
+                    <input type="text" id="mobile" onchange="return checkM()" name="mobile" class="profile-input" disabled value="<%= User.Mobile %>">
+                </div>
+                <p id="validation-mobile" style="color: red;"></p>
+
+                <div class="row-info">
+                    <p>Address: </p>
+                    <input type="text" id="address" onchange="return checkA()" name="address" style="width: auto;" disabled class="profile-input"  value="<%= User.Address %>">
+                </div>
+                <p id="validation-address" style="color: red;"></p>
             </div>
-        </form>
+                
+            <div class="credentials">
+                <h5>USER CREDENTIALS</h5>
+                <div class="row-info" style="gap: 60px;">
+                    <input disabled  type="password" name="password" class="profile-input" placeholder="Enter New Password" id="pass1">
+                    <input disabled type="password" class="profile-input" placeholder="Confirm Password" id="pass2">
+                </div>
+                <p id="validation-update" style="color: red;"></p>
+            </div>
+            <br><br>
+            <div class="buttons">
+                <button type="button" onclick="enableInput()" class="edit-button">Edit <svg style="width: 20px; height:20px" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 30 30">
+                    <path d="M24 11l2.414-2.414c.781-.781.781-2.047 0-2.828l-2.172-2.172c-.781-.781-2.047-.781-2.828 0L19 6 24 11zM17 8L5.26 19.74C7.886 19.427 6.03 21.933 7 23c.854.939 3.529-.732 3.26 1.74L22 13 17 8zM4.328 26.944l-.015-.007c-.605.214-1.527-.265-1.25-1.25l-.007-.015L4 23l3 3L4.328 26.944z"></path>
+                    </svg>
+                </button>
+
+                <button type="submit"  class="edit-button">Save Changes</button>
+            </div>
         </div>
-       
+        </div>
+    </form>
+    </div>
                 
    <script src="/js/profile_stu.js"></script>
 </body>
